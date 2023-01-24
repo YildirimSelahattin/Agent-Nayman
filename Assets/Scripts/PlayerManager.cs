@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] LayerMask EnemyMask;
     RaycastHit hit;
     Vector3 moveInput;
+    Animator myAnimator;
     
     void Start()
     {
@@ -36,6 +37,8 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
         BallRenderer = ball.GetChild(1).GetComponent<Renderer>();
+        myAnimator = GetComponent<Animator>();
+
     }
     
     void Update()
@@ -51,11 +54,17 @@ public class PlayerManager : MonoBehaviour
         else if(Input.GetMouseButtonUp(0))
         {
             moveTheBall = false;
+            myAnimator.SetBool("Idle",true);
+            myAnimator.SetBool("Flying",false);
+
         }
 
         if (moveTheBall)
         {
             Touch curTouch = Input.GetTouch(0);
+            myAnimator.SetBool("Flying",true);
+            myAnimator.SetBool("Idle",false);
+
             BallTrail.Play();
             float Clampx = curTouch.deltaPosition.x/80;
             float Clampy = curTouch.deltaPosition.y/80;
@@ -64,9 +73,9 @@ public class PlayerManager : MonoBehaviour
             Vector3 playVelocity = new Vector3(Clampx , Clampy ,0);
             Vector3 tempLoc = ball.transform.localPosition + playVelocity;
             tempLoc.x = Mathf.Clamp(tempLoc.x,-13f,13f);
-            tempLoc.y = Mathf.Clamp(tempLoc.y,1.5f,24f);
+            tempLoc.y = Mathf.Clamp(tempLoc.y,1.5f,19f);
             ball.transform.DOLocalMove(tempLoc,0.1f);
-        
+
             
           
             
