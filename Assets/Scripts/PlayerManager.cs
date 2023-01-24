@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject air;
     private Vector3 DesireBallPos;
     private bool isOpenParachute = false;
+    [SerializeField] LayerMask EnemyMask;
+    RaycastHit hit;
+    Vector3 moveInput;
     
     void Start()
     {
@@ -37,18 +40,13 @@ public class PlayerManager : MonoBehaviour
     
     void Update()
     {
+        
+        
         if (Input.GetMouseButtonDown(0) && MenuManager.MenuManagerInstance.GameState)
         {
             moveTheBall = true;
             BallTrail.Play();
-            Plane newPlan = new Plane(Vector3.up, 0f);
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (newPlan.Raycast(ray,out var distance))
-            {
-                startMousePos = ray.GetPoint(distance);
-                startBallPos = ball.position;
-            }
+            
         }
         else if(Input.GetMouseButtonUp(0))
         {
@@ -57,20 +55,22 @@ public class PlayerManager : MonoBehaviour
 
         if (moveTheBall)
         {
-            Plane newPlan = new Plane(Vector3.up, 0f);
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Touch curTouch = Input.GetTouch(0);
+            BallTrail.Play();
+            float Clampx = curTouch.deltaPosition.x/80;
+            float Clampy = curTouch.deltaPosition.y/80;
 
-            if (newPlan.Raycast(ray, out var distance))
-            {
-                Vector3 mouseNewPos = ray.GetPoint(distance);
-                Vector3 MouseNewPos = mouseNewPos - startMousePos;
-                DesireBallPos = MouseNewPos + startBallPos;
-
-                DesireBallPos.x = Mathf.Clamp(DesireBallPos.x, -1.5f, 1.5f);
-                            
-                ball.position = new Vector3(Mathf.SmoothDamp(ball.position.x,DesireBallPos.x,ref velocity , maxSpeed)
-                    , ball.position.y,ball.position.z);
-            }
+            
+            Vector3 playVelocity = new Vector3(Clampx , Clampy ,0);
+            Vector3 tempLoc = ball.transform.localPosition + playVelocity;
+            tempLoc.x = Mathf.Clamp(tempLoc.x,-13f,13f);
+            tempLoc.y = Mathf.Clamp(tempLoc.y,1.5f,24f);
+            ball.transform.DOLocalMove(tempLoc,0.1f);
+        
+            
+          
+            
+        
         }
 
         if (MenuManager.MenuManagerInstance.GameState)
@@ -80,7 +80,8 @@ public class PlayerManager : MonoBehaviour
             ball.GetChild(1).Rotate(Vector3.right * ballRotateSpeed * Time.deltaTime);
         }
         
-        if(DesireBallPos.x > 0f)
+        /*
+        if(curTouch.deltaPosition.x > 0f)
         {
             if (isOpenParachute)
             {
@@ -92,7 +93,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        if(DesireBallPos.x < 0f)
+        if(curTouch.deltaPosition.y < 0f)
         {
             if (isOpenParachute)
             {
@@ -103,6 +104,7 @@ public class PlayerManager : MonoBehaviour
                 gameObject.transform.DORotate(new Vector3(-20,0,-15), 1f);
             }
         }
+        */
     }
 
     private void LateUpdate()
@@ -124,6 +126,11 @@ public class PlayerManager : MonoBehaviour
             MenuManager.MenuManagerInstance.menuElement[2].SetActive(true);
             MenuManager.MenuManagerInstance.menuElement[2].transform.GetChild(0).GetComponent<Text>().text = "You Lose";
 
+        }
+        if (other.CompareTag("Money"))
+        {
+            GameDataManager.money += 10;
+            Destroy(other.gameObject);
         }
 
         switch (other.tag)
@@ -216,4 +223,5 @@ public class PlayerManager : MonoBehaviour
             ballRotateSpeed = 0;
         } 
     }
+    
 }

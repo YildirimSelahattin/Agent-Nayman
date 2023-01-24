@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Threading;
-using RengeGames.HealthBars;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using DG.Tweening;
-using GoogleMobileAds.Api;
 
 public class UIManager : MonoBehaviour
 {

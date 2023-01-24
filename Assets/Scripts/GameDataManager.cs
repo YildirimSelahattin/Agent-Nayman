@@ -9,12 +9,8 @@ public class GameDataManager : MonoBehaviour
     public int playMusic;
     public int playVibrate;
     public AudioClip brushMachineMusic;
-    public GameObject[] moneyMachineArray;
-    public int[] gridArray = new int[6];
-    public int maxLevelMachineAmount;
-    public float beltSpeedButtonMoney;
-    public float[] gridOpenWithMoneyPrices;
-
+    
+    public static int money=0;
     
 
     
