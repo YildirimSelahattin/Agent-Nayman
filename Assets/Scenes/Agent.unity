@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 465774864}
   - component: {fileID: 465774865}
   m_Layer: 0
-  m_Name: ball
+  m_Name: agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1020,6 +1020,7 @@ MonoBehaviour:
   EnemyMask:
     serializedVersion: 2
     m_Bits: 64
+  GunSelector: {fileID: 465774865}
 --- !u!54 &465774859
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1149,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da62611e89376224c8456e74d8c91b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gun: 0
+  Gun: 1
   GunParent: {fileID: 3976908979619584599}
   Guns:
   - {fileID: 11400000, guid: c25e1783dc065a5448ac4343448f7b35, type: 2}

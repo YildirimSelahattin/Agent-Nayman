@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using DG.Tweening;
+
 [CreateAssetMenu (fileName = "Gun",menuName ="Guns/Gun", order = 0)]
 public class GunScriptableObject : ScriptableObject
 {
@@ -32,6 +34,7 @@ public class GunScriptableObject : ScriptableObject
     ShootSystem = Model.GetComponentInChildren<ParticleSystem>();
 
   }
+  
 
   public void Shoot()
   {
@@ -39,21 +42,8 @@ public class GunScriptableObject : ScriptableObject
     {
         LastShootTime = Time.time;
         ShootSystem.Play();
-        Vector3 shootDirection = ShootSystem.transform.forward + new Vector3 (
-            Random.Range(
-                -ShootingConfig.Spread.x,
-                ShootingConfig.Spread.x
-            )
-            ,Random.Range(
-                -ShootingConfig.Spread.y,
-                ShootingConfig.Spread.y
-            )
-            ,Random.Range(
-                -ShootingConfig.Spread.z,
-                ShootingConfig.Spread.z
-            )
-        );
-        shootDirection.Normalize();
+        Vector3 shootDirection = ShootSystem.transform.forward ;
+        
 
        
         if ( Physics.Raycast(ShootSystem.transform.position,

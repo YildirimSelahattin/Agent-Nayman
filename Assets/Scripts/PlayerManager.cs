@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     Vector3 moveInput;
     public static Animator myAnimator;
     
+    [SerializeField] private GunSelect GunSelector;
 
     
     void Start()
@@ -68,6 +69,9 @@ public class PlayerManager : MonoBehaviour
             myAnimator.SetBool("Flying",true);
            
             BallTrail.Play();
+           
+            GunSelector.ActiveGun.Shoot();
+        
             float Clampx = curTouch.deltaPosition.x/80;
             float Clampy = curTouch.deltaPosition.y/80;
 

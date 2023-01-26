@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f63fa5bfd64955449914e8ffbde7383, type: 3}
   m_Name: GlockTrail
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: 2a24b896dbe48144ab8d4a90468ad00e, type: 2}
+  Material: {fileID: 2100000, guid: 88510f10b28b1224ca28fdb151544881, type: 2}
   WidthCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.0208435
-      value: 0.13477707
+      time: 1
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -68,5 +68,5 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  MissDistance: 200
-  SimulationSpeed: 200
+  MissDistance: 15
+  SimulationSpeed: 15
