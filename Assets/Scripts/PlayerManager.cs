@@ -28,7 +28,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] LayerMask EnemyMask;
     RaycastHit hit;
     Vector3 moveInput;
-    Animator myAnimator;
+    public static Animator myAnimator;
+    
+
     
     void Start()
     {
@@ -49,13 +51,14 @@ public class PlayerManager : MonoBehaviour
         {
             moveTheBall = true;
             BallTrail.Play();
+            myAnimator.SetBool("isStarted",true);
             
         }
         else if(Input.GetMouseButtonUp(0))
         {
             moveTheBall = false;
-            myAnimator.SetBool("Idle",true);
-            myAnimator.SetBool("Flying",false);
+            
+            
 
         }
 
@@ -63,8 +66,7 @@ public class PlayerManager : MonoBehaviour
         {
             Touch curTouch = Input.GetTouch(0);
             myAnimator.SetBool("Flying",true);
-            myAnimator.SetBool("Idle",false);
-
+           
             BallTrail.Play();
             float Clampx = curTouch.deltaPosition.x/80;
             float Clampy = curTouch.deltaPosition.y/80;

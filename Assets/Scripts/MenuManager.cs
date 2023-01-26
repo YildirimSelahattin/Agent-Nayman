@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     public void StartTheGame()
     {
         GameState = true;
+        PlayerManager.myAnimator.SetBool("isStarted",true);
         menuElement[0].SetActive(false);
         GameObject.FindWithTag("particle").GetComponent<ParticleSystem>().Play();
     }

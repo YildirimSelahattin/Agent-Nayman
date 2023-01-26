@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: M4
   m_EditorClassIdentifier: 
   Type: 1
-  Name: 
-  ModelPrefab: {fileID: 0}
-  SpawnPoint: {x: 0, y: 0, z: 0}
-  SpawnRotation: {x: 0, y: 0, z: 0}
-  ShootingConfig: {fileID: 0}
-  TrailConfig: {fileID: 0}
+  Name: M4
+  ModelPrefab: {fileID: 912821060023562314, guid: 8d756382387cdee4eaba5f998a914ac8,
+    type: 3}
+  SpawnPoint: {x: 0, y: -11, z: -40}
+  SpawnRotation: {x: 38, y: 0, z: 0}
+  ShootingConfig: {fileID: 11400000, guid: f872f77b58942d442aeeed45b2df7fbc, type: 2}
+  TrailConfig: {fileID: 11400000, guid: ddc6ee4a0d19df5428106ccac5be0945, type: 2}
