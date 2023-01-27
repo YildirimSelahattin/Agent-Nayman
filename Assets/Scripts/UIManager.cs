@@ -30,7 +30,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject musicOff;
     [SerializeField] GameObject vibrationOff;
     [SerializeField] GameObject vibrationOn;
-    [SerializeField] Transform startPosition;
     void Start()
     {
         if(Instance == null)
