@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     float screenHeigth;
     float distanceBetweenX;
     float distanceBetweenY;
-    
+    public float Health = 100f;
     void Start()
     {
         if(Instance == null)

@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83f14d42d1aced44693049504147b538, type: 3}
-  m_Name: M4
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  Type: 1
-  Name: M4
-  ModelPrefab: {fileID: 912821060023562314, guid: 8d756382387cdee4eaba5f998a914ac8,
+  Type: 0
+  Name: Pistol
+  ModelPrefab: {fileID: 912821060023562314, guid: b536fda68ef5fe84282d5f51573e269c,
     type: 3}
   SpawnPoint: {x: 0.0204, y: -0.002, z: 0.0185}
   SpawnRotation: {x: 38, y: 0, z: 0}
   ShootingConfig: {fileID: 11400000, guid: f872f77b58942d442aeeed45b2df7fbc, type: 2}
-  TrailConfig: {fileID: 11400000, guid: c0e5acd30e64f71419b01e6e15ef045d, type: 2}

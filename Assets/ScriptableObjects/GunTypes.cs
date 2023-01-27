@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum GunTypes 
 {
-    glock,
-    M4
+    pistol,
+    revolver,
+    rayGun
 
 }

@@ -16,7 +16,29 @@ MonoBehaviour:
   - m_From: StartCamera
     m_To: FlyCamera
     m_Blend:
-      m_Style: 6
+      m_Style: 2
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: FlyCamera
+    m_To: ParachuteOpenCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: FlyCamera
+    m_To: ObstacleHitCamera
+    m_Blend:
+      m_Style: 1
       m_Time: 0.5
       m_CustomCurve:
         serializedVersion: 2
@@ -37,6 +59,50 @@ MonoBehaviour:
         m_RotationOrder: 0
   - m_From: DeathCamera
     m_To: FlyCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: ParachuteOpenCamera
+    m_To: ParachuteFlyCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: ParachuteFlyCamera
+    m_To: LandingCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: LandingCamera
+    m_To: WinCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 1
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: LandingCamera
+    m_To: LoseCamera
     m_Blend:
       m_Style: 1
       m_Time: 1

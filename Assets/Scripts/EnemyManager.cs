@@ -26,9 +26,7 @@ public class EnemyManager : MonoBehaviour
         });
         
     }
-    else{
-        //
-    }
+    
 
    }
 }
