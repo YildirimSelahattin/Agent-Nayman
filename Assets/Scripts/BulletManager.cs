@@ -15,14 +15,5 @@ public class BulletManager : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other) {
-        
-        if (other.CompareTag("Enemy"))
-        {
-            gameObject.SetActive(false);
-            Destroy(other.gameObject);
-            
-        }
-        Destroy(other.gameObject);
-    }
+
 }

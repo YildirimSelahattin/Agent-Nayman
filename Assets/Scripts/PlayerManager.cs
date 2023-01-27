@@ -2,19 +2,28 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEditor;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("AgentProperties")]
+    [Header("MoveBoundaries")]
     [SerializeField] Transform topLimit;
     [SerializeField] Transform botLimit;
     [SerializeField] Transform rightLimit;
     [SerializeField] Transform leftLimit;
-    public ParticleSystem agentTrail;
+    float screenWidth;
+    float screenHeigth;
+    float distanceBetweenX;
+    float distanceBetweenY;
+    public Transform startPos;
+    [Header("AgentProperties")]
     [Range(0f,1f)] public float maxSpeed;
     [Range(0f,1f)] public float camSpeed;
     [Range(0f, 50f)] public float pathSpeed;
     [Range(0f, 1000f)] public float agentRotateSpeed;
+    public ParticleSystem agentTrail;
+    public GameObject agentParachute;
+
     private float velocity, camVelocity_x,camVelocity_y;
     private Camera mainCam;
     public Transform path;
@@ -25,11 +34,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] LayerMask EnemyMask;
     public static Animator myAnimator;
     public static PlayerManager Instance;
-    float screenWidth; 
-    float screenHeigth;
-    float distanceBetweenX;
-    float distanceBetweenY;
-    
+    public Vector3 wantedRotationFlying;
+    public EnvironmentMover environmentMoveScript;
     void Start()
     {
         if(Instance == null)
@@ -76,6 +82,20 @@ public class PlayerManager : MonoBehaviour
   
     }
     
+    public void StartFalling()
+    {
+        myAnimator.SetBool("isStarted", true); // startFlying
+        agent.transform.DOMoveZ(startPos.position.z, 0.5f);
+        agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>
+        {
+            agent.GetComponent<PlayerManager>().enabled = true;
+            agentTrail.Play();
+            environmentMoveScript.enabled = true;
+
+
+        });
+
+    }
 
     
 }
