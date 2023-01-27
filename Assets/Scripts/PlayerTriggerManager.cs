@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PlayerTriggerManager : MonoBehaviour
 {
-    private bool isOpenParachute = false;
-
+    private ParticleSystem windEffectParticleSystem;
+    public Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -20,7 +19,7 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("obstacle"))
+        if (other.CompareTag("Obstacle"))
         {
             gameObject.SetActive(false);
         }
@@ -39,6 +38,11 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("Obstacle"))
         {
+            //speed up real speed 
+            EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+            //speed up wind
+            var main = windEffectParticleSystem.main;
+            main.simulationSpeed= 10;
             StartCoroutine(ObstacleHit());
             
             Destroy(other.gameObject);
@@ -49,13 +53,19 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             PlayerManager.Instance.Health +=50f;
         }
-        if (other.CompareTag("parachute"))
+        if (other.CompareTag("EndOfFlying"))
         {
-            isOpenParachute = true;
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            UIManager.Instance.windEffect.Stop();
-            gameObject.transform.DOMove(new Vector3(gameObject.transform.position.x, 20, -42), 2f);
-            gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f);
+            playerAnimator.SetBool("isParachuteOpen",true);
+            PlayerManager.Instance.agentParachute.gameObject.SetActive(true);
+            gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f).OnComplete(() =>
+            {
+                //slow down wind
+                var main = windEffectParticleSystem.main;
+                main.simulationSpeed = 2;
+
+                //slow down real speed of environment 
+                EnvironmentMover.Instance.forwardMoveSpeed *= 0.5f;
+            });
             PlayerManager.myAnimator.SetBool("isParachuteOpen",true);
         }
     }

@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     int isSoundOn;
     int isMusicOn;
     int isVibrateOn;
+
     public ParticleSystem windEffect;
     public GameObject startScreen;
     [SerializeField] GameObject agent;
@@ -29,10 +30,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject musicOff;
     [SerializeField] GameObject vibrationOff;
     [SerializeField] GameObject vibrationOn;
-    [SerializeField] EnvironmentMover moveScript;
+    [SerializeField] Transform startPosition;
     void Start()
     {
-
+        if(Instance == null)
+        {
+            Instance = this;
+        }
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
@@ -42,13 +46,10 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Debug.Log("sa");
-        agent.GetComponent<PlayerManager>().enabled = true;
-        PlayerManager.myAnimator.SetBool("isStarted", true); // startFlying
         windEffect.Play();
-        PlayerManager.Instance.agentTrail.Play();
-        moveScript.enabled =true;
         startScreen.SetActive(false);
-       
+        PlayerManager.Instance.StartFalling();
+
     }
 
     public void UpdateSound()
