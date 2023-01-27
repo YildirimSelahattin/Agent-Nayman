@@ -9,61 +9,46 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+using UnityEngine.AI;
+using FIMSpace.Basics;
 
 public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static UIManager Instance;
-    public bool isSell = false;
-    [SerializeField] private GameObject ButtonPanel;
-    public GameObject MoneyFromSellText;
-    public GameObject TotalMoneyText;
-    public GameObject Grid;
-    public GameObject beltSpeedButton;
-    public GameObject incomeButton;
-    public GameObject workerSpeedButton;
-    public GameObject addMachineButton;
-    public GameObject adBeltSpeedButton;
-    public GameObject adIncomeButton;
-    public GameObject adWorkerSpeedButton;
-    public GameObject adAddMachineButton;
-
-    public int isSoundOn;
-    public int isMusicOn;
-    public int isVibrateOn;
+    int isSoundOn;
+    int isMusicOn;
+    int isVibrateOn;
+    public ParticleSystem windEffect;
+    public GameObject startScreen;
+    [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
     [SerializeField] GameObject soundOff;
     [SerializeField] GameObject musicOn;
     [SerializeField] GameObject musicOff;
     [SerializeField] GameObject vibrationOff;
     [SerializeField] GameObject vibrationOn;
-    [SerializeField] private GameObject OptionsButton;
-    [SerializeField] private GameObject OptionsPanel;
-    [SerializeField] private GameObject InfoButton;
-    [SerializeField] private GameObject InfoPanel;
-    bool openedOptionsPanel = false;
-    public int buttonIndex = 0;
-    public GameObject[] gridMoneyOpenInteractableArray;
-    public GameObject[] gridMoneyOpenNotInteractableArray;
-    public GameObject[] gridAddArray;
-    public GameObject tappingHand;
-    public GameObject MergeHand;
-    public int addMachineTapAmount;
-
+    [SerializeField] EnvironmentMover moveScript;
     void Start()
     {
-       
-        UpdateSound();
+
+        /*UpdateSound();
         UpdateMusic();
-        UpdateVibrate();
-        
-        
-        
-
-        
+        UpdateVibrate();*/
+        StartCoroutine(OnTapToStartButtonClicked());
     }
-
- 
+    public IEnumerator OnTapToStartButtonClicked()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("sa");
+        agent.GetComponent<PlayerManager>().enabled = true;
+        PlayerManager.myAnimator.SetBool("isStarted", true); // startFlying
+        windEffect.Play();
+        PlayerManager.Instance.agentTrail.Play();
+        moveScript.enabled =true;
+        startScreen.SetActive(false);
+    }
 
     public void UpdateSound()
     {
@@ -165,35 +150,14 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void OnOpenOptionsPanel()
-    {
-        if(openedOptionsPanel == false)
-        {
-            OptionsPanel.SetActive(true);
-            openedOptionsPanel = true;
-        }
-        else
-        {
-            OptionsPanel.SetActive(false);
-            openedOptionsPanel = false;
-        }
-    }
 
     public void VibratePhone(){
         Handheld.Vibrate();
     }
-    public void OnOpenInfoPanel()
+
+    public void RetryLevel()
     {
-        InfoPanel.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void OnSpace()
-    {
-        OptionsPanel.SetActive(false);
-        InfoPanel.SetActive(false);
-    }
-    
-    
-
-    
 }

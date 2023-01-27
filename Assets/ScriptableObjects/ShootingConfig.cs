@@ -6,8 +6,13 @@ using UnityEngine;
 public class ShootingConfig : ScriptableObject
 {
      public LayerMask HitMask;
-     public Vector3 Spread = new Vector3(0.1f,0.1f,0.1f);
+    
+    // Ters orantı bu artarsa rate azalıyo
      public float FireRate =0.25f;
      public float BulletDamage =0.25f;
-     public float Unuttum =0.25f;
+
+    //Duration artarsa daha yavaş gidiyor 
+     public float BulletDuration =2f;
+
+     public GameObject BulletPrefab;
 }

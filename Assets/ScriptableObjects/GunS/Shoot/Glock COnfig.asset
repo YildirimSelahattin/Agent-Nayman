@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitMask:
     serializedVersion: 2
-    m_Bits: 2147483647
-  Spread: {x: 0.2, y: 0.2, z: 0.2}
-  FireRate: 0.1
+    m_Bits: 83
+  FireRate: 3
   BulletDamage: 0.25
-  Unuttum: 0.25
+  BulletDuration: 2
+  BulletPrefab: {fileID: 7492062670546317593, guid: 4a8ab237f8d750d46b4c00371e13dad4,
+    type: 3}

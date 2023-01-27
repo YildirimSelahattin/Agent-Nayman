@@ -11,6 +11,9 @@ TagManager:
   - parachute
   - particle
   - Money
+  - FxTemporaire
+  - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX

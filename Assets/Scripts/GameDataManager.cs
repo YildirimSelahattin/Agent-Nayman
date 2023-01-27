@@ -1,58 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UI;
 
-//THE ONLY DATA READER , READS FROM JSONTEXT
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager Instance;
     public int playSound;
     public int playMusic;
     public int playVibrate;
-    public AudioClip brushMachineMusic;
-    
-    public static int money=0;
-    
-
-    
-
-
+    public int money = 0; 
+    // Start is called before the first frame update
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            playSound = PlayerPrefs.GetInt("PlaySoundKey",1);
-            playMusic = PlayerPrefs.GetInt("PlayMusicKey",1);
-            playVibrate = PlayerPrefs.GetInt("PlayVibrateKey",1);
-
-           
         }
-
         LoadData();
     }
+    void Start()
+    {
 
+    }
     public void LoadData()
     {
+        playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
+        playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
+        playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);
     }
+  
 
-       
-        
+
+ 
     public void SaveData()
     {
-        
-    }
 
-    private void OnDisable()
-    {
-        
-        SaveData();
-        PlayerPrefs.SetInt("PlaySoundKey", playSound);
-        PlayerPrefs.SetInt("PlayMusicKey", playMusic);
-        PlayerPrefs.SetInt("PlayVibrateKey",playVibrate);
     }
-
-    
-            
-        
-    }
+}
