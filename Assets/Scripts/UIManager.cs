@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
         PlayerManager.Instance.agentTrail.Play();
         moveScript.enabled =true;
         startScreen.SetActive(false);
+       
     }
 
     public void UpdateSound()

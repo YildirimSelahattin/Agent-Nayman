@@ -17,12 +17,13 @@ public class BulletManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         
-        if (other.CompareTag("Enemy"))
+        if (other.tag == "Enemy")
         {
-            gameObject.SetActive(false);
-            Destroy(other.gameObject);
+           float x = GunManager.Instance.ActiveGun.ShootingConfig.BulletDamage;
+            other.gameObject.GetComponent<EnemyManager>().getHit(x);
+            Destroy(this.gameObject);
             
         }
-        Destroy(other.gameObject);
+        
     }
 }
