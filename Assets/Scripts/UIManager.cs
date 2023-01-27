@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Debug.Log("sa");
+        windEffect.gameObject.SetActive(true);
         windEffect.Play();
         startScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
