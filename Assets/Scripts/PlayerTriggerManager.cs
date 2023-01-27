@@ -38,16 +38,20 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("Obstacle"))
         {
-            //speed up real speed 
-            EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
-            //speed up wind
-            var main = windEffectParticleSystem.main;
-            main.simulationSpeed= 10;
+            
             StartCoroutine(ObstacleHit());
             
             Destroy(other.gameObject);
            
             
+        }
+        if (other.CompareTag("SpeedUp"))
+        {
+            //speed up real speed 
+            EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+            //speed up wind
+            var main = windEffectParticleSystem.main;
+            main.simulationSpeed= 10;
         }
         if (other.CompareTag("Health"))
         {
