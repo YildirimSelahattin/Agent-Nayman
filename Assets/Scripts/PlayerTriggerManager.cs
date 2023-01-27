@@ -56,6 +56,7 @@ public class PlayerTriggerManager : MonoBehaviour
             UIManager.Instance.windEffect.Stop();
             gameObject.transform.DOMove(new Vector3(gameObject.transform.position.x, 20, -42), 2f);
             gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f);
+            PlayerManager.myAnimator.SetBool("isParachuteOpen",true);
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){

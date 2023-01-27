@@ -3243,7 +3243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5be7fb8aa85c414ba5b2a85f8171a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardMoveSpeed: 10
+  forwardMoveSpeed: 30
 --- !u!1 &682969503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6693,10 +6693,6 @@ MonoBehaviour:
     m_VirtualCamera: {fileID: 387735091}
     m_ActivateAfter: 0
     m_MinDuration: 0
-  - m_FullHash: -95046526
-    m_VirtualCamera: {fileID: 1662777851}
-    m_ActivateAfter: 0
-    m_MinDuration: 0
   - m_FullHash: 15527313
     m_VirtualCamera: {fileID: 1371814985}
     m_ActivateAfter: 0
@@ -6711,6 +6707,10 @@ MonoBehaviour:
     m_MinDuration: 0
   - m_FullHash: -1800156066
     m_VirtualCamera: {fileID: 651721023}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
+  - m_FullHash: 676176
+    m_VirtualCamera: {fileID: 686660539}
     m_ActivateAfter: 0
     m_MinDuration: 0
   m_DefaultBlend:
