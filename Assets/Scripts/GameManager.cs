@@ -25,5 +25,6 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
         Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
+
     }
 }
