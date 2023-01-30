@@ -18,5 +18,6 @@ MonoBehaviour:
   FireRate: 1.5
   BulletDamage: 50
   BulletDuration: 1
+  Recoil: -40
   BulletPrefab: {fileID: 8931024682753835583, guid: 7fef4e1c38ab6584ebeaa88d51426743,
     type: 3}

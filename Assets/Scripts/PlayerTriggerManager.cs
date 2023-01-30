@@ -57,6 +57,8 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("EndOfFlying"))
         {
             playerAnimator.SetBool("isParachuteOpen",true);
+            PlayerManager.Instance.gameStarted=false;
+            
             PlayerManager.Instance.agentParachute.gameObject.SetActive(true);
             gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f).OnComplete(() =>
             {
