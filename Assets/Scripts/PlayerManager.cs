@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     float screenWidth;
     float screenHeigth;
     float distanceBetweenX;
-    float distanceBetweenY;
+    float distanceBetweenZ;
     public Transform startPos;
     [Header("AgentProperties")]
     [Range(0f,1f)] public float maxSpeed;
@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
 
     private float velocity, camVelocity_x,camVelocity_y;
     private Camera mainCam;
+    public bool gameStarted;
     public Transform path;
     private Rigidbody rb;
     [SerializeField] public  GameObject agent;
@@ -49,22 +50,21 @@ public class PlayerManager : MonoBehaviour
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
-        distanceBetweenY = Mathf.Abs(topLimit.position.y - botLimit.position.y);
+        distanceBetweenZ = Mathf.Abs(topLimit.position.y - botLimit.position.y);
     }
     
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && gameStarted == true)
         {
             Touch curTouch = Input.GetTouch(0);
             float x = 2*(curTouch.deltaPosition.x * distanceBetweenX/(screenWidth));
-            float y = 2*(curTouch.deltaPosition.y * distanceBetweenY/(screenHeigth));
-            Debug.Log("x"+ curTouch.deltaPosition.x +" y" + curTouch.deltaPosition.y);
+            float z = 2*(curTouch.deltaPosition.y * distanceBetweenZ/(screenHeigth));
 
-            Vector3 playVelocity = new Vector3(x, y, 0);
+            Vector3 playVelocity = new Vector3(x, 0, z);
             Vector3 tempLoc =  playVelocity + transform.localPosition ;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
-            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y,topLimit.position.y);
+            tempLoc.z = Mathf.Clamp(tempLoc.z, 246,251);
             transform.localPosition = tempLoc;
 
             
@@ -85,6 +85,7 @@ public class PlayerManager : MonoBehaviour
     
     public void StartFalling()
     {
+        gameStarted=true;
         myAnimator.SetBool("isStarted", true); // startFlying
         agent.transform.DOMoveZ(startPos.position.z, 0.5f);
         agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>

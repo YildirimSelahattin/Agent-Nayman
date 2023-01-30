@@ -39,17 +39,16 @@ public class UIManager : MonoBehaviour
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
-        StartCoroutine(OnTapToStartButtonClicked());
+        //OnTapToStartButtonClicked();
     }
-    public IEnumerator OnTapToStartButtonClicked()
+    public void OnTapToStartButtonClicked()
     {
-        yield return new WaitForSeconds(1);
+        
         Debug.Log("sa");
         windEffect.gameObject.SetActive(true);
         windEffect.Play();
         startScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
-
     }
 
     public void UpdateSound()

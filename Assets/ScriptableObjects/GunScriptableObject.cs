@@ -36,24 +36,23 @@ public class GunScriptableObject : ScriptableObject
   }
   
 
-  public void Shoot()
+  public void Shoot(GunScriptableObject gun)
   {
 
     float x =PlayerManager.Instance.agent.transform.rotation.x ;
     float y =PlayerManager.Instance.agent.transform.rotation.y ;
     float z =PlayerManager.Instance.agent.transform.rotation.z ;
     x+= 100f;
-    GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,PlayerManager.Instance.agent.transform.position,ShootingConfig.BulletPrefab.transform.rotation);
-    float zspawn  = SpawnPoint.z + 30f;
+    GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.position,ShootingConfig.BulletPrefab.transform.rotation);
+    float yspawn  = SpawnPoint.y + 30f;
     
-    bullet.transform.DOLocalMoveZ(zspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
+    bullet.transform.DOLocalMoveY(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
         Destroy(bullet);
     });
-    float modelX = Model.transform.rotation.x+ShootingConfig.Recoil;
-   Model.transform.DOLocalRotate(new Vector3(modelX,SpawnPoint.y,SpawnPoint.z),1f);
+    float modelX = gun.Model.transform.rotation.x+30;
+   gun.Model.transform.DORotate(new Vector3(modelX,SpawnPoint.y,SpawnPoint.z),0.2f).OnComplete(()=>{
+  gun.Model.transform.DORotate(new Vector3(x,y,z),0f);
 
-
-  }
-
- 
+   });
+  } 
 }

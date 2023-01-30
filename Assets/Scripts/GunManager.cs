@@ -17,19 +17,21 @@ public class GunManager : MonoBehaviour
             Instance = this;
         }
         GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
-        
         ActiveGun = gun;
         gun.Spawn(GunParent,this);
-        StartCoroutine(ShootAfterDelay());
+        StartCoroutine(ShootAfterDelay(ActiveGun));
     }
+    
 
-    public IEnumerator ShootAfterDelay(){
+
+    public IEnumerator ShootAfterDelay(GunScriptableObject gun){
         yield return new WaitForSeconds(ActiveGun.ShootingConfig.FireRate);
-        ActiveGun.Shoot();
-        if (true)
+        if (PlayerManager.Instance.gameStarted==true)
         {
-        StartCoroutine(ShootAfterDelay());
+        ActiveGun.Shoot(gun);
         }
+        StartCoroutine(ShootAfterDelay(gun));
+
     }
     
 }

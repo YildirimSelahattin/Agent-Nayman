@@ -17,6 +17,8 @@ TagManager:
   - Bullet
   - SpeedUp
   - FireSpeedUp
+  - EndOfFlying
+  - Health
   layers:
   - Default
   - TransparentFX
