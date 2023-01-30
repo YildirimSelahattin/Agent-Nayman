@@ -7,10 +7,10 @@ using UnityEditor;
 public class PlayerManager : MonoBehaviour
 {
     [Header("MoveBoundaries")]
-    [SerializeField] Transform topLimit;
-    [SerializeField] Transform botLimit;
-    [SerializeField] Transform rightLimit;
-    [SerializeField] Transform leftLimit;
+    public  Transform topLimit;
+    public  Transform botLimit;
+    public  Transform rightLimit;
+    public  Transform leftLimit;
     float screenWidth;
     float screenHeigth;
     float distanceBetweenX;
@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
-        distanceBetweenZ = Mathf.Abs(topLimit.position.y - botLimit.position.y);
+        distanceBetweenZ = Mathf.Abs(topLimit.position.z - botLimit.position.z);
     }
     
     void Update()
@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour
             Vector3 playVelocity = new Vector3(x, 0, z);
             Vector3 tempLoc =  playVelocity + transform.localPosition ;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
-            tempLoc.z = Mathf.Clamp(tempLoc.z, 246,251);
+            tempLoc.z = Mathf.Clamp(tempLoc.z, botLimit.position.z, topLimit.position.z);
             transform.localPosition = tempLoc;
 
             
