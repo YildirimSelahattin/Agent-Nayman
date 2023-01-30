@@ -885,11 +885,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da62611e89376224c8456e74d8c91b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gun: 0
+  Gun: 2
   GunParent: {fileID: 3976908979619584599}
   Guns:
   - {fileID: 11400000, guid: c25e1783dc065a5448ac4343448f7b35, type: 2}
   - {fileID: 11400000, guid: 817e2407e989fa74fa84a6777c2d271a, type: 2}
+  - {fileID: 11400000, guid: ae1c71da7e7a6e74fb14b3659b97cffe, type: 2}
   ActiveGun: {fileID: 0}
 --- !u!114 &465774866
 MonoBehaviour:

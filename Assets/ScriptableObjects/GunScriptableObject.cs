@@ -49,10 +49,9 @@ public class GunScriptableObject : ScriptableObject
     bullet.transform.DOLocalMoveY(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
         Destroy(bullet);
     });
-    float modelX = gun.Model.transform.rotation.x+30;
-   gun.Model.transform.DORotate(new Vector3(modelX,SpawnPoint.y,SpawnPoint.z),0.2f).OnComplete(()=>{
-  gun.Model.transform.DORotate(new Vector3(x,y,z),0f);
-
+    float modelZ = SpawnRotation.z+10f;
+   gun.Model.transform.DORotate(new Vector3(SpawnRotation.x,SpawnRotation.y,140),1f).OnComplete(()=>{
+   gun.Model.transform.DORotate(new Vector3(0,90,90),0f);
    });
   } 
 }
