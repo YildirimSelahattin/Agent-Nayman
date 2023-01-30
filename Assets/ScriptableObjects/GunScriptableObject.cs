@@ -49,6 +49,8 @@ public class GunScriptableObject : ScriptableObject
     bullet.transform.DOLocalMoveZ(zspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
         Destroy(bullet);
     });
+    float modelX = Model.transform.rotation.x+ShootingConfig.Recoil;
+   Model.transform.DOLocalRotate(new Vector3(modelX,SpawnPoint.y,SpawnPoint.z),1f);
 
 
   }

@@ -13,6 +13,7 @@ public class ShootingConfig : ScriptableObject
 
     //Duration artarsa daha yavaş gidiyor 
      public float BulletDuration =2f;
+     public float Recoil = 90f;
 
      public GameObject BulletPrefab;
 }

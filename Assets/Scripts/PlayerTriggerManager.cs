@@ -19,10 +19,7 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
-        {
-            gameObject.SetActive(false);
-        }
+    
         if (other.CompareTag("Money"))
         {
             GameDataManager.Instance.money += 10;
