@@ -83,9 +83,6 @@ public class PlayerTriggerManager : MonoBehaviour
     public IEnumerator ObstacleHit(){
            PlayerManager.myAnimator.SetBool("ObstacleHit",true);
            yield return new WaitForSeconds(1.2f);
-           PlayerManager.myAnimator.SetBool("ObstacleHit",false);
-
-           
-       
+           PlayerManager.myAnimator.SetBool("ObstacleHit",false); 
     }
 }

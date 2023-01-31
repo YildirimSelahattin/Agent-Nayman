@@ -44,7 +44,18 @@ public class GunScriptableObject : ScriptableObject
     float z =PlayerManager.Instance.agent.transform.rotation.z ;
     x+= 100f;
     GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.GetChild(0).transform.position,ShootingConfig.BulletPrefab.transform.rotation);
-    float yspawn  = SpawnPoint.y + 30f;
+    float yspawn;
+    if (gun.Name == "Bazooka")
+    {//active gun name
+     yspawn  = SpawnPoint.y - 30f;
+      
+    }
+    else
+    {
+     yspawn  = SpawnPoint.y + 30f;
+      
+    }
+
     
     bullet.transform.DOLocalMoveY(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
         Destroy(bullet);

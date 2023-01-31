@@ -32,6 +32,37 @@ Transform:
   m_Father: {fileID: 3259791785483050681}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &283183788801826975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370234682478307052}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370234682478307052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283183788801826975}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 19.77, y: 66.6, z: 7.56}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3449659415404402509}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629457503300661964
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +518,7 @@ GameObject:
   - component: {fileID: 6658311243009888914}
   - component: {fileID: 4843417706051762865}
   - component: {fileID: 100544981053356402}
+  - component: {fileID: -5216028472658144798}
   m_Layer: 0
   m_Name: nayman_dusman
   m_TagString: Enemy
@@ -513,6 +545,7 @@ Transform:
   - {fileID: 1379750312812854951}
   - {fileID: 8048586481305413918}
   - {fileID: 6735657786534181567}
+  - {fileID: 1370234682478307052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -559,6 +592,23 @@ CapsuleCollider:
   m_Height: 50
   m_Direction: 1
   m_Center: {x: 0, y: 45, z: 0}
+--- !u!114 &-5216028472658144798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635861813152091639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da62611e89376224c8456e74d8c91b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: 3
+  GunParent: {fileID: 1370234682478307052}
+  Guns:
+  - {fileID: 11400000, guid: 2096adaed3f238341a2f7a1282ce3125, type: 2}
+  ActiveGun: {fileID: 0}
 --- !u!1 &2694497841796996527
 GameObject:
   m_ObjectHideFlags: 0
