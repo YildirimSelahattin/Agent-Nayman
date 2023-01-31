@@ -24,6 +24,10 @@ public class BulletManager : MonoBehaviour
             Destroy(this.gameObject);
             
         }
+        if (other.tag == "Obstacle")
+        {
+            Destroy(this.gameObject);
+        }
         
     }
 }

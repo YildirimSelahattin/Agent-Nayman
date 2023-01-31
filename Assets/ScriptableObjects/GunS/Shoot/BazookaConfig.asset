@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9cbdaca3f24a8e409733f879c5a59b5, type: 3}
-  m_Name: RayGunConfig
+  m_Name: BazookaConfig
   m_EditorClassIdentifier: 
   HitMask:
     serializedVersion: 2
     m_Bits: 65
-  FireRate: 1
+  FireRate: 3
   BulletDamage: 100
-  BulletDuration: 0.5
-  Recoil: 30
-  BulletPrefab: {fileID: 3236279427453561729, guid: 82b08e53a467c044481530b98680aec0,
+  BulletDuration: 4
+  Recoil: 20
+  BulletPrefab: {fileID: 7518445428294976185, guid: 12c7f767dcff8ff47a10b2c1583c2b9c,
     type: 3}

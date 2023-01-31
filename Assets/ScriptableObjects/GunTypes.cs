@@ -6,6 +6,7 @@ public enum GunTypes
 {
     pistol,
     revolver,
-    rayGun
+    rayGun,
+    Bazooka
 
 }
