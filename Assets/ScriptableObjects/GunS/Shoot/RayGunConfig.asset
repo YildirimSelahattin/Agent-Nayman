@@ -15,7 +15,7 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 65
-  FireRate: 1
+  FireRate: 0.2
   BulletDamage: 100
   BulletDuration: 0.5
   Recoil: 30

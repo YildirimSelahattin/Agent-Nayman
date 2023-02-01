@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletManager : MonoBehaviour
+public class EnemyBulletManager : MonoBehaviour
 {
     
     void Start()
@@ -17,14 +17,12 @@ public class BulletManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         
-        if (other.tag == "Enemy")
+        if (other.tag == "Player")
         {
-        
-           float x = GunManager.Instance.ActiveGun.ShootingConfig.BulletDamage;
-            other.gameObject.GetComponent<EnemyManager>().getHit(x);
+            float x = EnemyGunManager.Instance.EnemyGun.ShootingConfig.BulletDamage;
+            other.gameObject.GetComponent<PlayerManager>().getHit(x);
             Destroy(this.gameObject);
-           
-            
+         
         }
         if (other.tag == "Obstacle")
         {

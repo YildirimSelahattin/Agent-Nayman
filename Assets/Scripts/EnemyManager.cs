@@ -5,12 +5,18 @@ using DG.Tweening;
 public class EnemyManager : MonoBehaviour
 {
 
+    public static EnemyManager Instance = null;
+    [SerializeField] public GameObject enemy;
+
    public float Health=100f;
     
     private void Start() {
-       
+       if(Instance ==null){
+            Instance = this;
+        }
     }
    
+
    public void getHit(float damage){
 
     Health -= damage;

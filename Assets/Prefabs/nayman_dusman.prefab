@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 7095371674307989062}
   m_Layer: 0
   m_Name: _stickman_Roundcube.011
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,9 +516,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3449659415404402509}
   - component: {fileID: 6658311243009888914}
-  - component: {fileID: 4843417706051762865}
   - component: {fileID: 100544981053356402}
-  - component: {fileID: -5216028472658144798}
+  - component: {fileID: 90501057899578926}
+  - component: {fileID: 6684205930989167232}
   m_Layer: 0
   m_Name: nayman_dusman
   m_TagString: Enemy
@@ -564,20 +564,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &4843417706051762865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635861813152091639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714ebc01d99de344998d9d2428c84736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
+  m_CollisionDetection: 1
 --- !u!136 &100544981053356402
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -592,7 +579,7 @@ CapsuleCollider:
   m_Height: 50
   m_Direction: 1
   m_Center: {x: 0, y: 45, z: 0}
---- !u!114 &-5216028472658144798
+--- !u!114 &90501057899578926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -601,14 +588,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2635861813152091639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da62611e89376224c8456e74d8c91b55, type: 3}
+  m_Script: {fileID: 11500000, guid: a8ef2e6754a6ed644ae259be9c78ee93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: 3
   GunParent: {fileID: 1370234682478307052}
   Guns:
   - {fileID: 11400000, guid: 2096adaed3f238341a2f7a1282ce3125, type: 2}
-  ActiveGun: {fileID: 0}
+  EnemyGun: {fileID: 0}
+--- !u!114 &6684205930989167232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635861813152091639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714ebc01d99de344998d9d2428c84736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 283183788801826975}
+  Health: 100
 --- !u!1 &2694497841796996527
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +811,7 @@ GameObject:
   - component: {fileID: 2280110495020175687}
   m_Layer: 0
   m_Name: straps.004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -929,7 +930,7 @@ GameObject:
   - component: {fileID: 1809404915799351153}
   m_Layer: 0
   m_Name: mixamorig:Hips
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1028,7 +1029,7 @@ GameObject:
   - component: {fileID: 6753998793615643602}
   m_Layer: 0
   m_Name: straps.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1309,7 +1310,7 @@ GameObject:
   - component: {fileID: 6012151179631986643}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1342,7 +1343,7 @@ GameObject:
   - component: {fileID: 2362911935010809952}
   m_Layer: 0
   m_Name: _stickman_Roundcube.008
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1590,7 +1591,7 @@ GameObject:
   - component: {fileID: 6039757433559190570}
   m_Layer: 0
   m_Name: straps.005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2125,7 +2126,7 @@ GameObject:
   - component: {fileID: 5519081413535251994}
   m_Layer: 0
   m_Name: straps.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
