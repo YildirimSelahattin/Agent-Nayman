@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
-    public Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +55,15 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("EndOfFlying"))
         {
-            playerAnimator.SetBool("isParachuteOpen",true);
-            PlayerManager.Instance.gameStarted=false;
+            //change the bounds of the move;
+            CityPrefabManager cityPrefabScript = GameManager.Instance.CityParent.GetComponent<CityPrefabManager>();
+            PlayerManager.Instance.topLimit = cityPrefabScript.TopLimit.transform;
+            PlayerManager.Instance.botLimit = cityPrefabScript.BotLimit.transform;
+            PlayerManager.Instance.leftLimit = cityPrefabScript.LeftLimit.transform;
+            PlayerManager.Instance.rightLimit = cityPrefabScript.RightLimit.transform;
             
+            //for gun to stop firing
+            PlayerManager.Instance.gameStarted=false;
             PlayerManager.Instance.agentParachute.gameObject.SetActive(true);
             gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f).OnComplete(() =>
             {
