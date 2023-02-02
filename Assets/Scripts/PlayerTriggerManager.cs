@@ -1,12 +1,13 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
-    public Animator playerAnimator;
+    public PlayerFreeFallManager playerFallScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,20 +57,10 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("EndOfFlying"))
         {
-            playerAnimator.SetBool("isParachuteOpen",true);
-            PlayerManager.Instance.gameStarted=false;
-            
-            PlayerManager.Instance.agentParachute.gameObject.SetActive(true);
-            gameObject.transform.DORotate(new Vector3(-20, 0, 0), 1f).OnComplete(() =>
-            {
-                //slow down wind
-                var main = windEffectParticleSystem.main;
-                main.simulationSpeed = 2;
-
-                //slow down real speed of environment 
-                EnvironmentMover.Instance.forwardMoveSpeed *= 0.5f;
-            });
-            PlayerManager.myAnimator.SetBool("isParachuteOpen",true);
+            Debug.Log("sa");
+            //change the bounds of the move;
+            playerFallScript.enabled = true;
+            this.enabled = false;
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){

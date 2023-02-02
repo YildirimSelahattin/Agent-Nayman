@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] CityPrefabs;
     [SerializeField] GameObject[] LevelPrefabs;
-    [SerializeField] GameObject CityParent;
-    [SerializeField] GameObject LevelParent;
-
+    public GameObject CityParent;
+    public  GameObject LevelParent;
+    public GameObject currentCity;
+    GameObject currentTargetBuilding;
+    public static GameManager Instance; 
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
         LoadLevel();
     }
 
@@ -24,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel()
     {
         Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
-        Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
-
+        currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
+        currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
     }
 }
