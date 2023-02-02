@@ -100,7 +100,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void getHit(float damage){
 
-    Health -= damage;
+    //Health -= damage;
+    Debug.Log("vuruldum");
     if (Health <= 0)
     {
         
@@ -109,7 +110,7 @@ public class PlayerManager : MonoBehaviour
         float z = this.gameObject.transform.position.z;
         this.gameObject.transform.DOMove(new Vector3(x,y,z),1f);
         this.gameObject.transform.DOScale(0,1f).OnComplete(()=>{
-            //Destroy(this.gameObject);
+        Destroy(this.gameObject);
         });
         
     }

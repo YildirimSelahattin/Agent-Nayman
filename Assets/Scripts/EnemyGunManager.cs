@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [DisallowMultipleComponent]
 public class EnemyGunManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class EnemyGunManager : MonoBehaviour
     [SerializeField] List<GunScriptableObject> Guns;
     public static EnemyGunManager Instance = null;
     public GunScriptableObject EnemyGun;
+    
+    GameObject enemybulletTemp;
+
 
     private void Start() 
     {
@@ -23,13 +27,30 @@ public class EnemyGunManager : MonoBehaviour
 
     }
     
+    public void Shoot(GunScriptableObject gun)
+{
+    if (EnemyGun.ShootingConfig.BulletPrefab != null)
+    {
+        Vector3 spawnPos = transform.GetChild(transform.childCount-1).transform.position;
+        
+        enemybulletTemp = Instantiate(EnemyGun.ShootingConfig.BulletPrefab, spawnPos, EnemyGun.ShootingConfig.BulletPrefab.transform.rotation,transform.GetChild(transform.childCount-1));
+        
+        enemybulletTemp.transform.DOLocalMoveZ(-10f,EnemyGun.ShootingConfig.BulletDuration).SetEase(Ease.Linear).OnComplete(()=>{
+            Destroy(enemybulletTemp);
+        });
+    }
+    else
+    {
+        Debug.LogError("EnemyGun.ShootingConfig.BulletPrefab is null");
+    }
+}
 
 
     public IEnumerator ShootAfterDelay(GunScriptableObject gun){
         yield return new WaitForSeconds(3);
         if (PlayerManager.Instance.gameStarted==true)
         {
-        EnemyGun.EnemyShoot(EnemyManager.Instance.enemy,gun);
+        Shoot(EnemyGun);
         }
         StartCoroutine(ShootAfterDelay(gun));
 

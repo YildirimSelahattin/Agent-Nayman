@@ -21,12 +21,12 @@ public class EnemyBulletManager : MonoBehaviour
         {
             float x = EnemyGunManager.Instance.EnemyGun.ShootingConfig.BulletDamage;
             other.gameObject.GetComponent<PlayerManager>().getHit(x);
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
          
         }
         if (other.tag == "Obstacle")
         {
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
         }
         
     }

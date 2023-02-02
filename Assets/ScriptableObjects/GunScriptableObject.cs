@@ -17,7 +17,7 @@ public class GunScriptableObject : ScriptableObject
 
 
   private MonoBehaviour ActiveMonoBehaviour;
-  private GameObject Model;
+  public GameObject Model;
   private float LastShootTime;
   private ParticleSystem ShootSystem;
   GameObject enemybulletTemp;
@@ -72,15 +72,16 @@ public class GunScriptableObject : ScriptableObject
    gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,0,0),0f);
    });
   } 
+
   public void EnemyShoot(GameObject enemy, GunScriptableObject gun)
   {
   
-    enemybulletTemp = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.position,ShootingConfig.BulletPrefab.transform.rotation,gun.Model.transform);
+    enemybulletTemp = Instantiate(ShootingConfig.BulletPrefab,EnemyManager.Instance.enemy.transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float newyspawn;
-    newyspawn  = gun.Model.transform.position.y + 30f;
+    newyspawn  = gun.Model.transform.position.z + 30f;
       Debug.Log(newyspawn);
-    enemybulletTemp.transform.DOMoveY(newyspawn,10f).OnComplete(()=>{
-      Debug.Log("Sasssss");
+    enemybulletTemp.transform.DOMoveZ(newyspawn,10f).OnComplete(()=>{
+      
         Destroy(enemybulletTemp);
 
         Debug.Log("merhaba");
@@ -88,9 +89,6 @@ public class GunScriptableObject : ScriptableObject
 
   Debug.Log("DoMoveY sonrasi debug");
 
-   float modelnewy = gun.Model.transform.GetChild(0).gameObject.transform.localPosition.y + ShootingConfig.Recoil;
-   gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,modelnewy,0),1f).OnComplete(()=>{
-   gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,0,0),0f);
-   });
+   
   } 
 }
