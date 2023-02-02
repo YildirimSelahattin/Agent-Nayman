@@ -19,3 +19,4 @@ MonoBehaviour:
   SpawnPoint: {x: 0.12807, y: 0.01905899, z: -0.001357374}
   SpawnRotation: {x: -3.22, y: 155.219, z: 85.781}
   ShootingConfig: {fileID: 11400000, guid: 800e09c3cdd465e49a750a0f6736b2e6, type: 2}
+  Model: {fileID: 0}
