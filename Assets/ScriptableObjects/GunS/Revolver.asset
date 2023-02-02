@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f14d42d1aced44693049504147b538, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
-  Type: 1
-  Name: Revolver
-  ModelPrefab: {fileID: 912821060023562314, guid: 8d756382387cdee4eaba5f998a914ac8,
-    type: 3}
-  SpawnPoint: {x: 0.01997, y: -0.00461, z: 0.02717}
-  SpawnRotation: {x: -24.308, y: 8.187, z: -83.967}
-  ShootingConfig: {fileID: 11400000, guid: b5d7a13a6c760614cb1ef11582108d7b, type: 2}
+  Type: 0
+  Name: 
+  ModelPrefab: {fileID: 0}
+  SpawnPoint: {x: 0, y: 0, z: 0}
+  SpawnRotation: {x: 0, y: 0, z: 0}
+  ShootingConfig: {fileID: 0}
+  Model: {fileID: 0}

@@ -161,4 +161,37 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void Choose1(){
+    if (GunManager.Instance.ActiveGun != null)
+    {
+        Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
+    }
+    GunTypes gun = GunTypes.rayGun;
+    GunManager.Instance.Gun = GunTypes.rayGun;
+    GunManager.Instance.SpawnGun(gun);
+
+    }
+    public void Choose2(){
+    if (GunManager.Instance.ActiveGun != null)
+    {
+    Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
+    }
+    GunTypes gun = GunTypes.pistol;
+    GunManager.Instance.Gun = GunTypes.pistol;
+    GunManager.Instance.SpawnGun(gun);
+
+        
+    }
+    public void Choose3(){
+    if (GunManager.Instance.ActiveGun != null)
+    {
+        Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
+    }
+    GunTypes gun = GunTypes.revolver;
+    GunManager.Instance.Gun = GunTypes.revolver;
+    GunManager.Instance.SpawnGun(gun);
+    
+
+        
+    }
 }

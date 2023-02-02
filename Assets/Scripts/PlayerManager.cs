@@ -96,8 +96,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void getHit(float damage){
 
-    //Health -= damage;
-    Debug.Log("vuruldum");
+    Health -= damage;
+    
     if (Health <= 0)
     {
         
