@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] LevelPrefabs;
     public GameObject CityParent;
     public  GameObject LevelParent;
+    public GameObject currentCity;
     GameObject currentTargetBuilding;
     public static GameManager Instance; 
     // Start is called before the first frame update
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel()
     {
         Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
-        GameObject cityPrefab=Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
-        currentTargetBuilding = cityPrefab.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
+        currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
+        currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
     }
 }

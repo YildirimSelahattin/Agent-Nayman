@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     [Range(0f, 50f)] public float pathSpeed;
     [Range(0f, 1000f)] public float agentRotateSpeed;
     public ParticleSystem agentTrail;
-    public GameObject agentParachute;
+
 
     private float velocity, camVelocity_x,camVelocity_y;
     private Camera mainCam;
@@ -66,11 +66,7 @@ public class PlayerManager : MonoBehaviour
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
             tempLoc.z = Mathf.Clamp(tempLoc.z, botLimit.position.z, topLimit.position.z);
             transform.localPosition = tempLoc;
-
-            
-            
         }
-
     }
 
     private void LateUpdate()

@@ -23,6 +23,8 @@ public class CityPrefabManager : MonoBehaviour
 
     public GameObject GetRandomLandableBuilding()
     {
-        return landableBuildings[(int)Random.Range(0, landableBuildings.Length)];
+        int randomIndex = Random.Range(0, landableBuildings.Length);
+        landableBuildings[randomIndex].transform.GetChild(0).gameObject.SetActive(true);
+        return landableBuildings[randomIndex];
     }
 }

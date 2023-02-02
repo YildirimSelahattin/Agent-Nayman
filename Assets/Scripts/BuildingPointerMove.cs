@@ -8,7 +8,7 @@ public class BuildingPointerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originalPos = transform.position;
+        originalPos = transform.localPosition;
         StartCoroutine(MoveLoop());
     }
 
@@ -21,7 +21,7 @@ public class BuildingPointerMove : MonoBehaviour
     public IEnumerator MoveLoop()
     {
         yield return new WaitForSeconds(0.3f);
-        transform.DOLocalMoveZ(originalPos.z - 3, 0.5f).OnComplete(() =>
+        transform.DOLocalMoveZ(originalPos.z - 0.015f, 0.5f).OnComplete(() =>
         {
             transform.DOLocalMoveZ(originalPos.z, 0.5f).OnComplete(()=>StartCoroutine(MoveLoop()));
         });
