@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem CollideParticle;
     public ParticleSystem Dust;
     [SerializeField] LayerMask EnemyMask;
-    public static Animator myAnimator;
+    public Animator myAnimator;
     public static PlayerManager Instance;
     public Vector3 wantedRotationFlying;
     public EnvironmentMover environmentMoveScript;
@@ -46,7 +46,6 @@ public class PlayerManager : MonoBehaviour
         }
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
-        myAnimator = GetComponent<Animator>();
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);

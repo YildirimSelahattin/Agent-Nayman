@@ -8,6 +8,7 @@ public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
     public PlayerFreeFallManager playerFallScript;
+    public PlayerManager playerFlyingScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +60,12 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             Debug.Log("sa");
             //change the bounds of the move;
+            playerFallScript.tunnelBottomLimit = playerFlyingScript.botLimit;
+            playerFallScript.tunnelTopLimit = playerFlyingScript.topLimit;
+            playerFallScript.tunnelLeftLimit = playerFlyingScript.leftLimit;
+            playerFallScript.tunnelRightLimit = playerFlyingScript.rightLimit;
             playerFallScript.enabled = true;
-            this.enabled = false;
+            playerFlyingScript.enabled = false;
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){
@@ -72,8 +77,8 @@ public class PlayerTriggerManager : MonoBehaviour
        
     }
     public IEnumerator ObstacleHit(){
-           PlayerManager.myAnimator.SetBool("ObstacleHit",true);
+           PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
            yield return new WaitForSeconds(1.2f);
-           PlayerManager.myAnimator.SetBool("ObstacleHit",false); 
+           PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
     }
 }

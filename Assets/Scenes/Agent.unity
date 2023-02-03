@@ -329,7 +329,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ef3c31ee296085744b854ff7d53254c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 465774860}
   - component: {fileID: 465774859}
   - component: {fileID: 465774858}
-  - component: {fileID: 465774864}
   - component: {fileID: 465774867}
   - component: {fileID: 465774865}
   - component: {fileID: 465774866}
@@ -851,6 +850,7 @@ MonoBehaviour:
   EnemyMask:
     serializedVersion: 2
     m_Bits: 64
+  myAnimator: {fileID: 6166202858479115436}
   wantedRotationFlying: {x: -254, y: 0, z: 0}
   environmentMoveScript: {fileID: 677103175}
   Health: 100
@@ -952,26 +952,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &465774864
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465774857}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0af714dd85f79fd4db053e92f2dbc2c6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &465774865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,6 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFallScript: {fileID: 465774867}
+  playerFlyingScript: {fileID: 465774858}
 --- !u!114 &465774867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1001,10 @@ MonoBehaviour:
   botLimit: {fileID: 0}
   rightLimit: {fileID: 0}
   leftLimit: {fileID: 0}
+  tunnelLeftLimit: {fileID: 0}
+  tunnelRightLimit: {fileID: 0}
+  tunnelTopLimit: {fileID: 0}
+  tunnelBottomLimit: {fileID: 0}
   startPos: {fileID: 0}
   agentParachute: {fileID: 781422885}
   path: {fileID: 757912133}
@@ -2335,7 +2320,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ef3c31ee296085744b854ff7d53254c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2467,7 +2452,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ef3c31ee296085744b854ff7d53254c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3521,7 +3506,7 @@ MonoBehaviour:
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 465774863}
-  m_AnimatedTarget: {fileID: 465774864}
+  m_AnimatedTarget: {fileID: 6166202858479115436}
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_ChildCameras:
@@ -3578,7 +3563,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 11400000, guid: 761d4ae6653c7534f8b7cf667b659029, type: 2}
   m_ParentHash:
-  - m_Hash: -178524345
+  - m_Hash: -1368284075
     m_ParentHash: 756556552
   - m_Hash: 676176
     m_ParentHash: 756556552
@@ -3689,7 +3674,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ef3c31ee296085744b854ff7d53254c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3880,6 +3865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3976908979619584599}
   - component: {fileID: 6166202858479115435}
+  - component: {fileID: 6166202858479115436}
   m_Layer: 0
   m_Name: johnny.001
   m_TagString: Player
@@ -5003,6 +4989,26 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.014501776, z: -0.004373662}
     m_Extent: {x: 0.0234559, y: 0.026090201, z: 0.01469261}
   m_DirtyAABB: 0
+--- !u!95 &6166202858479115436
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866262042906279790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0af714dd85f79fd4db053e92f2dbc2c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6237855640694235973
 GameObject:
   m_ObjectHideFlags: 0

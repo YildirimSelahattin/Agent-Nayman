@@ -13,6 +13,10 @@ public class PlayerFreeFallManager : MonoBehaviour
     public Transform rightLimit;
     public Transform leftLimit;
 
+    public Transform tunnelLeftLimit;
+    public Transform tunnelRightLimit;
+    public Transform tunnelTopLimit;
+    public Transform tunnelBottomLimit;
     [Header("MoveBoundaries")]
 
     float screenWidth;
@@ -61,8 +65,8 @@ public class PlayerFreeFallManager : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
-        distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
-        distanceBetweenZ = Mathf.Abs(topLimit.position.z - botLimit.position.z);
+        distanceBetweenX = Mathf.Abs(tunnelLeftLimit.position.x - tunnelRightLimit.position.x);
+        distanceBetweenZ = Mathf.Abs(tunnelTopLimit.position.z - tunnelBottomLimit.position.z);
 
        
         agentParachute.gameObject.SetActive(true);
@@ -75,7 +79,7 @@ public class PlayerFreeFallManager : MonoBehaviour
             //slow down real speed of environment 
             EnvironmentMover.Instance.forwardMoveSpeed *= 0.5f;
         });
-        PlayerManager.myAnimator.SetBool("isParachuteOpen", true);
+        PlayerManager.Instance.myAnimator.SetBool("isParachuteOpen", true);
     }
 
     void Update()
@@ -84,7 +88,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         {
             Touch curTouch = Input.GetTouch(0);
             float x = (curTouch.deltaPosition.x * distanceBetweenX / (screenWidth));
-            float z = (curTouch.deltaPosition.y * distanceBetweenZ / (screenHeigth));
+            float z =(curTouch.deltaPosition.y * distanceBetweenZ / (screenHeigth));
 
             Vector3 playVelocity = new Vector3(x, 0, z);
             Vector3 tempLoc = playVelocity + transform.localPosition;
