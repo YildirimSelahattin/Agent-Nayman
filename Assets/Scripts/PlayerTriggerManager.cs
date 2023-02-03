@@ -8,6 +8,7 @@ public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
     public PlayerFreeFallManager playerFallScript;
+    private float decreaseAmountatStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,9 +67,9 @@ public class PlayerTriggerManager : MonoBehaviour
     public IEnumerator FireSpeedUpForSomeTime(){
            float x = GunManager.Instance.ActiveGun.ShootingConfig.FireRate;
            
-           GunManager.Instance.ActiveGun.ShootingConfig.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
+           GunManager.Instance.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
            yield return new WaitForSeconds(3);
-           GunManager.Instance.ActiveGun.ShootingConfig.decreaseAmount = 0;
+           GunManager.Instance.decreaseAmount = 0;
            
        
     }
@@ -76,5 +77,9 @@ public class PlayerTriggerManager : MonoBehaviour
            PlayerManager.myAnimator.SetBool("ObstacleHit",true);
            yield return new WaitForSeconds(1.2f);
            PlayerManager.myAnimator.SetBool("ObstacleHit",false); 
+    }
+
+    private void OnDisable() {
+        GunManager.Instance.ActiveGun.ShootingConfig.decreaseAmount = 0;
     }
 }
