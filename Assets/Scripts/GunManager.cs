@@ -32,7 +32,7 @@ public class GunManager : MonoBehaviour
     }
 
     public IEnumerator ShootAfterDelay(GunScriptableObject gun){
-        yield return new WaitForSeconds(ActiveGun.ShootingConfig.FireRate);
+        yield return new WaitForSeconds(ActiveGun.ShootingConfig.FireRate-ActiveGun.ShootingConfig.decreaseAmount);
         if (PlayerManager.Instance.gameStarted==true)
         {
         ActiveGun.Shoot(gun);

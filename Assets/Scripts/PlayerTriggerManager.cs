@@ -65,9 +65,10 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     public IEnumerator FireSpeedUpForSomeTime(){
            float x = GunManager.Instance.ActiveGun.ShootingConfig.FireRate;
-           GunManager.Instance.ActiveGun.ShootingConfig.FireRate *= 0.2f;
+           
+           GunManager.Instance.ActiveGun.ShootingConfig.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
            yield return new WaitForSeconds(3);
-        GunManager.Instance.ActiveGun.ShootingConfig.FireRate = x;
+           GunManager.Instance.ActiveGun.ShootingConfig.decreaseAmount = 0;
            
        
     }
