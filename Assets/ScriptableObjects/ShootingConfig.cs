@@ -9,6 +9,8 @@ public class ShootingConfig : ScriptableObject
     
     // Ters orantı bu artarsa rate azalıyo
      public float FireRate =0.25f;
+    
+     public float decreaseAmount = 0;
      public float BulletDamage =0.25f;
 
     //Duration artarsa daha yavaş gidiyor 

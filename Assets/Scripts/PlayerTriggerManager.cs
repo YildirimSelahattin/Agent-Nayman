@@ -70,9 +70,10 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     public IEnumerator FireSpeedUpForSomeTime(){
            float x = GunManager.Instance.ActiveGun.ShootingConfig.FireRate;
-           GunManager.Instance.ActiveGun.ShootingConfig.FireRate *= 0.2f;
+           
+           GunManager.Instance.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
            yield return new WaitForSeconds(3);
-        GunManager.Instance.ActiveGun.ShootingConfig.FireRate = x;
+           GunManager.Instance.decreaseAmount = 0;
            
        
     }
@@ -81,4 +82,6 @@ public class PlayerTriggerManager : MonoBehaviour
            yield return new WaitForSeconds(1.2f);
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
     }
+
+   
 }
