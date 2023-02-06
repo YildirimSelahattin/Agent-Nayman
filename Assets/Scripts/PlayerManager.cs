@@ -37,6 +37,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     public Vector3 wantedRotationFlying;
     public EnvironmentMover environmentMoveScript;
+    public PlayerFreeFallManager fallMoveScript;
+
     public float Health = 100f;
     void Start()
     {

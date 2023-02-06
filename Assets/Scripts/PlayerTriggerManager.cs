@@ -36,13 +36,9 @@ public class PlayerTriggerManager : MonoBehaviour
             
         }
         if (other.CompareTag("Obstacle"))
-        {
-            
+        {            
             StartCoroutine(ObstacleHit());
-            
             Destroy(other.gameObject);
-           
-            
         }
         if (other.CompareTag("SpeedUp"))
         {
@@ -58,7 +54,6 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             PlayerManager.Instance.Health +=50f;
             Destroy(other.gameObject);
-
         }
         if (other.CompareTag("EndOfFlying"))
         {
@@ -78,8 +73,6 @@ public class PlayerTriggerManager : MonoBehaviour
            GunManager.Instance.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
            yield return new WaitForSeconds(3);
            GunManager.Instance.decreaseAmount = 0;
-           
-       
     }
     public IEnumerator ObstacleHit(){
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
