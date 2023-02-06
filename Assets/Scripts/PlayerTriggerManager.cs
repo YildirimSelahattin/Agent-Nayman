@@ -51,10 +51,14 @@ public class PlayerTriggerManager : MonoBehaviour
             //speed up wind
             var main = windEffectParticleSystem.main;
             main.simulationSpeed= 10;
+            Destroy(other.gameObject);
+
         }
         if (other.CompareTag("Health"))
         {
             PlayerManager.Instance.Health +=50f;
+            Destroy(other.gameObject);
+
         }
         if (other.CompareTag("EndOfFlying"))
         {
