@@ -15,6 +15,8 @@ if(BuildingIndex == PlayerFreeFallManager.Instance.targetBuilding)
     Debug.Log("bitti");
     PlayerManager.Instance.environmentMoveScript.enabled = false;
     PlayerManager.Instance.fallMoveScript.enabled=false;
+    PlayerManager.Instance.myAnimator.SetBool("Ending",true);
+    
 }
 
 }

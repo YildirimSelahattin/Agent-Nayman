@@ -1130,6 +1130,7 @@ MonoBehaviour:
   myAnimator: {fileID: 6166202858479115436}
   wantedRotationFlying: {x: -254, y: 0, z: 0}
   environmentMoveScript: {fileID: 677103175}
+  fallMoveScript: {fileID: 465774867}
   Health: 100
 --- !u!54 &465774859
 Rigidbody:
@@ -3424,15 +3425,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371814984}
-  m_LocalRotation: {x: -0.10212226, y: 0.012531963, z: -0.0012844298, w: -0.9946921}
-  m_LocalPosition: {x: 19.41, y: 268.90454, z: 268.04105}
+  m_LocalRotation: {x: -0.0007782905, y: 0.9999902, z: 0.0022988382, w: -0.0036966703}
+  m_LocalPosition: {x: 12.879999, y: 268.90454, z: 281.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1396669954}
   m_Father: {fileID: 1900869736}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.263, y: -179.576, z: -0.09}
 --- !u!1 &1387601010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3617,7 +3618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 6.4968805, y: 0, z: -10}
+  m_FollowOffset: {x: -0.0331192, y: 0, z: 3.3189392}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4576,8 +4577,6 @@ MonoBehaviour:
   - m_Hash: -182892086
     m_ParentHash: 756556552
   - m_Hash: -95046526
-    m_ParentHash: 756556552
-  - m_Hash: -123987243
     m_ParentHash: 756556552
   - m_Hash: 1512845479
     m_ParentHash: 756556552
