@@ -23,19 +23,26 @@ public class EnemyGunManager : MonoBehaviour
         GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
         EnemyGun = gun;
         gun.EnemySpawn(GunParent,this);
-        StartCoroutine(ShootAfterDelay(EnemyGun));
 
     }
-    
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player")
+        {
+        GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
+        EnemyGun = gun;
+        StartCoroutine(ShootAfterDelay(gun,0.3f));
+             
+        }
+    }
     public void Shoot(GunScriptableObject gun)
 {
-    if (EnemyGun.ShootingConfig.BulletPrefab != null)
+    if (gun.ShootingConfig.BulletPrefab != null)
     {
-        Vector3 spawnPos = transform.GetChild(transform.childCount-1).transform.position;
+        Vector3 spawnPos = transform.GetChild(transform.childCount-2).transform.position;
         
-        enemybulletTemp = Instantiate(EnemyGun.ShootingConfig.BulletPrefab, spawnPos, EnemyGun.ShootingConfig.BulletPrefab.transform.rotation,transform.GetChild(transform.childCount-1));
+        enemybulletTemp = Instantiate(gun.ShootingConfig.BulletPrefab, spawnPos, gun.ShootingConfig.BulletPrefab.transform.rotation,transform.GetChild(transform.childCount-2));
         
-        enemybulletTemp.transform.DOLocalMoveZ(-10f,EnemyGun.ShootingConfig.BulletDuration).SetEase(Ease.Linear).OnComplete(()=>{
+        enemybulletTemp.transform.DOLocalMoveZ(-20f,gun.ShootingConfig.BulletDuration).SetEase(Ease.Linear).OnComplete(()=>{
             Destroy(enemybulletTemp);
         });
     }
@@ -46,13 +53,14 @@ public class EnemyGunManager : MonoBehaviour
 }
 
 
-    public IEnumerator ShootAfterDelay(GunScriptableObject gun){
-        yield return new WaitForSeconds(3);
+    public IEnumerator ShootAfterDelay(GunScriptableObject gun,float waitingTime){
+
+        yield return new WaitForSeconds(waitingTime);
         if (PlayerManager.Instance.gameStarted==true)
         {
         Shoot(EnemyGun);
         }
-        StartCoroutine(ShootAfterDelay(gun));
+        StartCoroutine(ShootAfterDelay(gun,3f));
 
     }
     
