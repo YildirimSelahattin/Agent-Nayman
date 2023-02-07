@@ -10,7 +10,8 @@ public class GameDataManager : MonoBehaviour
     public int playMusic;
     public int playVibrate;
     public int levelToLoad;
-    public int money = 0; 
+    public int money = 0;
+    public int currentGun; 
     // Start is called before the first frame update
 
     void Awake()
@@ -18,6 +19,7 @@ public class GameDataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         LoadData();
     }
@@ -31,6 +33,7 @@ public class GameDataManager : MonoBehaviour
         playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);
+        currentGun = PlayerPrefs.GetInt("CurrentGun",0);
     }
   
 

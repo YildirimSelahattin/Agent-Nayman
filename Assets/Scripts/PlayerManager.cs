@@ -13,8 +13,8 @@ public class PlayerManager : MonoBehaviour
     public  Transform leftLimit;
     float screenWidth;
     float screenHeigth;
-    float distanceBetweenX;
-    float distanceBetweenZ;
+    public float distanceBetweenX;
+    public float distanceBetweenZ;
     public Transform startPos;
     [Header("AgentProperties")]
     [Range(0f,1f)] public float maxSpeed;

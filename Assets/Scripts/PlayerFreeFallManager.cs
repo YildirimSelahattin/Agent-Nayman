@@ -13,16 +13,12 @@ public class PlayerFreeFallManager : MonoBehaviour
     public Transform rightLimit;
     public Transform leftLimit;
 
-    public Transform tunnelLeftLimit;
-    public Transform tunnelRightLimit;
-    public Transform tunnelTopLimit;
-    public Transform tunnelBottomLimit;
     [Header("MoveBoundaries")]
 
     float screenWidth;
     float screenHeigth;
-    float distanceBetweenX;
-    float distanceBetweenZ;
+    public float distanceBetweenX;
+    public float distanceBetweenZ;
     public Transform startPos;
 
     public GameObject agentParachute;
@@ -55,19 +51,13 @@ public class PlayerFreeFallManager : MonoBehaviour
         CityPrefabManager cityPrefabScript = GameManager.Instance.currentCity.GetComponent<CityPrefabManager>();
         targetBuilding = cityPrefabScript.GetRandomLandableBuilding();
 
-        topLimit = cityPrefabScript.TopLimit.transform;
-        botLimit = cityPrefabScript.BotLimit.transform;
-        leftLimit = cityPrefabScript.LeftLimit.transform;
-        rightLimit = cityPrefabScript.RightLimit.transform;
+        
 
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
-        distanceBetweenX = Mathf.Abs(tunnelLeftLimit.position.x - tunnelRightLimit.position.x);
-        distanceBetweenZ = Mathf.Abs(tunnelTopLimit.position.z - tunnelBottomLimit.position.z);
-
        
         agentParachute.gameObject.SetActive(true);
         gameObject.transform.DORotate(new Vector3(32, 0, 0), 1f).OnComplete(() =>
