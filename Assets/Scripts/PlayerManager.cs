@@ -109,8 +109,8 @@ public class PlayerManager : MonoBehaviour
         this.gameObject.transform.DOMove(new Vector3(x,y,z),1f);
         this.gameObject.transform.DOScale(0,1f).OnComplete(()=>{
         Destroy(this.gameObject);
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+       // SceneManager.LoadScene(currentSceneIndex);
         });
         
     }
