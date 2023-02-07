@@ -34,4 +34,5 @@ public class GameManager : MonoBehaviour
         currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
         currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
     }
+    
 }
