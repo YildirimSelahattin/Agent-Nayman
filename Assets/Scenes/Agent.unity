@@ -1035,6 +1035,7 @@ MonoBehaviour:
   CityPrefabs:
   - {fileID: 0}
   - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
   LevelPrefabs:
   - {fileID: 0}
   - {fileID: 5703019264791239772, guid: 53acee1bb362ce64e9fa962cf8290f82, type: 3}
@@ -1781,7 +1782,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 90
+    FieldOfView: 120
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 136.5
@@ -1805,15 +1806,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651721022}
-  m_LocalRotation: {x: -0.10212226, y: 0.012531963, z: -0.0012844298, w: -0.9946921}
-  m_LocalPosition: {x: 14.4, y: 268.90454, z: 268.04105}
+  m_LocalRotation: {x: 0.76587814, y: 0.09952101, z: 0.05211989, w: 0.6330954}
+  m_LocalPosition: {x: 11.68, y: 280.95, z: 285.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1008848761}
   m_Father: {fileID: 1900869736}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 73.612, y: 133.147, z: 129.266}
 --- !u!1 &677103173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,7 +2768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 1.4868813, y: 0, z: -10}
+  m_FollowOffset: {x: -1.2331185, y: 12.045471, z: 7.9189453}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
