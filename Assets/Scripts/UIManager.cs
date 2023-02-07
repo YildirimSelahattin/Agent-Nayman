@@ -20,9 +20,10 @@ public class UIManager : MonoBehaviour
     int isSoundOn;
     int isMusicOn;
     int isVibrateOn;
-
+    public GameObject Heli;
     public ParticleSystem windEffect;
     public GameObject startScreen;
+    public GameObject endScreen;
     [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
     [SerializeField] GameObject soundOff;
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+        
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
@@ -49,6 +51,15 @@ public class UIManager : MonoBehaviour
         windEffect.Play();
         startScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
+        Heli.SetActive(false);
+        
+    }
+    public void LoadSceneButton()
+    {
+        GameDataManager.Instance.levelToLoad += 1;
+        
+        SceneManager.LoadScene(0);
+
     }
 
     public void UpdateSound()

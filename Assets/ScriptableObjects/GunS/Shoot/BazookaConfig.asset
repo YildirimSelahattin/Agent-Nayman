@@ -15,8 +15,9 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 65
-  FireRate: 1
-  BulletDamage: 30
+  FireRate: 0.3
+  decreaseAmount: 0
+  BulletDamage: 50
   BulletDuration: 2
   Recoil: 20
   BulletPrefab: {fileID: 7518445428294976185, guid: 12c7f767dcff8ff47a10b2c1583c2b9c,
