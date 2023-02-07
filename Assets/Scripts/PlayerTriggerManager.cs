@@ -59,20 +59,18 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             Debug.Log("sa");
             //change the bounds of the move;
-            playerFallScript.tunnelBottomLimit = playerFlyingScript.botLimit;
-            playerFallScript.tunnelTopLimit = playerFlyingScript.topLimit;
-            playerFallScript.tunnelLeftLimit = playerFlyingScript.leftLimit;
-            playerFallScript.tunnelRightLimit = playerFlyingScript.rightLimit;
+            playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
+            playerFallScript.distanceBetweenZ = playerFlyingScript.distanceBetweenZ;
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){
-           float x = GunManager.Instance.ActiveGun.ShootingConfig.FireRate;
+           float x = GunManager.Instance.currentFireRate;
            
-           GunManager.Instance.decreaseAmount = GunManager.Instance.ActiveGun.ShootingConfig.FireRate * 0.8f;
+           GunManager.Instance.inGameFireRateDecreaseAmount = GunManager.Instance.currentFireRate * 0.2f;
            yield return new WaitForSeconds(3);
-           GunManager.Instance.decreaseAmount = 0;
+           GunManager.Instance.inGameFireRateDecreaseAmount = 0;
     }
     public IEnumerator ObstacleHit(){
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
