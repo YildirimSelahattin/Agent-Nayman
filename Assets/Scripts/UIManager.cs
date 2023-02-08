@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     int isSoundOn;
     int isMusicOn;
     int isVibrateOn;
+    
     public GameObject Heli;
     public ParticleSystem windEffect;
     public GameObject startScreen;
@@ -41,18 +42,15 @@ public class UIManager : MonoBehaviour
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
-        //OnTapToStartButtonClicked();
+     
     }
     public void OnTapToStartButtonClicked()
     {
-        
-        Debug.Log("sa");
         windEffect.gameObject.SetActive(true);
         windEffect.Play();
         startScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
-        Heli.SetActive(false);
-        
+        Heli.SetActive(false);   
     }
     public void LoadSceneButton()
     {
