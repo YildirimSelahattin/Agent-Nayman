@@ -16,6 +16,7 @@ MonoBehaviour:
   Name: RayGun
   ModelPrefab: {fileID: 2829714895060746342, guid: 303c977d49de92f49a7bcf628233fa07,
     type: 3}
-  SpawnPoint: {x: 0.0056, y: -0.0111, z: 0.0282}
-  SpawnRotation: {x: 55.146, y: -0.198, z: 89.837}
+  SpawnPoint: {x: -2.93, y: 11.8, z: -15.37}
+  SpawnRotation: {x: -53.594, y: 124.278, z: -86.226}
   ShootingConfig: {fileID: 11400000, guid: 6211e18ff5b8e4242be2b1acae52020d, type: 2}
+  Model: {fileID: 0}

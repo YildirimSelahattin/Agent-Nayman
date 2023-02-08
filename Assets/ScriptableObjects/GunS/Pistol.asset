@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Pistol
   ModelPrefab: {fileID: 912821060023562314, guid: b536fda68ef5fe84282d5f51573e269c,
     type: 3}
-  SpawnPoint: {x: 0.02033, y: 0, z: 0.02751}
+  SpawnPoint: {x: 0, y: 0, z: 0}
   SpawnRotation: {x: 65, y: -22.006, z: 38.514}
   ShootingConfig: {fileID: 11400000, guid: f872f77b58942d442aeeed45b2df7fbc, type: 2}
   Model: {fileID: 0}
