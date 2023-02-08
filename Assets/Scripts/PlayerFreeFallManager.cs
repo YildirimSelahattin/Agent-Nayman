@@ -50,6 +50,10 @@ public class PlayerFreeFallManager : MonoBehaviour
 
         CityPrefabManager cityPrefabScript = GameManager.Instance.currentCity.GetComponent<CityPrefabManager>();
         targetBuilding = cityPrefabScript.GetRandomLandableBuilding();
+        leftLimit = cityPrefabScript.LeftLimit.transform;
+        topLimit = cityPrefabScript.TopLimit.transform;
+        botLimit = cityPrefabScript.BotLimit.transform;
+        rightLimit = cityPrefabScript.RightLimit.transform;
 
         
 
@@ -70,6 +74,7 @@ public class PlayerFreeFallManager : MonoBehaviour
             EnvironmentMover.Instance.forwardMoveSpeed *= 0.5f;
         });
         PlayerManager.Instance.myAnimator.SetBool("isParachuteOpen", true);
+        OpenArrows();
     }
 
     void Update()
@@ -77,9 +82,10 @@ public class PlayerFreeFallManager : MonoBehaviour
         if (Input.touchCount > 0 )
         {
             Touch curTouch = Input.GetTouch(0);
-            float x = (curTouch.deltaPosition.x * distanceBetweenX / (screenWidth));
-            float z =(curTouch.deltaPosition.y * distanceBetweenZ / (screenHeigth));
-
+            float x =(curTouch.position.x-screenWidth/2) * distanceBetweenX / (screenWidth);
+            x /= 10;
+            float z =(curTouch.position.y-screenHeigth/2) * distanceBetweenZ / (screenHeigth);
+            z /= 10;
             Vector3 playVelocity = new Vector3(x, 0, z);
             Vector3 tempLoc = playVelocity + transform.localPosition;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
