@@ -112,28 +112,43 @@ public class PlayerFreeFallManager : MonoBehaviour
         float distanceBetweenHorizontal = transform.position.x - targetBuilding.transform.position.x;
         float distanceBetweenVertical = transform.position.z - targetBuilding.transform.position.x;
 
-        //Horizontal adjustments
-        if (transform.position.x > targetBuilding.transform.position.x)
+        if (Mathf.Abs(targetBuilding.transform.position.x - transform.position.x) < 50)
         {
-            leftArrow.SetActive(true);
-            rightArrow.SetActive(false);
+            //Horizontal adjustments
+            if (transform.position.x > targetBuilding.transform.position.x)
+            {
+                leftArrow.SetActive(true);
+                rightArrow.SetActive(false);
+            }
+            else if (transform.position.x < targetBuilding.transform.position.x)
+            {
+                rightArrow.SetActive(true);
+                leftArrow.SetActive(false);
+            }
         }
-        else if (transform.position.x < targetBuilding.transform.position.x)
+        else
         {
-            rightArrow.SetActive(true);
             leftArrow.SetActive(false);
+            rightArrow.SetActive(false);
         }
 
         //Vectical adjustments,
-
-        if (transform.position.z > targetBuilding.transform.position.z)
+        if (Mathf.Abs(targetBuilding.transform.position.z - transform.position.z) < 50)
+        {
+            if (transform.position.z > targetBuilding.transform.position.z)
+            {
+                upArrow.SetActive(false);
+                botArrow.SetActive(true);
+            }
+            else if (transform.position.z > targetBuilding.transform.position.z)
+            {
+                upArrow.SetActive(true);
+                botArrow.SetActive(false);
+            }
+        }
+        else
         {
             upArrow.SetActive(false);
-            botArrow.SetActive(true);
-        }
-        else if (transform.position.z > targetBuilding.transform.position.z)
-        {
-            upArrow.SetActive(true);
             botArrow.SetActive(false);
         }
     }
