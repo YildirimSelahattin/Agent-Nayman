@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using static UnityEngine.Rendering.DebugUI;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 

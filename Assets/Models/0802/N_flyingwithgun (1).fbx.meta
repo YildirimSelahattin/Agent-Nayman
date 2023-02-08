@@ -63,7 +63,47 @@ ModelImporter:
   - first:
       74: 1343085272983370965
     second: "polySurface13_lambert7_0.001|\xE7\xF6p_7"
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame.001
+    second: {fileID: 2100000, guid: 6aa31c9eeb505d64db1e5177f9cc9818, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame.002
+    second: {fileID: 2100000, guid: d1b06464bb6a97648b7670c49085ceb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame.003
+    second: {fileID: 2100000, guid: 7a8fcc0b57278944b86b100cc961955e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: a9ab734a19248b441a10f7f41ba28199, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: c74e7ae2a3efb2343a1f92564bd2e072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: bb32a7e748132c9489a4c6ffdb72ae18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6.002
+    second: {fileID: 2100000, guid: 7914f7e4af019b8469040275dd77ee7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7.002
+    second: {fileID: 2100000, guid: 94007c7701d344a4a8e581f4f1c1d07a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
