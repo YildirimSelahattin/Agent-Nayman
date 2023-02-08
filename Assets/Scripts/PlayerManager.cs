@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
         distanceBetweenZ = Mathf.Abs(topLimit.position.z - botLimit.position.z);
+        
     }
     
     void Update()
