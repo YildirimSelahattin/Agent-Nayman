@@ -10,7 +10,7 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject[] fireRateLevelCirclesParent;
     [SerializeField] GameObject[] damageLevelCirclesParent;
     [SerializeField] GameObject verticalLayoutGroup;
-    
+    [SerializeField] GameObject[] closedImages; 
     Sprite openedSprite;
     Sprite closedSprite;
     float sizeOfGunPanel = 700;
@@ -84,4 +84,22 @@ public class UpgradePanelManager : MonoBehaviour
         damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
     }
 
+    public void ControllIsUpgradesFinished()
+    {
+        if(gunConfigsArray.Length != GameDataManager.Instance.currentGun - 1)//if it is not the last gun
+        {
+            if(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel == 5 && gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel == 5)//open new Gun
+            {
+                StartCoroutine( OpenNextGunAnim());
+            }
+        }
+    }
+
+    public IEnumerator OpenNextGunAnim()
+    {
+        yield return new WaitForSeconds(1f);
+        GameDataManager.Instance.currentGun++;
+        verticalLayoutGroup.transform.DOMoveY(GameDataManager.Instance.currentGun*700,0.5f);//move panel to the opened guns panel
+        closedImages[GameDataManager.Instance.currentGun].SetActive(false);
+    }
 }
