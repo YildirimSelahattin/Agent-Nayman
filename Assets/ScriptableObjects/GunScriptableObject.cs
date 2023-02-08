@@ -84,10 +84,10 @@ public class GunScriptableObject : ScriptableObject
       
         Destroy(enemybulletTemp);
 
-        Debug.Log("merhaba");
+      
     });
 
-  Debug.Log("DoMoveY sonrasi debug");
+  
 
    
   } 
