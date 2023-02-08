@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
+        Health = 100f;
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         screenWidth = Screen.width;
