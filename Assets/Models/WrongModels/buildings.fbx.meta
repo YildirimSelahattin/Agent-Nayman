@@ -3,7 +3,57 @@ guid: e71868ecdc6aef649bcf773f85c43c4f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_stair
+    second: {fileID: 2100000, guid: 77cfeaadfb4511f48811fbc1c4e9f988, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body1
+    second: {fileID: 2100000, guid: d2367d3bba9be1b43bc2be4e3d8b97a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body2
+    second: {fileID: 2100000, guid: 1020d4028dec1014aa64f61b2adf1912, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: border
+    second: {fileID: 2100000, guid: 8bfbfcc91b31ecf4fb7e4d77ff7df341, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame
+    second: {fileID: 2100000, guid: 9f2bce918f20ed24cb9dff924fa94986, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame2
+    second: {fileID: 2100000, guid: 5221fbd1c15fa974192d2ae59461c853, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: d008279e13b119c429f31ef670049e29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trim
+    second: {fileID: 2100000, guid: 5cd070bb2dee5234880bff4a28175baa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window
+    second: {fileID: 2100000, guid: aa78ea4c347f34e44a247d9da1c98bde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2
+    second: {fileID: 2100000, guid: a274773d0d0a6a34d9e456ba94ec7cc6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

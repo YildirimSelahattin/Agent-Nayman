@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lambert6.002
+  m_Name: base_stair
   m_Shader: {fileID: 4800000, guid: bcda9a4af3b5d8246a2910cff3e5af44, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -67,23 +67,23 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.39999998
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimMax: 0.942
-    - _RimMin: 0.82
+    - _RimMax: 1
+    - _RimMin: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.102382414, g: 0.10340741, b: 0.10653506, a: 1}
+    - _Color: {r: 0.3882353, g: 0.4, b: 0.44705883, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
-    - _SColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SColor: {r: 0.29999998, g: 0.29999998, b: 0.29999998, a: 1}
   m_BuildTextureStacks: []
