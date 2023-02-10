@@ -18,7 +18,7 @@ public class PlayerFreeFallManager : MonoBehaviour
     float screenWidth;
     float screenHeigth;
     public float distanceBetweenX;
-    public float distanceBetweenZ;
+    public float distanceBetweenY;
     public Transform startPos;
 
     public GameObject agentParachute;
@@ -84,12 +84,12 @@ public class PlayerFreeFallManager : MonoBehaviour
             Touch curTouch = Input.GetTouch(0);
             float x =(curTouch.position.x-screenWidth/2) * distanceBetweenX / (screenWidth);
             x /= 10;
-            float z =(curTouch.position.y-screenHeigth/2) * distanceBetweenZ / (screenHeigth);
-            z /= 10;
-            Vector3 playVelocity = new Vector3(x, 0, z);
+            float y =(curTouch.position.y-screenHeigth/2) * distanceBetweenY / (screenHeigth);
+            y /= 10;
+            Vector3 playVelocity = new Vector3(x, y,0);
             Vector3 tempLoc = playVelocity + transform.localPosition;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
-            tempLoc.z = Mathf.Clamp(tempLoc.z, botLimit.position.z, topLimit.position.z);
+            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
             transform.localPosition = tempLoc;
 
             OpenArrows();

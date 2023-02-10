@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     float screenWidth;
     float screenHeigth;
     public float distanceBetweenX;
-    public float distanceBetweenZ;
+    public float distanceBetweenY;
     public Transform startPos;
     [Header("AgentProperties")]
     [Range(0f,1f)] public float maxSpeed;
@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     public Transform path;
     private Rigidbody rb;
     [SerializeField] public  GameObject agent;
+    [SerializeField]  GameObject flyingAgentModel;
     public ParticleSystem CollideParticle;
     public ParticleSystem Dust;
     [SerializeField] LayerMask EnemyMask;
@@ -39,6 +40,7 @@ public class PlayerManager : MonoBehaviour
     public Vector3 wantedRotationFlying;
     public EnvironmentMover environmentMoveScript;
     public PlayerFreeFallManager fallMoveScript;
+    public GameObject startPoseAgent;
 
     public float Health ;
     public float Shield ;
@@ -54,8 +56,9 @@ public class PlayerManager : MonoBehaviour
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
-        distanceBetweenZ = Mathf.Abs(topLimit.position.y - botLimit.position.y);
-     
+        distanceBetweenY = Mathf.Abs(topLimit.position.y - botLimit.position.y);
+        
+
     }
     
     void Update()
@@ -63,14 +66,14 @@ public class PlayerManager : MonoBehaviour
         if (Input.touchCount > 0 && gameStarted == true)
         {
             Touch curTouch = Input.GetTouch(0);
-            float x = (curTouch.deltaPosition.x * distanceBetweenX/(screenWidth));
-            float y= (curTouch.deltaPosition.y * distanceBetweenZ/(screenHeigth));
+            float x =(curTouch.deltaPosition.x * distanceBetweenX/(screenWidth));
+            float y= (curTouch.deltaPosition.y * distanceBetweenY/(screenHeigth));
 
             Vector3 playVelocity = new Vector3(x, y, 0);
-            Vector3 tempLoc =  playVelocity + transform.localPosition ;
+            Vector3 tempLoc =  playVelocity + transform.position ;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
-            tempLoc.z = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
-            transform.localPosition = tempLoc;
+            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
+            transform.position = tempLoc;
         }
     }
 
@@ -87,6 +90,8 @@ public class PlayerManager : MonoBehaviour
     public void StartFalling()
     {
         gameStarted=true;
+        startPoseAgent.SetActive(false);
+        flyingAgentModel.SetActive(true);
         Health = GameDataManager.Instance.playerHealth;
         Shield = GameDataManager.Instance.playerShield;
         if (Shield> 0)

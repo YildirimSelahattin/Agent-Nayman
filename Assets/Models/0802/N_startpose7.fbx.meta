@@ -3,7 +3,87 @@ guid: 7712614965feed944b819b8cb8a72a7b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame.004
+    second: {fileID: 2100000, guid: 8e0f04393ca1eac47894bb90584e623d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame.005
+    second: {fileID: 2100000, guid: e048215d914db4a4a910a6b8339183a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 13032a15e1a9bc34b9674e02b3c2bd9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: e2c2453c15eacef4c94939614824772e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 00bf87d45a973e940b7b374f2b6b9d76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 6aaa4aaa8a01db242885deed6cff0487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: basematerial
+    second: {fileID: 2100000, guid: 2587ecbb903887147af75c9fb598a1d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bmat
+    second: {fileID: 2100000, guid: 643b44860ff40b6488dc8b10c08a2047, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: d2233bc01cdf5c942b78033aa3a03132, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grate
+    second: {fileID: 2100000, guid: 496825fd45194ac458b354b7824faf11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6.002
+    second: {fileID: 2100000, guid: fad1d0aeefd899247b0b6def8ec33275, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7.002
+    second: {fileID: 2100000, guid: 459c4a735d370b84293ec40b971c7f5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights
+    second: {fileID: 2100000, guid: 220f97bb25b954f42ac5a124ad6fbfb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber
+    second: {fileID: 2100000, guid: 66d4b873b5e529f4face5c4a7a91be9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: steel.001
+    second: {fileID: 2100000, guid: 6bceef75d3bd3384ba4fee25056f18cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trim
+    second: {fileID: 2100000, guid: e46049d5d36980749914afb4daee9866, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

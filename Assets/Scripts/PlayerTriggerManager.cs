@@ -60,7 +60,7 @@ public class PlayerTriggerManager : MonoBehaviour
             Debug.Log("sa");
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
-            playerFallScript.distanceBetweenZ = playerFlyingScript.distanceBetweenZ;
+            playerFallScript.distanceBetweenY = playerFlyingScript.distanceBetweenY;
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
         }
