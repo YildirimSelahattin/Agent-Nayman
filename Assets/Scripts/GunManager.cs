@@ -20,8 +20,15 @@ public class GunManager : MonoBehaviour
         if(Instance ==null){
             Instance = this;
         }
+        if (Guns[GameDataManager.Instance.currentGun].ShootingConfig.isAvaliable == true)
+        {
+            Debug.Log("asa");
+            GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
+        }
+        SpawnGun((GunTypes)GameDataManager.Instance.currentGun);
         EditCurrentDamage();
         EditCurrentFireRate();
+        
     }
     private void Update() {
         if(PlayerManager.Instance.gameStarted == true)
@@ -36,7 +43,9 @@ public class GunManager : MonoBehaviour
         
     }
     public void SpawnGun(GunTypes gunType){
+      
         GunScriptableObject gun = Guns.Find(gun => gun.Type == gunType);
+        
         ActiveGun = gun;
         gun.Spawn(GunParent,this);
         currentFireRate = ActiveGun.ShootingConfig.baseFireRate * (Mathf.Pow(ActiveGun.ShootingConfig.fireRateIncreasePercentagePerLevel, ActiveGun.ShootingConfig.fireRateLevel));

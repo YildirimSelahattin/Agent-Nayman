@@ -109,8 +109,6 @@ public class PlayerFreeFallManager : MonoBehaviour
 
     public void OpenArrows()
     {
-        float distanceBetweenHorizontal = transform.position.x - targetBuilding.transform.position.x;
-        float distanceBetweenVertical = transform.position.z - targetBuilding.transform.position.x;
 
         if (Mathf.Abs(targetBuilding.transform.position.x - transform.position.x) < 50)
         {
@@ -133,14 +131,14 @@ public class PlayerFreeFallManager : MonoBehaviour
         }
 
         //Vectical adjustments,
-        if (Mathf.Abs(targetBuilding.transform.position.z - transform.position.z) < 50)
+        if (Mathf.Abs(targetBuilding.transform.position.y - transform.position.y) < 50)
         {
-            if (transform.position.z > targetBuilding.transform.position.z)
+            if (transform.position.y > targetBuilding.transform.position.y)
             {
                 upArrow.SetActive(false);
                 botArrow.SetActive(true);
             }
-            else if (transform.position.z > targetBuilding.transform.position.z)
+            else if (transform.position.y > targetBuilding.transform.position.y)
             {
                 upArrow.SetActive(true);
                 botArrow.SetActive(false);

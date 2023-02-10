@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class UpgradePanelManager : MonoBehaviour
 {
+    //yuvarlaklar closed gelecek
     // Start is called before the first frame update
     [SerializeField] GameObject[] fireRateLevelCirclesParent;
     [SerializeField] GameObject[] damageLevelCirclesParent;
     [SerializeField] GameObject verticalLayoutGroup;
-    [SerializeField] GameObject[] closedImages; 
-    Sprite openedSprite;
-    Sprite closedSprite;
+    [SerializeField] GameObject[] closedImages;
+    [SerializeField] Button[] FireRateButtons;
+    [SerializeField] Button[] damageButtons; 
+    public Sprite openedSprite;
+    public Sprite closedSprite;
     float sizeOfGunPanel = 700;
     public ShootingConfig[] gunConfigsArray;
    
@@ -20,7 +23,9 @@ public class UpgradePanelManager : MonoBehaviour
     void Start()
     {
 
-        verticalLayoutGroup.transform.localPosition = new Vector3(0, GameDataManager.Instance.currentGun * 700,0);
+        verticalLayoutGroup.transform.localPosition = new Vector3(0, GameDataManager.Instance.currentGun * sizeOfGunPanel, 0);
+        GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
+        
         EditCurrentGunPanel();
     }
 
@@ -35,7 +40,7 @@ public class UpgradePanelManager : MonoBehaviour
     public void onUpArrowButtonClicked()
     {
         GameDataManager.Instance.currentGun--;
-        verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun * 700,1);
+        verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun * sizeOfGunPanel, 1);
         EditCurrentGunPanel();
         GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
         if (gunConfigsArray[GameDataManager.Instance.currentGun].isAvaliable == true)
@@ -46,7 +51,7 @@ public class UpgradePanelManager : MonoBehaviour
     public void onDownArrowButtonClicked()
     {
         GameDataManager.Instance.currentGun++;
-        verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun * 700,1);
+        verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun * sizeOfGunPanel, 1);
         EditCurrentGunPanel();
         GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
         if (gunConfigsArray[GameDataManager.Instance.currentGun].isAvaliable == true)
@@ -75,6 +80,11 @@ public class UpgradePanelManager : MonoBehaviour
         gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel++;
         GunManager.Instance.EditCurrentFireRate();
         fireRateLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
+        if (gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel == 5)
+        {
+            FireRateButtons[GameDataManager.Instance.currentGun].interactable = false;
+            ControllIsUpgradesFinished();
+        }
     }
     public void OnUpgradeDamageClicked()
     {
@@ -82,15 +92,20 @@ public class UpgradePanelManager : MonoBehaviour
         gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel++;
         GunManager.Instance.EditCurrentDamage();
         damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
+        if (gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel == 5)
+        {
+            damageButtons[GameDataManager.Instance.currentGun].interactable = false;
+            ControllIsUpgradesFinished();
+        }
     }
 
     public void ControllIsUpgradesFinished()
     {
         if(gunConfigsArray.Length != GameDataManager.Instance.currentGun - 1)//if it is not the last gun
         {
-            if(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel == 5 && gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel == 5)//open new Gun
+            if(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel == 5 && gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel == 5 && GameDataManager.Instance.currentGun != 2) //open new Gun
             {
-                StartCoroutine( OpenNextGunAnim());
+                StartCoroutine(OpenNextGunAnim());
             }
         }
     }
@@ -99,7 +114,8 @@ public class UpgradePanelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         GameDataManager.Instance.currentGun++;
-        verticalLayoutGroup.transform.DOMoveY(GameDataManager.Instance.currentGun*700,0.5f);//move panel to the opened guns panel
+        Debug.Log(GameDataManager.Instance.currentGun* sizeOfGunPanel);
+        verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun* sizeOfGunPanel, 3f);//move panel to the opened guns panel
         closedImages[GameDataManager.Instance.currentGun].SetActive(false);
     }
 }
