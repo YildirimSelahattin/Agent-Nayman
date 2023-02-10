@@ -23,11 +23,12 @@ public class GunManager : MonoBehaviour
         if (Guns[GameDataManager.Instance.currentGun].ShootingConfig.isAvaliable == true)
         {
             Debug.Log("asa");
-            GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
+
+            GunManager.Instance.SpawnGun((GunTypes)GameDataManager.Instance.currentGun);
         }
-        SpawnGun((GunTypes)GameDataManager.Instance.currentGun);
         EditCurrentDamage();
         EditCurrentFireRate();
+
         
     }
     private void Update() {

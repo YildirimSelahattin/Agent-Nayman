@@ -13,9 +13,14 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject verticalLayoutGroup;
     [SerializeField] GameObject[] closedImages;
     [SerializeField] Button[] FireRateButtons;
-    [SerializeField] Button[] damageButtons; 
+    [SerializeField] Button[] damageButtons;
+    [SerializeField] GameObject avatarViewport;
+    [SerializeField] GameObject weaponViewport;
+    [SerializeField] GameObject weaponButton;
+    [SerializeField] GameObject avatarButton;
     public Sprite openedSprite;
     public Sprite closedSprite;
+    public PlayerManager playerManager;
     float sizeOfGunPanel = 700;
     public ShootingConfig[] gunConfigsArray;
    
@@ -62,17 +67,21 @@ public class UpgradePanelManager : MonoBehaviour
 
     public void EditCurrentGunPanel()
     {
-        int fireRateLevel = gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel;
-        int damageLevel = gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel;
-        //fireRateCircles
-        for(int i = 0; i < fireRateLevel; i++)
+        if (weaponViewport.active)//if we are on gun panel side 
         {
-            fireRateLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
+            int fireRateLevel = gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel;
+            int damageLevel = gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel;
+            //fireRateCircles
+            for (int i = 0; i < fireRateLevel; i++)
+            {
+                fireRateLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
+            }
+            for (int i = 0; i < damageLevel; i++)
+            {
+                damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
+            }
         }
-        for (int i = 0; i < damageLevel; i++)
-        {
-            damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
-        }
+        //upgrading avatar TODO
     }
     public void OnUpgradeFireRateClicked()
     {
@@ -98,7 +107,16 @@ public class UpgradePanelManager : MonoBehaviour
             ControllIsUpgradesFinished();
         }
     }
-
+    public void OnUpgradeHealthClicked()
+    {
+        GameDataManager.Instance.playerHealth*= 10;
+        GameDataManager.Instance.playerHealthLevel++;
+    }
+    public void OnUpgradeShieldClicked()
+    {
+        GameDataManager.Instance.playerShield *= 10;
+        GameDataManager.Instance.playerShieldLevel++;
+    }
     public void ControllIsUpgradesFinished()
     {
         if(gunConfigsArray.Length != GameDataManager.Instance.currentGun - 1)//if it is not the last gun
@@ -117,5 +135,17 @@ public class UpgradePanelManager : MonoBehaviour
         Debug.Log(GameDataManager.Instance.currentGun* sizeOfGunPanel);
         verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun* sizeOfGunPanel, 3f);//move panel to the opened guns panel
         closedImages[GameDataManager.Instance.currentGun].SetActive(false);
+    }
+
+    public void OnAvatarButtonClicked()
+    {
+        avatarViewport.SetActive(true);
+        weaponViewport.SetActive(false);
+    }
+
+    public void OnWeaponButtonClicked()
+    {
+        avatarViewport.SetActive(false);
+        weaponViewport.SetActive(true);
     }
 }

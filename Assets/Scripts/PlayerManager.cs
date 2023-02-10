@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     [Range(0f, 50f)] public float pathSpeed;
     [Range(0f, 1000f)] public float agentRotateSpeed;
     public ParticleSystem agentTrail;
+    public GameObject shieldGameObject;
 
 
     private float velocity, camVelocity_x,camVelocity_y;
@@ -39,7 +40,8 @@ public class PlayerManager : MonoBehaviour
     public EnvironmentMover environmentMoveScript;
     public PlayerFreeFallManager fallMoveScript;
 
-    public float Health = 100f;
+    public float Health ;
+    public float Shield ;
     void Start()
     {
         if(Instance == null)
@@ -53,7 +55,7 @@ public class PlayerManager : MonoBehaviour
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
         distanceBetweenZ = Mathf.Abs(topLimit.position.y - botLimit.position.y);
-        
+     
     }
     
     void Update()
@@ -85,6 +87,12 @@ public class PlayerManager : MonoBehaviour
     public void StartFalling()
     {
         gameStarted=true;
+        Health = GameDataManager.Instance.playerHealth;
+        Shield = GameDataManager.Instance.playerShield;
+        if (Shield> 0)
+        {
+            shieldGameObject.SetActive(true);
+        }
         myAnimator.SetBool("isStarted", true); // startFlying
         agent.transform.DOMove(startPos.position, 0.5f);
         agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>
@@ -97,12 +105,23 @@ public class PlayerManager : MonoBehaviour
         });
 
     }
-    public void getHit(float damage){
+    public void getHit(float damage) {
+        if (Shield > 0)
+        {//if player has shield
+            Shield -= damage;
+            if (Shield < 0)
+            {
+                Health -= Shield;
+                Shield = 0;
+                //closeshield
+            }
+        }
+        else {
+            Health -= damage;
+        }
 
-    Health -= damage;
-    
-    if (Health <= 0)
-    {
+        if (Health<= 0)
+         {
         
         float x = this.gameObject.transform.position.x+Random.Range(-7,7);
         float y = this.gameObject.transform.position.y-8f;

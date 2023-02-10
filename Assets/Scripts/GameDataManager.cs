@@ -11,7 +11,11 @@ public class GameDataManager : MonoBehaviour
     public int playVibrate;
     public int levelToLoad;
     public int money = 0;
-    public int currentGun; 
+    public int currentGun;
+    public float playerHealth;
+    public float playerShield;
+    public int playerHealthLevel;
+    public int playerShieldLevel;
     // Start is called before the first frame update
 
     void Awake()
@@ -34,6 +38,10 @@ public class GameDataManager : MonoBehaviour
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);
         currentGun = PlayerPrefs.GetInt("CurrentGun",0);
+        playerHealth = PlayerPrefs.GetInt("PLayerHealth",100);
+        playerShield = PlayerPrefs.GetInt("PlayerShield", 10);
+        playerHealthLevel = PlayerPrefs.GetInt("PlayerHealthLevel",0);
+        playerShieldLevel = PlayerPrefs.GetInt("PlayerShieldLevel",0);
     }
   
 
@@ -45,5 +53,9 @@ public class GameDataManager : MonoBehaviour
         PlayerPrefs.SetInt("PlaySoundKey", playSound);
         PlayerPrefs.SetInt("PlayMusicKey", playMusic);
         PlayerPrefs.SetInt("PlayVibrateKey", playVibrate);
+        playerHealth = PlayerPrefs.GetInt("PLayerHealth", 100);
+        playerShield = PlayerPrefs.GetInt("PlayerShield", 0);
+        playerHealthLevel = PlayerPrefs.GetInt("PlayerHealthLevel", 0);
+        playerShieldLevel = PlayerPrefs.GetInt("PlayerShieldLevel", 0);
     }
 }
