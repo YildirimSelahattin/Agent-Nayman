@@ -44,7 +44,8 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("SpeedUp"))
         {
             //speed up real speed 
-            EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+            StartCoroutine(SpeedUpForSomeTime());
+            //EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
             //speed up wind
             var main = windEffectParticleSystem.main;
             main.simulationSpeed= 10;
@@ -59,7 +60,7 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("EndOfFlying"))
         {
             Debug.Log("sa"); 
-            
+
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
             playerFallScript.distanceBetweenY = playerFlyingScript.distanceBetweenY;
@@ -73,6 +74,16 @@ public class PlayerTriggerManager : MonoBehaviour
            GunManager.Instance.inGameFireRateDecreaseAmount = GunManager.Instance.currentFireRate * 0.2f;
            yield return new WaitForSeconds(3);
            GunManager.Instance.inGameFireRateDecreaseAmount = 0;
+    }
+    public IEnumerator SpeedUpForSomeTime(){
+           float speed = EnvironmentMover.Instance.forwardMoveSpeed;
+           
+           
+           float tempspeed = speed*1.5f;
+           EnvironmentMover.Instance.forwardMoveSpeed = tempspeed;
+           yield return new WaitForSeconds(3);
+           EnvironmentMover.Instance.forwardMoveSpeed = speed;
+
     }
     public IEnumerator ObstacleHit(){
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
