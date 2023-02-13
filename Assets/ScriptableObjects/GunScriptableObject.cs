@@ -62,7 +62,7 @@ public class GunScriptableObject : ScriptableObject
     GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.GetChild(0).transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float yspawn;
 
-     yspawn  = SpawnPoint.z - 30f;
+     yspawn  = SpawnPoint.z -30f;
     
 
     

@@ -64,13 +64,11 @@ public class PlayerManager : MonoBehaviour
         if (Input.touchCount > 0 && gameStarted == true)
         {
             Touch curTouch = Input.GetTouch(0);
-            float x =(curTouch.position.x * distanceBetweenX/screenWidth)/5;
-            float y= (curTouch.position.y * distanceBetweenY/screenHeigth)/5;
-
+            float x =(curTouch.deltaPosition.x * distanceBetweenX/screenWidth);
+            float y= (curTouch.deltaPosition.y * distanceBetweenY/screenHeigth);
+            Debug.Log((curTouch.deltaPosition.x * distanceBetweenX / screenWidth) + "," + (curTouch.deltaPosition.y * distanceBetweenY / screenHeigth));
             Vector3 playVelocity = new Vector3(x, y, 0);
-            Vector3 tempLoc =  playVelocity + transform.position ;
-            tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
-            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
+            Vector3 tempLoc =  playVelocity + transform.position;
             transform.position = tempLoc;
         }
     }
