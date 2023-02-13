@@ -4,21 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - FxTemporaire
   - green
   - red
+  - Bullet
+  - Enemy
+  - Obstacle
+  - FireSpeedUp
+  - Health
+  - EndOfFlying
+  - SpeedUp
   - yellow
   - blue
-  - parachute
   - particle
   - Money
-  - FxTemporaire
-  - Obstacle
-  - Enemy
-  - Bullet
-  - SpeedUp
-  - FireSpeedUp
-  - EndOfFlying
-  - Health
   layers:
   - Default
   - TransparentFX
@@ -26,7 +25,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemy
+  - 
   - 
   - 
   - 

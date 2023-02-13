@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using static UnityEngine.Rendering.DebugUI;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     float screenWidth;
     float screenHeigth;
     public float distanceBetweenX;
-    public float distanceBetweenZ;
+    public float distanceBetweenY;
     public Transform startPos;
     [Header("AgentProperties")]
     [Range(0f,1f)] public float maxSpeed;
@@ -23,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     [Range(0f, 50f)] public float pathSpeed;
     [Range(0f, 1000f)] public float agentRotateSpeed;
     public ParticleSystem agentTrail;
+    public GameObject shieldGameObject;
 
 
     private float velocity, camVelocity_x,camVelocity_y;
@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     public Transform path;
     private Rigidbody rb;
     [SerializeField] public  GameObject agent;
+    [SerializeField]  GameObject flyingAgentModel;
     public ParticleSystem CollideParticle;
     public ParticleSystem Dust;
     [SerializeField] LayerMask EnemyMask;
@@ -39,8 +40,10 @@ public class PlayerManager : MonoBehaviour
     public Vector3 wantedRotationFlying;
     public EnvironmentMover environmentMoveScript;
     public PlayerFreeFallManager fallMoveScript;
+    public GameObject startPoseAgent;
 
-    public float Health = 100f;
+    public float Health ;
+    public float Shield ;
     void Start()
     {
         if(Instance == null)
@@ -53,8 +56,7 @@ public class PlayerManager : MonoBehaviour
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
         distanceBetweenX = Mathf.Abs(leftLimit.position.x - rightLimit.position.x);
-        distanceBetweenZ = Mathf.Abs(topLimit.position.z - botLimit.position.z);
-        
+        distanceBetweenY = Mathf.Abs(topLimit.position.y - botLimit.position.y);
     }
     
     void Update()
@@ -62,14 +64,14 @@ public class PlayerManager : MonoBehaviour
         if (Input.touchCount > 0 && gameStarted == true)
         {
             Touch curTouch = Input.GetTouch(0);
-            float x = (curTouch.deltaPosition.x * distanceBetweenX/(screenWidth));
-            float z = (curTouch.deltaPosition.y * distanceBetweenZ/(screenHeigth));
+            float x =(curTouch.position.x * distanceBetweenX/screenWidth)/5;
+            float y= (curTouch.position.y * distanceBetweenY/screenHeigth)/5;
 
-            Vector3 playVelocity = new Vector3(x, 0, z);
-            Vector3 tempLoc =  playVelocity + transform.localPosition ;
+            Vector3 playVelocity = new Vector3(x, y, 0);
+            Vector3 tempLoc =  playVelocity + transform.position ;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x,rightLimit.position.x);
-            tempLoc.z = Mathf.Clamp(tempLoc.z, botLimit.position.z, topLimit.position.z);
-            transform.localPosition = tempLoc;
+            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
+            transform.position = tempLoc;
         }
     }
 
@@ -86,8 +88,16 @@ public class PlayerManager : MonoBehaviour
     public void StartFalling()
     {
         gameStarted=true;
+        startPoseAgent.SetActive(false);
+        flyingAgentModel.SetActive(true);
+        Health = GameDataManager.Instance.playerHealth;
+        Shield = GameDataManager.Instance.playerShield;
+        if (Shield> 0)
+        {
+            shieldGameObject.SetActive(true);
+        }
         myAnimator.SetBool("isStarted", true); // startFlying
-        agent.transform.DOMoveZ(startPos.position.z, 0.5f);
+        agent.transform.DOMove(startPos.position, 0.5f);
         agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>
         {
             agent.GetComponent<PlayerManager>().enabled = true;
@@ -98,12 +108,23 @@ public class PlayerManager : MonoBehaviour
         });
 
     }
-    public void getHit(float damage){
+    public void getHit(float damage) {
+        if (Shield > 0)
+        {//if player has shield
+            Shield -= damage;
+            if (Shield < 0)
+            {
+                Health -= Shield;
+                Shield = 0;
+                //closeshield
+            }
+        }
+        else {
+            Health -= damage;
+        }
 
-    Health -= damage;
-    
-    if (Health <= 0)
-    {
+        if (Health<= 0)
+         {
         
         float x = this.gameObject.transform.position.x+Random.Range(-7,7);
         float y = this.gameObject.transform.position.y-8f;

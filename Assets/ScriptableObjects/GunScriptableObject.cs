@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 [CreateAssetMenu (fileName = "Gun",menuName ="Guns/Gun", order = 0)]
 public class GunScriptableObject : ScriptableObject
@@ -27,7 +28,10 @@ public class GunScriptableObject : ScriptableObject
   public void Spawn(Transform Parent , MonoBehaviour ActiveMonoBehaviour){
     this.ActiveMonoBehaviour = ActiveMonoBehaviour;
     LastShootTime =0;
- 
+        if (Model != null)
+        {
+            Destroy(Model.gameObject);
+        }
     Model = Instantiate(ModelPrefab);
     Model.transform.SetParent(Parent, false);
     Model.transform.localPosition = SpawnPoint;
@@ -58,11 +62,11 @@ public class GunScriptableObject : ScriptableObject
     GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.GetChild(0).transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float yspawn;
 
-     yspawn  = SpawnPoint.y - 30f;
+     yspawn  = SpawnPoint.z - 30f;
     
 
     
-    bullet.transform.DOLocalMoveY(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
+    bullet.transform.DOLocalMoveZ(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
         Destroy(bullet);
     });
     float modely = gun.Model.transform.GetChild(0).gameObject.transform.localPosition.y + ShootingConfig.Recoil;
@@ -78,7 +82,7 @@ public class GunScriptableObject : ScriptableObject
   
     enemybulletTemp = Instantiate(ShootingConfig.BulletPrefab,EnemyManager.Instance.enemy.transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float newyspawn;
-    newyspawn  = gun.Model.transform.position.z + 30f;
+    newyspawn  = gun.Model.transform.position.y + 30f;
       Debug.Log(newyspawn);
     enemybulletTemp.transform.DOMoveZ(newyspawn,10f).OnComplete(()=>{
       

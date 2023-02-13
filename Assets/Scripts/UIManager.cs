@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     int isMusicOn;
     int isVibrateOn;
     
-    public GameObject Heli;
     public ParticleSystem windEffect;
     public GameObject startScreen;
     public GameObject endScreen;
@@ -50,7 +49,6 @@ public class UIManager : MonoBehaviour
         windEffect.Play();
         startScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
-        Heli.SetActive(false);   
     }
     public void LoadSceneButton()
     {

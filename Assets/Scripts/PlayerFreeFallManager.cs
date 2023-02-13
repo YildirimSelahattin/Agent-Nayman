@@ -18,7 +18,7 @@ public class PlayerFreeFallManager : MonoBehaviour
     float screenWidth;
     float screenHeigth;
     public float distanceBetweenX;
-    public float distanceBetweenZ;
+    public float distanceBetweenY;
     public Transform startPos;
 
     public GameObject agentParachute;
@@ -84,12 +84,12 @@ public class PlayerFreeFallManager : MonoBehaviour
             Touch curTouch = Input.GetTouch(0);
             float x =(curTouch.position.x-screenWidth/2) * distanceBetweenX / (screenWidth);
             x /= 10;
-            float z =(curTouch.position.y-screenHeigth/2) * distanceBetweenZ / (screenHeigth);
-            z /= 10;
-            Vector3 playVelocity = new Vector3(x, 0, z);
+            float y =(curTouch.position.y-screenHeigth/2) * distanceBetweenY / (screenHeigth);
+            y /= 10;
+            Vector3 playVelocity = new Vector3(x, y,0);
             Vector3 tempLoc = playVelocity + transform.localPosition;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
-            tempLoc.z = Mathf.Clamp(tempLoc.z, botLimit.position.z, topLimit.position.z);
+            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
             transform.localPosition = tempLoc;
 
             OpenArrows();
@@ -109,31 +109,44 @@ public class PlayerFreeFallManager : MonoBehaviour
 
     public void OpenArrows()
     {
-        float distanceBetweenHorizontal = transform.position.x - targetBuilding.transform.position.x;
-        float distanceBetweenVertical = transform.position.z - targetBuilding.transform.position.x;
 
-        //Horizontal adjustments
-        if (transform.position.x > targetBuilding.transform.position.x)
+        if (Mathf.Abs(targetBuilding.transform.position.x - transform.position.x) < 50)
         {
-            leftArrow.SetActive(true);
-            rightArrow.SetActive(false);
+            //Horizontal adjustments
+            if (transform.position.x > targetBuilding.transform.position.x)
+            {
+                leftArrow.SetActive(true);
+                rightArrow.SetActive(false);
+            }
+            else if (transform.position.x < targetBuilding.transform.position.x)
+            {
+                rightArrow.SetActive(true);
+                leftArrow.SetActive(false);
+            }
         }
-        else if (transform.position.x < targetBuilding.transform.position.x)
+        else
         {
-            rightArrow.SetActive(true);
             leftArrow.SetActive(false);
+            rightArrow.SetActive(false);
         }
 
         //Vectical adjustments,
-
-        if (transform.position.z > targetBuilding.transform.position.z)
+        if (Mathf.Abs(targetBuilding.transform.position.y - transform.position.y) < 50)
+        {
+            if (transform.position.y > targetBuilding.transform.position.y)
+            {
+                upArrow.SetActive(false);
+                botArrow.SetActive(true);
+            }
+            else if (transform.position.y > targetBuilding.transform.position.y)
+            {
+                upArrow.SetActive(true);
+                botArrow.SetActive(false);
+            }
+        }
+        else
         {
             upArrow.SetActive(false);
-            botArrow.SetActive(true);
-        }
-        else if (transform.position.z > targetBuilding.transform.position.z)
-        {
-            upArrow.SetActive(true);
             botArrow.SetActive(false);
         }
     }
