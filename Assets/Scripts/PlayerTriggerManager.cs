@@ -37,6 +37,7 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("Obstacle"))
         {            
+            Debug.Log("obstacle");
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
         }
@@ -57,7 +58,8 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("EndOfFlying"))
         {
-            Debug.Log("sa");
+            Debug.Log("sa"); 
+            
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
             playerFallScript.distanceBetweenY = playerFlyingScript.distanceBetweenY;
