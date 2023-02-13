@@ -64,11 +64,11 @@ public class GunManager : MonoBehaviour
     }*/
     public void EditCurrentFireRate()
     {
-        currentFireRate = ActiveGun.ShootingConfig.baseFireRate * (Mathf.Pow(ActiveGun.ShootingConfig.fireRateIncreasePercentagePerLevel, ActiveGun.ShootingConfig.fireRateLevel));
+        currentFireRate = ActiveGun.ShootingConfig.baseFireRate * ((Mathf.Pow(1-ActiveGun.ShootingConfig.fireRateIncreasePercentagePerLevel, ActiveGun.ShootingConfig.fireRateLevel)));
     }
    
     public void EditCurrentDamage()
     {
-        currentDamage = ActiveGun.ShootingConfig.BulletDamage * (Mathf.Pow(ActiveGun.ShootingConfig.damageIncreasePercentagePerLevel, ActiveGun.ShootingConfig.damageLevel));
+        currentDamage = ActiveGun.ShootingConfig.BulletDamage * (1+(1-Mathf.Pow(ActiveGun.ShootingConfig.damageIncreasePercentagePerLevel, ActiveGun.ShootingConfig.damageLevel)));
     }
 }

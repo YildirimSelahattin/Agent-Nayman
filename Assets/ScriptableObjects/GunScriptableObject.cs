@@ -62,11 +62,10 @@ public class GunScriptableObject : ScriptableObject
     GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.GetChild(0).transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float yspawn;
 
-     yspawn  = SpawnPoint.z - 30f;
+     yspawn  = PlayerManager.Instance.agent.transform.position.z + 30f;
     
-
-    
-    bullet.transform.DOLocalMoveZ(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
+    bullet.transform.DOMoveZ(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
+      
         Destroy(bullet);
     });
     float modely = gun.Model.transform.GetChild(0).gameObject.transform.localPosition.y + ShootingConfig.Recoil;
