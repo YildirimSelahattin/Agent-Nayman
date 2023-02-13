@@ -47,8 +47,8 @@ public class PlayerTriggerManager : MonoBehaviour
             StartCoroutine(SpeedUpForSomeTime());
             //EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
             //speed up wind
-            var main = windEffectParticleSystem.main;
-            main.simulationSpeed= 10;
+            //var main = windEffectParticleSystem.main;
+            //main.simulationSpeed= 10;
             Destroy(other.gameObject);
 
         }

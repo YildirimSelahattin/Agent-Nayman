@@ -88,8 +88,8 @@ public class PlayerFreeFallManager : MonoBehaviour
             y /= 10;
             Vector3 playVelocity = new Vector3(x, y,0);
             Vector3 tempLoc = playVelocity + transform.localPosition;
-            tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
-            tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
+            //tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
+            //tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
             transform.localPosition = tempLoc;
 
             OpenArrows();

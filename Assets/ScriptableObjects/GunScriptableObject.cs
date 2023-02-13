@@ -82,7 +82,7 @@ public class GunScriptableObject : ScriptableObject
     enemybulletTemp = Instantiate(ShootingConfig.BulletPrefab,EnemyManager.Instance.enemy.transform.position,ShootingConfig.BulletPrefab.transform.rotation);
     float newyspawn;
     newyspawn  = gun.Model.transform.position.y + 30f;
-      Debug.Log(newyspawn);
+     
     enemybulletTemp.transform.DOMoveZ(newyspawn,10f).OnComplete(()=>{
       
         Destroy(enemybulletTemp);
