@@ -35,10 +35,7 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("FireRateUp"))
         {
             StartCoroutine(FireSpeedUpForSomeTime());
-            
             Destroy(other.gameObject);
-           
-            
         }
         if (other.CompareTag("Obstacle"))
         {            
