@@ -27,6 +27,11 @@ public class PlayerTriggerManager : MonoBehaviour
             GameDataManager.Instance.money += 10;
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("Armor"))
+        {
+            PlayerManager.Instance.Shield += 15;
+           PlayerManager.Instance.shieldGameObject.SetActive(false);
+        }
         if (other.CompareTag("FireRateUp"))
         {
             StartCoroutine(FireSpeedUpForSomeTime());
@@ -41,17 +46,7 @@ public class PlayerTriggerManager : MonoBehaviour
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("SpeedUp"))
-        {
-            //speed up real speed 
-            StartCoroutine(SpeedUpForSomeTime());
-            //EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
-            //speed up wind
-            //var main = windEffectParticleSystem.main;
-            //main.simulationSpeed= 10;
-            Destroy(other.gameObject);
-
-        }
+        
         if (other.CompareTag("Health"))
         {
             PlayerManager.Instance.Health +=50f;
@@ -78,16 +73,7 @@ public class PlayerTriggerManager : MonoBehaviour
            yield return new WaitForSeconds(3);
            GunManager.Instance.inGameFireRateDecreaseAmount = 0;
     }
-    public IEnumerator SpeedUpForSomeTime(){
-           float speed = EnvironmentMover.Instance.forwardMoveSpeed;
-           
-           
-           float tempspeed = speed*1.5f;
-           EnvironmentMover.Instance.forwardMoveSpeed = tempspeed;
-           yield return new WaitForSeconds(3);
-           EnvironmentMover.Instance.forwardMoveSpeed = speed;
-
-    }
+    
     public IEnumerator ObstacleHit(){
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
            yield return new WaitForSeconds(1.2f);

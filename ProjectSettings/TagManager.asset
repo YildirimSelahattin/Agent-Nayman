@@ -18,6 +18,8 @@ TagManager:
   - blue
   - particle
   - Money
+  - FireRateUp
+  - Armor
   layers:
   - Default
   - TransparentFX
