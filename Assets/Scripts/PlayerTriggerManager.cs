@@ -62,6 +62,13 @@ public class PlayerTriggerManager : MonoBehaviour
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
         }
+        if (other.CompareTag("End"))
+        {
+            PlayerManager.Instance.environmentMoveScript.enabled = false;
+    PlayerManager.Instance.fallMoveScript.enabled=false;
+    PlayerManager.Instance.myAnimator.SetBool("isDead",true);
+PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
+        }
     }
     public IEnumerator FireSpeedUpForSomeTime(){
            float x = GunManager.Instance.currentFireRate;

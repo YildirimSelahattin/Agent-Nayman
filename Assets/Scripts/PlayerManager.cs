@@ -71,6 +71,8 @@ public class PlayerManager : MonoBehaviour
            // Debug.Log((curTouch.deltaPosition.x * distanceBetweenX / screenWidth) + "," + (curTouch.deltaPosition.y * distanceBetweenY / screenHeigth));
             Vector3 playVelocity = new Vector3(x, y, 0);
             Vector3 tempLoc =  playVelocity + transform.position;
+            tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
+            tempLoc.y = Mathf.Clamp(tempLoc.y , botLimit.position.y,topLimit.position.y);
             transform.position = tempLoc;
         }
     }
