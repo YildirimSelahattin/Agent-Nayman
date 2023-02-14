@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviour
 
     public float Health ;
     public float Shield ;
+     bool isAdPlayed = false;
+
     void Start()
     {
         if(Instance == null)
@@ -99,8 +101,8 @@ public class PlayerManager : MonoBehaviour
             shieldGameObject.SetActive(true);
         }
         myAnimator.SetBool("isStarted", true); // startFlying
-        agent.transform.DOMove(startPos.position, 0.5f);
-        agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>
+        agent.transform.DOMove(startPos.position, 3f);
+        agent.transform.DORotate(wantedRotationFlying, 2f).OnComplete(() =>
         {
             agent.GetComponent<PlayerManager>().enabled = true;
             agentTrail.Play();
@@ -127,7 +129,7 @@ public class PlayerManager : MonoBehaviour
             Health -= damage;
         }
 
-        if (Health<= 0)
+        if (Health<= 0 && isAdPlayed)
          {
         
         float x = this.gameObject.transform.position.x+Random.Range(-7,7);
@@ -143,6 +145,16 @@ public class PlayerManager : MonoBehaviour
        // SceneManager.LoadScene(currentSceneIndex);
         });
         
+    }
+    else
+    {
+            PlayerManager.Instance.myAnimator.SetBool("isDead",true);
+
+    PlayerManager.Instance.environmentMoveScript.enabled = false;
+    UIManager.Instance.endScreen.SetActive(true);
+
+        Debug.Log("Revive Panel");
+        isAdPlayed = true;
     }
 
     

@@ -65,9 +65,10 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("End"))
         {
             PlayerManager.Instance.environmentMoveScript.enabled = false;
-    PlayerManager.Instance.fallMoveScript.enabled=false;
-    PlayerManager.Instance.myAnimator.SetBool("isDead",true);
-PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
+            PlayerManager.Instance.fallMoveScript.enabled=false;
+            PlayerManager.Instance.myAnimator.SetBool("isDead",true);
+            PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
+            UIManager.Instance.endScreen.SetActive(true);
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){

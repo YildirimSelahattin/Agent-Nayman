@@ -20,6 +20,7 @@ TagManager:
   - Money
   - FireRateUp
   - Armor
+  - End
   layers:
   - Default
   - TransparentFX
