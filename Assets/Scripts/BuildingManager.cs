@@ -26,7 +26,7 @@ PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActiv
 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
 confetti.Play();
 
-PlayerManager.Instance.transform.GetChild(PlayerManager.Instance.transform.childCount-1).gameObject.SetActive(true);
+
 
 UIManager.Instance.endScreen.SetActive(true);
     });

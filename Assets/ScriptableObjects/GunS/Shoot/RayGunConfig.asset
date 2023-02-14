@@ -15,7 +15,7 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 65
-  baseFireRate: 0.25
+  baseFireRate: 1
   fireRateLevel: 0
   damageLevel: 0
   BulletDamage: 100

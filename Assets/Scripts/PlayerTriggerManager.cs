@@ -27,7 +27,7 @@ public class PlayerTriggerManager : MonoBehaviour
             GameDataManager.Instance.money += 10;
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("FireSpeedUp"))
+        if (other.CompareTag("FireRateUp"))
         {
             StartCoroutine(FireSpeedUpForSomeTime());
             
@@ -60,6 +60,9 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("EndOfFlying"))
         {
             Debug.Log("sa"); 
+            PlayerManager.Instance.clouds.SetActive(false);
+            PlayerManager.Instance.shieldGameObject.SetActive(false);
+
 
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;

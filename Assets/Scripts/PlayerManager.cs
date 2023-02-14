@@ -41,6 +41,8 @@ public class PlayerManager : MonoBehaviour
     public EnvironmentMover environmentMoveScript;
     public PlayerFreeFallManager fallMoveScript;
     public GameObject startPoseAgent;
+    public GameObject clouds;
+
 
     public float Health ;
     public float Shield ;
@@ -114,6 +116,8 @@ public class PlayerManager : MonoBehaviour
             {
                 Health -= Shield;
                 Shield = 0;
+                shieldGameObject.SetActive(false);
+
                 //closeshield
             }
         }
@@ -130,6 +134,9 @@ public class PlayerManager : MonoBehaviour
         this.gameObject.transform.DOMove(new Vector3(x,y,z),1f);
         this.gameObject.transform.DOScale(0,1f).OnComplete(()=>{
         Destroy(this.gameObject);
+        EnvironmentMover.Instance.enabled = false;
+        UIManager.Instance.endScreen.SetActive(true);
+        
         //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
        // SceneManager.LoadScene(currentSceneIndex);
         });
