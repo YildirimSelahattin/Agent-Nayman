@@ -16,11 +16,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   baseFireRate: 2
-  fireRateLevel: 5
-  damageLevel: 3
+  fireRateLevel: 0
+  damageLevel: 0
   BulletDamage: 34
   fireRateIncreasePercentagePerLevel: 0.2
-  damageIncreasePercentagePerLevel: 0
+  damageIncreasePercentagePerLevel: 0.2
   BulletDuration: 1
   Recoil: 50
   isAvaliable: 1

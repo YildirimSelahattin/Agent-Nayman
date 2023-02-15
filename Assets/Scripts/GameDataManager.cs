@@ -38,7 +38,7 @@ public class GameDataManager : MonoBehaviour
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);
         currentGun = PlayerPrefs.GetInt("CurrentGun",0);
         playerHealth = PlayerPrefs.GetInt("PLayerHealth",100);
-        playerShield = PlayerPrefs.GetInt("PlayerShield", 10);
+        playerShield = PlayerPrefs.GetInt("PlayerShield", 0);
         playerHealthLevel = PlayerPrefs.GetInt("PlayerHealthLevel",0);
         playerShieldLevel = PlayerPrefs.GetInt("PlayerShieldLevel",0);
     }

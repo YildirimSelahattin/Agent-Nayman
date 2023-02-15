@@ -19,8 +19,8 @@ MonoBehaviour:
   fireRateLevel: 0
   damageLevel: 0
   BulletDamage: 100
-  fireRateIncreasePercentagePerLevel: 0
-  damageIncreasePercentagePerLevel: 0
+  fireRateIncreasePercentagePerLevel: 0.2
+  damageIncreasePercentagePerLevel: 0.2
   BulletDuration: 3
   Recoil: 30
   isAvaliable: 1

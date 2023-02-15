@@ -9,7 +9,6 @@ public class HeliMove : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(heliMove());
     }
     private void Update() {
         y -= 30;
@@ -18,9 +17,5 @@ public class HeliMove : MonoBehaviour
 
     }
     
-    public IEnumerator heliMove(){
-       
-         yield return new WaitForSeconds(0.1f);
-        heliMove();
-    }
+   
 }
