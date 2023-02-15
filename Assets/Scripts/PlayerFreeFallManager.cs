@@ -55,8 +55,6 @@ public class PlayerFreeFallManager : MonoBehaviour
         botLimit = cityPrefabScript.BotLimit.transform;
         rightLimit = cityPrefabScript.RightLimit.transform;
 
-        
-
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
@@ -93,7 +91,7 @@ public class PlayerFreeFallManager : MonoBehaviour
             transform.localPosition = tempLoc;
 
             OpenArrows();
-
+            SlowDownWindAndWorld();
         }
     }
 
@@ -149,5 +147,14 @@ public class PlayerFreeFallManager : MonoBehaviour
             upArrow.SetActive(false);
             botArrow.SetActive(false);
         }
+    }
+
+    public void SlowDownWindAndWorld()
+    {
+        //speed up real speed 
+        EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+        //speed up wind
+        var main = windEffectParticleSystem.main;
+        main.simulationSpeed= (float)transform.position.z/(float)targetBuilding.transform.position.z;
     }
 }

@@ -12,7 +12,7 @@ public class GunManager : MonoBehaviour
     public GunScriptableObject ActiveGun;
     public float timeCounter = 0;
     public float currentFireRate ;
-    public float currentDamage ;
+    public int currentDamage ;
     public float inGameFireRateDecreaseAmount;
     public float inGameDamageIncreaseAmount;
     private void Start() 
@@ -48,8 +48,15 @@ public class GunManager : MonoBehaviour
         GunScriptableObject gun = Guns.Find(gun => gun.Type == gunType);
         
         ActiveGun = gun;
+        if (GunParent.transform.childCount > 1)
+        {
+            Debug.Log("sil");
+            Destroy(GunParent.transform.GetChild(1).gameObject);
+        }
         gun.Spawn(GunParent,this);
         currentFireRate = ActiveGun.ShootingConfig.baseFireRate * (Mathf.Pow(ActiveGun.ShootingConfig.fireRateIncreasePercentagePerLevel, ActiveGun.ShootingConfig.fireRateLevel));
+        EditCurrentDamage();
+        EditCurrentFireRate();
         //StartCoroutine(ShootAfterDelay(ActiveGun));
     }
 
@@ -62,13 +69,15 @@ public class GunManager : MonoBehaviour
         StartCoroutine(ShootAfterDelay(gun));
 
     }*/
-    public void EditCurrentFireRate()
+    public float EditCurrentFireRate()
     {
         currentFireRate = ActiveGun.ShootingConfig.baseFireRate * ((Mathf.Pow(1-ActiveGun.ShootingConfig.fireRateIncreasePercentagePerLevel, ActiveGun.ShootingConfig.fireRateLevel)));
+        return currentFireRate;
     }
    
-    public void EditCurrentDamage()
+    public int EditCurrentDamage()
     {
-        currentDamage = ActiveGun.ShootingConfig.BulletDamage * (1+(1-Mathf.Pow(ActiveGun.ShootingConfig.damageIncreasePercentagePerLevel, ActiveGun.ShootingConfig.damageLevel)));
+        currentDamage =(int)( ActiveGun.ShootingConfig.BulletDamage * (Mathf.Pow(1+ActiveGun.ShootingConfig.damageIncreasePercentagePerLevel, ActiveGun.ShootingConfig.damageLevel)));
+        return currentDamage;
     }
 }

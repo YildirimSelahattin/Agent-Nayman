@@ -1,6 +1,8 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,8 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject weaponViewport;
     [SerializeField] GameObject weaponButton;
     [SerializeField] GameObject avatarButton;
+    [SerializeField] TextMeshProUGUI[] fireRateTexts;
+    [SerializeField] TextMeshProUGUI[] damageTexts;
     public Sprite openedSprite;
     public Sprite closedSprite;
     public PlayerManager playerManager;
@@ -51,6 +55,7 @@ public class UpgradePanelManager : MonoBehaviour
         if (gunConfigsArray[GameDataManager.Instance.currentGun].isAvaliable == true)
         {
             GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
+           
         }
     } 
     public void onDownArrowButtonClicked()
@@ -62,6 +67,7 @@ public class UpgradePanelManager : MonoBehaviour
         if (gunConfigsArray[GameDataManager.Instance.currentGun].isAvaliable == true)
         {
             GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
+      
         }
     }
 
@@ -80,6 +86,11 @@ public class UpgradePanelManager : MonoBehaviour
             {
                 damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
             }
+            float currentFireRate = gunConfigsArray[GameDataManager.Instance.currentGun].baseFireRate * Mathf.Pow(1 - gunConfigsArray[GameDataManager.Instance.currentGun].fireRateIncreasePercentagePerLevel, gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel);
+            fireRateTexts[GameDataManager.Instance.currentGun].text = String.Format("{0:0.0}", currentFireRate);
+
+            int currentDamage = (int)(gunConfigsArray[GameDataManager.Instance.currentGun].BulletDamage * (Mathf.Pow(1 + gunConfigsArray[GameDataManager.Instance.currentGun].damageIncreasePercentagePerLevel, gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel)));
+            damageTexts[GameDataManager.Instance.currentGun].text = currentDamage.ToString();
         }
         //upgrading avatar TODO
     }
@@ -87,8 +98,9 @@ public class UpgradePanelManager : MonoBehaviour
     {
         //increase fire RateLevel
         gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel++;
-        GunManager.Instance.EditCurrentFireRate();
+        fireRateTexts[GameDataManager.Instance.currentGun].text = String.Format("{0:0.0}", GunManager.Instance.EditCurrentFireRate());
         fireRateLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
+
         if (gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel == 5)
         {
             FireRateButtons[GameDataManager.Instance.currentGun].interactable = false;
@@ -99,7 +111,7 @@ public class UpgradePanelManager : MonoBehaviour
     {
         //increase fire RateLevel
         gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel++;
-        GunManager.Instance.EditCurrentDamage();
+        damageTexts[GameDataManager.Instance.currentGun].text= GunManager.Instance.EditCurrentDamage().ToString();
         damageLevelCirclesParent[GameDataManager.Instance.currentGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
         if (gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel == 5)
         {
@@ -114,7 +126,14 @@ public class UpgradePanelManager : MonoBehaviour
     }
     public void OnUpgradeShieldClicked()
     {
-        GameDataManager.Instance.playerShield *= 10;
+        if (GameDataManager.Instance.playerShieldLevel == 0)
+        {
+            GameDataManager.Instance.playerShield = 10;
+        }
+        else
+        {
+            GameDataManager.Instance.playerShield *= 10;
+        }
         GameDataManager.Instance.playerShieldLevel++;
     }
     public void ControllIsUpgradesFinished()
@@ -130,11 +149,15 @@ public class UpgradePanelManager : MonoBehaviour
 
     public IEnumerator OpenNextGunAnim()
     {
-        yield return new WaitForSeconds(1f);
         GameDataManager.Instance.currentGun++;
+        yield return new WaitForSeconds(1f);
         Debug.Log(GameDataManager.Instance.currentGun* sizeOfGunPanel);
         verticalLayoutGroup.transform.DOLocalMoveY(GameDataManager.Instance.currentGun* sizeOfGunPanel, 3f);//move panel to the opened guns panel
         closedImages[GameDataManager.Instance.currentGun].SetActive(false);
+        EditCurrentGunPanel();
+        GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
+        GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
+
     }
 
     public void OnAvatarButtonClicked()

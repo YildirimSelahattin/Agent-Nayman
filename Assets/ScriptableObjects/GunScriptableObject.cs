@@ -28,10 +28,6 @@ public class GunScriptableObject : ScriptableObject
   public void Spawn(Transform Parent , MonoBehaviour ActiveMonoBehaviour){
     this.ActiveMonoBehaviour = ActiveMonoBehaviour;
     LastShootTime =0;
-        if (Model != null)
-        {
-            Destroy(Model.gameObject);
-        }
     Model = Instantiate(ModelPrefab);
     Model.transform.SetParent(Parent, false);
     Model.transform.localPosition = SpawnPoint;
@@ -58,21 +54,22 @@ public class GunScriptableObject : ScriptableObject
   {
 
    
-    
-    GameObject bullet = Instantiate(ShootingConfig.BulletPrefab,gun.Model.transform.GetChild(0).transform.position,ShootingConfig.BulletPrefab.transform.rotation);
-    float yspawn;
-
-     yspawn  = PlayerManager.Instance.agent.transform.position.z + 30f;
-    
-    bullet.transform.DOMoveZ(yspawn,ShootingConfig.BulletDuration).OnComplete(()=>{
-      
-        Destroy(bullet);
-    });
+  
     float modely = gun.Model.transform.GetChild(0).gameObject.transform.localPosition.y + ShootingConfig.Recoil;
 
     
    gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,modely,0),1f).OnComplete(()=>{
-   gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,0,0),0f);
+
+       GameObject bullet = Instantiate(ShootingConfig.BulletPrefab, gun.Model.transform.GetChild(0).transform.position, ShootingConfig.BulletPrefab.transform.rotation);
+       float yspawn;
+
+       yspawn = PlayerManager.Instance.agent.transform.position.z + 30f;
+
+       bullet.transform.DOMoveZ(yspawn, ShootingConfig.BulletDuration).OnComplete(() => {
+
+           Destroy(bullet);
+       });
+       gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,0,0),0.1f);
    });
   } 
 

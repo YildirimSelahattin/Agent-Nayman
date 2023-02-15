@@ -46,8 +46,6 @@ public class PlayerManager : MonoBehaviour
 
     public float Health ;
     public float Shield ;
-     bool isAdPlayed = false;
-
     void Start()
     {
         if(Instance == null)
@@ -75,7 +73,7 @@ public class PlayerManager : MonoBehaviour
             Vector3 tempLoc =  playVelocity + transform.position;
             tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
             tempLoc.y = Mathf.Clamp(tempLoc.y , botLimit.position.y,topLimit.position.y);
-            transform.position = tempLoc;
+            transform.position = tempLoc;                                                   
         }
     }
 
@@ -101,8 +99,8 @@ public class PlayerManager : MonoBehaviour
             shieldGameObject.SetActive(true);
         }
         myAnimator.SetBool("isStarted", true); // startFlying
-        agent.transform.DOMove(startPos.position, 3f);
-        agent.transform.DORotate(wantedRotationFlying, 2f).OnComplete(() =>
+        agent.transform.DOMove(startPos.position, 0.5f);
+        agent.transform.DORotate(wantedRotationFlying, 0.5f).OnComplete(() =>
         {
             agent.GetComponent<PlayerManager>().enabled = true;
             agentTrail.Play();
@@ -129,7 +127,7 @@ public class PlayerManager : MonoBehaviour
             Health -= damage;
         }
 
-        if (Health<= 0 && isAdPlayed)
+        if (Health<= 0)
          {
         
         float x = this.gameObject.transform.position.x+Random.Range(-7,7);
@@ -145,16 +143,6 @@ public class PlayerManager : MonoBehaviour
        // SceneManager.LoadScene(currentSceneIndex);
         });
         
-         }
-    if (Health<= 0 && !isAdPlayed)
-    {
-            PlayerManager.Instance.myAnimator.SetBool("isDead",true);
-
-    PlayerManager.Instance.environmentMoveScript.enabled = false;
-    UIManager.Instance.endScreen.SetActive(true);
-
-        Debug.Log("Revive Panel");
-        isAdPlayed = true;
     }
 
     
