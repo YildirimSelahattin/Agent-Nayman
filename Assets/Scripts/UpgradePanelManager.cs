@@ -14,6 +14,8 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject[] damageLevelCirclesParent;
     [SerializeField] GameObject healthLevelCirclesParent;
     [SerializeField] GameObject shieldLevelCirclesParent;
+    [SerializeField] Button healthUpgradeButton;
+    [SerializeField] Button shieldUpgradeButton;
 
     [SerializeField] GameObject verticalLayoutGroup;
     [SerializeField] GameObject[] closedImages;
@@ -25,6 +27,8 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject avatarButton;
     [SerializeField] TextMeshProUGUI[] fireRateTexts;
     [SerializeField] TextMeshProUGUI[] damageTexts;
+    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] TextMeshProUGUI shieldText;
     public Sprite openedSprite;
     public Sprite closedSprite;
     public PlayerManager playerManager;
@@ -39,6 +43,7 @@ public class UpgradePanelManager : MonoBehaviour
         GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
         
         EditCurrentGunPanel();
+        EditCurrentAvatarPanel();
     }
 
     // Update is called once per frame
@@ -78,8 +83,18 @@ public class UpgradePanelManager : MonoBehaviour
     {
         if (weaponViewport.active)//if we are on gun panel side 
         {
+            
             int fireRateLevel = gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel;
             int damageLevel = gunConfigsArray[GameDataManager.Instance.currentGun].damageLevel;
+            
+            if(fireRateLevel == 5)
+            {
+                FireRateButtons[GameDataManager.Instance.currentGun].interactable = false;
+            }
+            if(damageLevel == 5)
+            {
+                damageButtons[GameDataManager.Instance.currentGun].interactable = false;
+            }
             //fireRateCircles
             for (int i = 0; i < fireRateLevel; i++)
             {
@@ -96,6 +111,33 @@ public class UpgradePanelManager : MonoBehaviour
             damageTexts[GameDataManager.Instance.currentGun].text = currentDamage.ToString();
         }
         //upgrading avatar TODO
+    }
+
+    public void EditCurrentAvatarPanel()
+    {
+        int healthlevel =GameDataManager.Instance.playerHealthLevel;
+        int shieldLevel = GameDataManager.Instance.playerShieldLevel;
+
+        if (healthlevel == 5)
+        {
+            healthUpgradeButton.interactable = false;
+        }
+        if (shieldLevel == 5)
+        {
+            shieldUpgradeButton.interactable = false;
+        }
+        for (int i = 0; i < healthlevel; i++)
+        {
+            healthUpgradeButton.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
+        }
+        for (int i = 0; i < shieldLevel; i++)
+        {
+            shieldUpgradeButton.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = openedSprite;
+        }
+        int currentHealth = GameDataManager.Instance.playerHealth; 
+        healthText.text = currentHealth.ToString();
+        int currentShield = GameDataManager.Instance.playerShield;
+        shieldText.text = currentShield.ToString();
     }
     public void OnUpgradeFireRateClicked()
     {
@@ -124,9 +166,14 @@ public class UpgradePanelManager : MonoBehaviour
     }
     public void OnUpgradeHealthClicked()
     {
-        GameDataManager.Instance.playerHealth*= 10;
+        GameDataManager.Instance.playerHealth=(int)(1.20f* GameDataManager.Instance.playerHealth);
         GameDataManager.Instance.playerHealthLevel++;
-
+        healthLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerHealthLevel- 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+        if (GameDataManager.Instance.playerHealthLevel == 5)
+        {
+            healthUpgradeButton.interactable = false;
+        }
+        healthText.text = GameDataManager.Instance.playerHealth.ToString();
     }
     public void OnUpgradeShieldClicked()
     {
@@ -136,9 +183,15 @@ public class UpgradePanelManager : MonoBehaviour
         }
         else
         {
-            GameDataManager.Instance.playerShield *= 10;
+            GameDataManager.Instance.playerShield =(int)( 1.20f*GameDataManager.Instance.playerShield);
         }
         GameDataManager.Instance.playerShieldLevel++;
+        shieldLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerShieldLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+        if (GameDataManager.Instance.playerShieldLevel == 5)
+        {
+            shieldUpgradeButton.interactable = false;
+        }
+        shieldText.text = GameDataManager.Instance.playerShield.ToString();
     }
     public void ControllIsUpgradesFinished()
     {

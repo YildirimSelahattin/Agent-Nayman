@@ -24,7 +24,6 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem agentTrail;
     public GameObject shieldGameObject;
 
-
     private float velocity, camVelocity_x,camVelocity_y;
     private Camera mainCam;
     public bool gameStarted;
@@ -43,7 +42,6 @@ public class PlayerManager : MonoBehaviour
     public GameObject startPoseAgent;
     public GameObject clouds;
 
-
     public float Health ;
     public float Shield ;
     public bool isAdPlayed = false;
@@ -53,7 +51,7 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
-        Health = 100f;
+        Health = GameDataManager.Instance.playerHealth;
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         screenWidth = Screen.width;

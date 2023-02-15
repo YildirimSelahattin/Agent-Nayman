@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     
     public ParticleSystem windEffect;
     public GameObject startScreen;
+    public GameObject flyingScreen;
     public GameObject endScreen;
     [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
@@ -48,6 +49,7 @@ public class UIManager : MonoBehaviour
         windEffect.gameObject.SetActive(true);
         windEffect.Play();
         startScreen.SetActive(false);
+        flyingScreen.SetActive(true);
         PlayerManager.Instance.StartFalling();
     }
     public void LoadSceneButton()

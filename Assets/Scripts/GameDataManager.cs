@@ -11,8 +11,8 @@ public class GameDataManager : MonoBehaviour
     public int levelToLoad;
     public int money = 0;
     public int currentGun;
-    public float playerHealth;
-    public float playerShield;
+    public int playerHealth;
+    public int playerShield;
     public int playerHealthLevel;
     public int playerShieldLevel;
     // Start is called before the first frame update
@@ -41,6 +41,8 @@ public class GameDataManager : MonoBehaviour
         playerShield = PlayerPrefs.GetInt("PlayerShield", 0);
         playerHealthLevel = PlayerPrefs.GetInt("PlayerHealthLevel",0);
         playerShieldLevel = PlayerPrefs.GetInt("PlayerShieldLevel",0);
+        playerHealth = (int)(playerHealth * Mathf.Pow(1+0.20f,playerHealthLevel));
+        playerShield = (int)(playerShield * Mathf.Pow(1+0.20f,playerShieldLevel));
     }
   
 
