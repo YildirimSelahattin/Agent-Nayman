@@ -98,8 +98,8 @@ public class PlayerManager : MonoBehaviour
             shieldGameObject.SetActive(true);
         }
         myAnimator.SetBool("isStarted", true); // startFlying
-        agent.transform.DOMove(startPos.position, 3f);
-        agent.transform.DORotate(wantedRotationFlying, 3f).OnComplete(() =>
+        agent.transform.DOMove(startPos.position, 2f);
+        agent.transform.DORotate(wantedRotationFlying, 2f).OnComplete(() =>
         {
             agent.GetComponent<PlayerManager>().enabled = true;
             agentTrail.Play();

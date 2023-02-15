@@ -23,7 +23,7 @@ public class PlayerFreeFallManager : MonoBehaviour
 
     public GameObject agentParachute;
     public static PlayerFreeFallManager Instance;
-    private ParticleSystem windEffectParticleSystem;
+    public ParticleSystem windEffectParticleSystem;
     private float velocity, camVelocity_x, camVelocity_y;
     private Camera mainCam;
     public Transform path;
@@ -62,7 +62,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         screenHeigth = Screen.height;
        
         agentParachute.gameObject.SetActive(true);
-        gameObject.transform.DORotate(new Vector3(32, 0, 0), 1f).OnComplete(() =>
+        gameObject.transform.DORotate(new Vector3(-52, 0, 0), 1f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
             //slow down wind
             var main = windEffectParticleSystem.main;
@@ -152,7 +152,7 @@ public class PlayerFreeFallManager : MonoBehaviour
     public void SlowDownWindAndWorld()
     {
         //speed up real speed 
-        EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+        //EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
         //speed up wind
         var main = windEffectParticleSystem.main;
         main.simulationSpeed= (float)transform.position.z/(float)targetBuilding.transform.position.z;
