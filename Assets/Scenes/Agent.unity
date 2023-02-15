@@ -16466,7 +16466,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 350
+  far clip plane: 450
   field of view: 90
   orthographic: 0
   orthographic size: 10
@@ -27870,7 +27870,7 @@ MonoBehaviour:
     FieldOfView: 90
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 350
+    FarClipPlane: 450
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -30801,6 +30801,8 @@ MonoBehaviour:
   - {fileID: 9068606949913520585}
   - {fileID: 9068606949426238428}
   - {fileID: 9068606949245337435}
+  healthLevelCirclesParent: {fileID: 4070267089610817029}
+  shieldLevelCirclesParent: {fileID: 4070267090226121082}
   verticalLayoutGroup: {fileID: 9068606949364638591}
   closedImages:
   - {fileID: 9068606949827683606}
