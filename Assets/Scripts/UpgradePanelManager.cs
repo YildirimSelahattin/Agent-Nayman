@@ -12,6 +12,9 @@ public class UpgradePanelManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject[] fireRateLevelCirclesParent;
     [SerializeField] GameObject[] damageLevelCirclesParent;
+    [SerializeField] GameObject healthLevelCirclesParent;
+    [SerializeField] GameObject shieldLevelCirclesParent;
+
     [SerializeField] GameObject verticalLayoutGroup;
     [SerializeField] GameObject[] closedImages;
     [SerializeField] Button[] FireRateButtons;
@@ -123,6 +126,7 @@ public class UpgradePanelManager : MonoBehaviour
     {
         GameDataManager.Instance.playerHealth*= 10;
         GameDataManager.Instance.playerHealthLevel++;
+
     }
     public void OnUpgradeShieldClicked()
     {
