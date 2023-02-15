@@ -145,8 +145,8 @@ public class PlayerManager : MonoBehaviour
        // SceneManager.LoadScene(currentSceneIndex);
         });
         
-    }
-    else
+         }
+    if (Health<= 0 && !isAdPlayed)
     {
             PlayerManager.Instance.myAnimator.SetBool("isDead",true);
 
