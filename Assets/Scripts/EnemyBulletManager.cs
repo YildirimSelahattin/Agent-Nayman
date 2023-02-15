@@ -19,7 +19,7 @@ public class EnemyBulletManager : MonoBehaviour
         
         if (other.tag == "Player")
         {
-            float x = EnemyGunManager.Instance.EnemyGun.ShootingConfig.BulletDamage;
+            int x = (int)EnemyGunManager.Instance.EnemyGun.ShootingConfig.BulletDamage;
             other.gameObject.GetComponent<PlayerManager>().getHit(x);
            Destroy(this.gameObject);
          

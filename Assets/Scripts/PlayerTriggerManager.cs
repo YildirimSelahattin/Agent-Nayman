@@ -46,7 +46,7 @@ public class PlayerTriggerManager : MonoBehaviour
         
         if (other.CompareTag("Health"))
         {
-            PlayerManager.Instance.Health +=50f;
+            PlayerManager.Instance.Health +=50;
             Destroy(other.gameObject);
         }
         if (other.CompareTag("EndOfFlying"))

@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject musicOff;
     [SerializeField] GameObject vibrationOff;
     [SerializeField] GameObject vibrationOn;
+    [SerializeField] TextMeshProUGUI healthText; 
+    [SerializeField] TextMeshProUGUI shieldText;
     void Start()
     {
         if(Instance == null)
@@ -75,7 +77,14 @@ public class UIManager : MonoBehaviour
             SoundsOn();
         }
     }
-
+    public void ChangeHealthText(int healthleft)
+    {
+        healthText.text = healthleft.ToString();
+    }
+    public void ChangeShieldText(int shieldLeft)
+    {
+        shieldText.text = shieldLeft.ToString();
+    }
     public void UpdateMusic()
     {
         isMusicOn = GameDataManager.Instance.playMusic;
@@ -160,47 +169,11 @@ public class UIManager : MonoBehaviour
 
     }
 
-
     public void VibratePhone(){
         Handheld.Vibrate();
     }
-
     public void RetryLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void Choose1(){
-    if (GunManager.Instance.ActiveGun != null)
-    {
-        Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
-    }
-    GunTypes gun = GunTypes.rayGun;
-    GunManager.Instance.Gun = GunTypes.rayGun;
-    GunManager.Instance.SpawnGun(gun);
-
-    }
-    public void Choose2(){
-    if (GunManager.Instance.ActiveGun != null)
-    {
-    Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
-    }
-    GunTypes gun = GunTypes.pistol;
-    GunManager.Instance.Gun = GunTypes.pistol;
-    GunManager.Instance.SpawnGun(gun);
-
-        
-    }
-    public void Choose3(){
-    if (GunManager.Instance.ActiveGun != null)
-    {
-        Destroy(GunManager.Instance.ActiveGun.Model.gameObject);
-    }
-    GunTypes gun = GunTypes.revolver;
-    GunManager.Instance.Gun = GunTypes.revolver;
-    GunManager.Instance.SpawnGun(gun);
-    
-
-        
     }
 }
