@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 65
   baseFireRate: 1.2
   fireRateLevel: 0
-  damageLevel: 3
+  damageLevel: 2
   BulletDamage: 50
   fireRateIncreasePercentagePerLevel: 0.2
   damageIncreasePercentagePerLevel: 0.2
