@@ -31,6 +31,7 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             PlayerManager.Instance.Shield += 15;
            PlayerManager.Instance.shieldGameObject.SetActive(false);
+           Destroy(other.gameObject);
         }
         if (other.CompareTag("FireRateUp"))
         {
