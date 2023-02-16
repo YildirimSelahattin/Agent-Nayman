@@ -12,7 +12,7 @@ public class HeliMove : MonoBehaviour
     }
     private void Update() {
         y -= 30;
-        heli.transform.DOLocalRotate(new Vector3(0,y,0),0.3f);
+        heli.transform.RotateAroundLocal(transform.position, 5*Time.deltaTime);
 
 
     }

@@ -48,15 +48,14 @@ public class UIManager : MonoBehaviour
     }
     public void OnTapToStartButtonClicked()
     {
-        windEffect.gameObject.SetActive(true);
-        windEffect.Play();
+
         startScreen.SetActive(false);
         flyingScreen.SetActive(true);
         PlayerManager.Instance.StartFalling();
     }
     public void LoadSceneButton()
     {
-        GameDataManager.Instance.levelToLoad += 1;
+        //GameDataManager.Instance.levelToLoad += 1;
         
         SceneManager.LoadScene(0);
 

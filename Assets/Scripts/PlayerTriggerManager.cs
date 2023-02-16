@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
     public PlayerFreeFallManager playerFallScript;
     public PlayerManager playerFlyingScript;
+    public Image gettingHealthUIEffect;
+    public Image gettingShieldUIEffect;
+    public Color shieldEffectColor;
+    public Color healthEffectColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +33,16 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         if (other.CompareTag("Armor"))
         {
+            gettingShieldUIEffect.DOColor(shieldEffectColor, 0.3f).OnComplete(() =>
+            {
+                Color temp = shieldEffectColor;
+                temp.a = 0;
+                gettingShieldUIEffect.DOColor(temp, 0.2f);
+            });
             PlayerManager.Instance.Shield += 15;
-           PlayerManager.Instance.shieldGameObject.SetActive(false);
-           Destroy(other.gameObject);
+            UIManager.Instance.ChangeShieldText(PlayerManager.Instance.Shield);
+           PlayerManager.Instance.shieldGameObject.SetActive(true);
+            Destroy(other.gameObject);
         }
         if (other.CompareTag("FireRateUp"))
         {
@@ -47,7 +58,15 @@ public class PlayerTriggerManager : MonoBehaviour
         
         if (other.CompareTag("Health"))
         {
+
+            gettingHealthUIEffect.DOColor(healthEffectColor, 0.3f).OnComplete(() =>
+            {
+                Color temp = healthEffectColor;
+                temp.a = 0;
+                gettingShieldUIEffect.DOColor(temp, 0.2f);
+            });
             PlayerManager.Instance.Health +=50;
+            UIManager.Instance.ChangeHealthText(PlayerManager.Instance.Health);
             Destroy(other.gameObject);
         }
         if (other.CompareTag("EndOfFlying"))

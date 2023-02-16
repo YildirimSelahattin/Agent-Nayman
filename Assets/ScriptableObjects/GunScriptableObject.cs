@@ -53,12 +53,14 @@ public class GunScriptableObject : ScriptableObject
   public void Shoot(GunScriptableObject gun)
   {
 
-   
-  
-    float modely = gun.Model.transform.GetChild(0).gameObject.transform.localPosition.y + ShootingConfig.Recoil;
 
-    
-   gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,modely,0),1f).OnComplete(()=>{
+        Debug.Log("bbb" + gun.Model.transform.GetChild(0).gameObject);
+        Quaternion modely = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
+        modely.y += ShootingConfig.Recoil;
+    Quaternion originalRot = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
+        Debug.Log("aaaa"+modely);
+
+   gun.Model.transform.GetChild(0).transform.DOLocalRotateQuaternion(modely,0.1f).OnComplete(()=>{
 
        GameObject bullet = Instantiate(ShootingConfig.BulletPrefab, gun.Model.transform.GetChild(0).transform.position, ShootingConfig.BulletPrefab.transform.rotation);
        float yspawn;
@@ -69,7 +71,7 @@ public class GunScriptableObject : ScriptableObject
 
            Destroy(bullet);
        });
-       gun.Model.transform.GetChild(0).transform.DOLocalRotate(new Vector3(0,0,0),0.1f);
+       gun.Model.transform.GetChild(0).transform.DOLocalRotateQuaternion(originalRot,1f);
    });
   } 
 
