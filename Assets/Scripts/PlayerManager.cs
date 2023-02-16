@@ -162,10 +162,10 @@ public class PlayerManager : MonoBehaviour
             PlayerManager.Instance.myAnimator.SetBool("isDead", true);
 
             PlayerManager.Instance.environmentMoveScript.enabled = false;
-            UIManager.Instance.endScreen.SetActive(true);
+            UIManager.Instance.RevivePanelScreen.SetActive(true);
+          
 
-            Debug.Log("Revive Panel");
-            isAdPlayed = true;
+          
         }
         else
         {

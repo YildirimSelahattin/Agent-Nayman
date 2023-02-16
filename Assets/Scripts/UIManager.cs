@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject flyingScreen;
     public GameObject endScreen;
+    public GameObject RevivePanelScreen;
+
     [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
     [SerializeField] GameObject soundOff;
@@ -52,6 +54,17 @@ public class UIManager : MonoBehaviour
         startScreen.SetActive(false);
         flyingScreen.SetActive(true);
         PlayerManager.Instance.StartFalling();
+    }
+    public void ReviveButtonClicked(){
+        flyingScreen.SetActive(true);
+        RevivePanelScreen.SetActive(false);
+        endScreen.SetActive(false);
+        PlayerManager.Instance.isAdPlayed = true;
+         PlayerManager.Instance.myAnimator.SetBool("isDead", false);
+        PlayerManager.Instance.environmentMoveScript.enabled = true;
+        PlayerManager.Instance.Health = 100;
+        UIManager.Instance.ChangeHealthText(100);
+        
     }
     public void LoadSceneButton()
     {
