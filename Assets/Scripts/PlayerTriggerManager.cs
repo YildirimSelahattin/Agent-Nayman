@@ -58,16 +58,15 @@ public class PlayerTriggerManager : MonoBehaviour
         
         if (other.CompareTag("Health"))
         {
-
+            Destroy(other.gameObject);
             gettingHealthUIEffect.DOColor(healthEffectColor, 0.3f).OnComplete(() =>
             {
                 Color temp = healthEffectColor;
                 temp.a = 0;
-                gettingShieldUIEffect.DOColor(temp, 0.2f);
+                gettingHealthUIEffect.DOColor(temp, 0.2f);
             });
             PlayerManager.Instance.Health +=50;
             UIManager.Instance.ChangeHealthText(PlayerManager.Instance.Health);
-            Destroy(other.gameObject);
         }
         if (other.CompareTag("EndOfFlying"))
         {

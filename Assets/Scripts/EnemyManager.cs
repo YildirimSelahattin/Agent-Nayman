@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
+
 public class EnemyManager : MonoBehaviour
 {
 
     public static EnemyManager Instance = null;
     [SerializeField] public GameObject enemy;
-    
-
-   public float Health=100f;
+    [SerializeField] public TextMeshPro healthText;
+    public float Health=100f;
     
     private void Start() {
        if(Instance ==null){
@@ -22,6 +23,7 @@ public class EnemyManager : MonoBehaviour
    public void getHit(float damage){
 
     Health -= damage;
+        healthText.text = Health.ToString();
     if (Health <= 0)
     {
         
@@ -34,6 +36,7 @@ public class EnemyManager : MonoBehaviour
         });
         
     }
+    
     
 
    }
