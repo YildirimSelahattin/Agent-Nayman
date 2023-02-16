@@ -32,7 +32,7 @@ public class UpgradePanelManager : MonoBehaviour
     public Sprite openedSprite;
     public Sprite closedSprite;
     public PlayerManager playerManager;
-    float sizeOfGunPanel = 700;
+    public float sizeOfGunPanel = 1000;
     public ShootingConfig[] gunConfigsArray;
    
     

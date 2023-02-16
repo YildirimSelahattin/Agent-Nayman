@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine.SceneManagement;
-
+using DG.Tweening;
 public class PlayerManager : MonoBehaviour
 {
     [Header("MoveBoundaries")]
@@ -41,7 +41,8 @@ public class PlayerManager : MonoBehaviour
     public PlayerFreeFallManager fallMoveScript;
     public GameObject startPoseAgent;
     public GameObject clouds;
-
+    public Image gettingShotUIEffect;
+    public Color damageEffectColor;
     public int Health;
     public int Shield;
     public bool isAdPlayed = false;
@@ -91,6 +92,8 @@ public class PlayerManager : MonoBehaviour
         gameStarted = true;
         startPoseAgent.SetActive(false);
         flyingAgentModel.SetActive(true);
+        UIManager.Instance.windEffect.gameObject.SetActive(true);
+        UIManager.Instance.windEffect.Play();
         Health = GameDataManager.Instance.playerHealth;
         Shield = GameDataManager.Instance.playerShield;
         UIManager.Instance.ChangeHealthText(Health);
@@ -111,12 +114,18 @@ public class PlayerManager : MonoBehaviour
     }
     public void getHit(int damage)
     {
+        gettingShotUIEffect.DOColor(damageEffectColor, 0.3f).OnComplete(() =>
+        {
+            Color temp = damageEffectColor;
+            temp.a = 0;
+            gettingShotUIEffect.DOColor(temp, 0.2f);
+        }) ;
         if (Shield > 0)
         {//if player has shield
             Shield -= damage;
             if (Shield < 0)
             {
-                Health -= Shield;
+                Health += Shield;
                 Shield = 0;
                 UIManager.Instance.ChangeShieldText(Shield);
                 shieldGameObject.SetActive(false);
