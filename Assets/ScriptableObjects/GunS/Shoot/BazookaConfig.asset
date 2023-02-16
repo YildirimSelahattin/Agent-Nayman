@@ -24,4 +24,4 @@ MonoBehaviour:
   BulletDuration: 2
   Recoil: 20
   isAvaliable: 0
-  BulletPrefab: {fileID: 7518445428294976185, guid: 12c7f767dcff8ff47a10b2c1583c2b9c, type: 3}
+  BulletPrefab: {fileID: 8285161074585022044, guid: d26336fd9b16aa74486a7dcea485ac56, type: 3}
