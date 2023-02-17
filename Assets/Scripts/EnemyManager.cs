@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance = null;
     [SerializeField] public GameObject enemy;
     [SerializeField] public TextMeshPro healthText;
+    [SerializeField] GameObject aimModel;
     public float Health=100f;
     
     private void Start() {
