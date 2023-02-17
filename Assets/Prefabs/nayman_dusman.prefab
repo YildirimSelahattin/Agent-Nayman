@@ -608,6 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 283183788801826975}
+  healthText: {fileID: 0}
+  aimModel: {fileID: 0}
   Health: 100
 --- !u!1 &2694497841796996527
 GameObject:
@@ -1179,7 +1181,7 @@ GameObject:
   - component: {fileID: 3774483231666913502}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: StartShooting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
