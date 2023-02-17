@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18446803, g: 0.2741375, b: 0.32774836, a: 1}
+  m_IndirectSpecularColor: {r: 0.18447067, g: 0.273948, b: 0.32744423, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.45116594, y: 0.000000021716188, z: -0.000000010978445, w: 0.8924401}
+  m_LocalRotation: {x: 0.45116594, y: -0.000000021716188, z: 0.000000010978445, w: 0.8924401}
   m_LocalPosition: {x: 12.913118, y: 271.31, z: 276.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1205,6 +1205,7 @@ MonoBehaviour:
   CityParent: {fileID: 448273183}
   LevelParent: {fileID: 1704627023}
   currentCity: {fileID: 0}
+  currentMoney: 0
 --- !u!1 &448273183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1383,9 @@ MonoBehaviour:
   gettingShieldUIEffect: {fileID: 1815711329}
   shieldEffectColor: {r: 1, g: 1, b: 0, a: 0.49019608}
   healthEffectColor: {r: 0, g: 1, b: 0.0041310787, a: 0.44705883}
+  x1: 0
+  x3: 0
+  x5: 0
 --- !u!114 &465774867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,7 +3433,7 @@ MonoBehaviour:
   playMusic: 0
   playVibrate: 0
   levelToLoad: 0
-  money: 0
+  Totalmoney: 0
   currentGun: 0
   playerHealth: 0
   playerShield: 0
@@ -8279,7 +8283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2107378917}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadSceneButton
         m_Mode: 1
