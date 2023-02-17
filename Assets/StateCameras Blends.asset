@@ -16,13 +16,58 @@ MonoBehaviour:
   - m_From: StartCamera
     m_To: FlyCamera
     m_Blend:
-      m_Style: 6
-      m_Time: 1
+      m_Style: 7
+      m_Time: 3
       m_CustomCurve:
         serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.000000059604645
+          inSlope: 0.020512315
+          outSlope: 0.020512315
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.36593056
+          value: 0.007881355
+          inSlope: 0.07427088
+          outSlope: 0.07427088
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.84438163
+          value: 0.07219922
+          inSlope: 2.5463133
+          outSlope: 2.5463133
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.88916475
+          value: 0.30564326
+          inSlope: 3.4649503
+          outSlope: 3.4649503
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.49596196
+          inSlope: 0.104747705
+          outSlope: 0.104747705
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 1
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
         m_RotationOrder: 0
   - m_From: FlyCamera
     m_To: ParachuteOpenCamera
