@@ -9,7 +9,7 @@ public class GameDataManager : MonoBehaviour
     public int playMusic;
     public int playVibrate;
     public int levelToLoad;
-    public int money = 0;
+    public int Totalmoney = 0;
     public int currentGun;
     public int playerHealth;
     public int playerShield;
@@ -33,6 +33,7 @@ public class GameDataManager : MonoBehaviour
     public void LoadData()
     {
         levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 1);
+        Totalmoney = PlayerPrefs.GetInt("Totalmoney", 0);
         playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);

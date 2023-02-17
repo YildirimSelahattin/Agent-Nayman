@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject CityParent;
     public  GameObject LevelParent;
     public GameObject currentCity;
+    public int currentMoney;
     GameObject currentTargetBuilding;
     public static GameManager Instance; 
     // Start is called before the first frame update
