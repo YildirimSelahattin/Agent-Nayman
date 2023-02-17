@@ -45,7 +45,6 @@ public class PlayerManager : MonoBehaviour
     public Color damageEffectColor;
     public int Health;
     public int Shield;
-    public int TotalMoney;
     public bool isAdPlayed = false;
     void Start()
     {
