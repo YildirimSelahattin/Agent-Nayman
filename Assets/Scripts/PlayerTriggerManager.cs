@@ -31,7 +31,7 @@ public class PlayerTriggerManager : MonoBehaviour
             GameDataManager.Instance.money += 10;
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("Armor"))
+        else if (other.CompareTag("Armor"))
         {
             gettingShieldUIEffect.DOColor(shieldEffectColor, 0.3f).OnComplete(() =>
             {
@@ -44,19 +44,19 @@ public class PlayerTriggerManager : MonoBehaviour
            PlayerManager.Instance.shieldGameObject.SetActive(true);
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("FireRateUp"))
+        else if(other.CompareTag("FireRateUp"))
         {
             StartCoroutine(FireSpeedUpForSomeTime());
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("Obstacle"))
+        else if(other.CompareTag("Obstacle"))
         {            
             Debug.Log("obstacle");
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
         }
-        
-        if (other.CompareTag("Health"))
+
+        else if(other.CompareTag("Health"))
         {
             Destroy(other.gameObject);
             gettingHealthUIEffect.DOColor(healthEffectColor, 0.3f).OnComplete(() =>
@@ -68,7 +68,7 @@ public class PlayerTriggerManager : MonoBehaviour
             PlayerManager.Instance.Health +=50;
             UIManager.Instance.ChangeHealthText(PlayerManager.Instance.Health);
         }
-        if (other.CompareTag("EndOfFlying"))
+        else if(other.CompareTag("EndOfFlying"))
         {
             Debug.Log("sa"); 
             PlayerManager.Instance.clouds.SetActive(false);
@@ -81,7 +81,7 @@ public class PlayerTriggerManager : MonoBehaviour
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
         }
-        if (other.CompareTag("End"))
+        else if(other.CompareTag("End"))
         {
             PlayerManager.Instance.environmentMoveScript.enabled = false;
             PlayerManager.Instance.fallMoveScript.enabled=false;
