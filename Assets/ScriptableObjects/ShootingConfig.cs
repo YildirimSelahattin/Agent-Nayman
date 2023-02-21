@@ -14,6 +14,11 @@ public class ShootingConfig : ScriptableObject
      public float BulletDamage =0.25f;
     public float fireRateIncreasePercentagePerLevel;
     public float damageIncreasePercentagePerLevel;
+    public float fireRateUpgradeStartMoney;
+    public float fireRateCostIncreasePercentage;
+    public float damageUpgradeStartMoney;
+    public float damageCostIncreasePercentage;
+
     //Duration artarsa daha yavaş gidiyor 
      public float BulletDuration =2f;
      public float Recoil = 90f;

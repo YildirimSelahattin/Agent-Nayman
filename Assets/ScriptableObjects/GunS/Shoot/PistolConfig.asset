@@ -15,12 +15,16 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 65
-  baseFireRate: 2
-  fireRateLevel: 0
-  damageLevel: 3
+  baseFireRate: 1.2
+  fireRateLevel: 3
+  damageLevel: 5
   BulletDamage: 34
   fireRateIncreasePercentagePerLevel: 0.2
   damageIncreasePercentagePerLevel: 0.2
+  fireRateUpgradeStartMoney: 100
+  fireRateCostIncreasePercentage: 0.2
+  damageUpgradeStartMoney: 100
+  damaggeCostIncreasePercentage: 0.2
   BulletDuration: 1
   Recoil: 5
   isAvaliable: 1

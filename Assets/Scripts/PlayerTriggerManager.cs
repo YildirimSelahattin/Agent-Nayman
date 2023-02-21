@@ -13,6 +13,7 @@ public class PlayerTriggerManager : MonoBehaviour
     public Image gettingShieldUIEffect;
     public Color shieldEffectColor;
     public Color healthEffectColor;
+    [SerializeField]GameObject moneyParticlePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.CompareTag("Money"))
         {
             GameDataManager.Instance.money += 10;
+            Instantiate(moneyParticlePrefab,transform.position+Vector3.forward,Quaternion.identity);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Armor"))
