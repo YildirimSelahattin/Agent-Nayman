@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     
     public ParticleSystem windEffect;
     public GameObject startScreen;
+    public GameObject upgradeScreen;
     public GameObject flyingScreen;
     public GameObject endScreen;
     public GameObject RevivePanelScreen;
@@ -53,6 +54,7 @@ public class UIManager : MonoBehaviour
 
         startScreen.SetActive(false);
         flyingScreen.SetActive(true);
+        upgradeScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
     }
     public void ReviveButtonClicked(){

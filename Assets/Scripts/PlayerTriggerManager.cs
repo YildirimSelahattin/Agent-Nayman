@@ -76,12 +76,12 @@ public class PlayerTriggerManager : MonoBehaviour
             PlayerManager.Instance.clouds.SetActive(false);
             PlayerManager.Instance.shieldGameObject.SetActive(false);
 
-
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
             playerFallScript.distanceBetweenY = playerFlyingScript.distanceBetweenY;
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
+
         }
         else if(other.CompareTag("End"))
         {
