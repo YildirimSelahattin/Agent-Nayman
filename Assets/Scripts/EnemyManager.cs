@@ -46,7 +46,6 @@ public class EnemyManager : MonoBehaviour
             Destroy(aimTrigger);
             Destroy(percentBar);
             Destroy(skullParent);
-            
             this.gameObject.transform.DOMove(new Vector3(x, y, z), 3f);
             this.gameObject.transform.DOScale(0,3f).OnComplete(() =>
             {
