@@ -4,6 +4,8 @@ using DG.Tweening;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System.Collections;
+
 public class PlayerManager : MonoBehaviour
 {
     [Header("MoveBoundaries")]
@@ -136,6 +138,8 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Health -= damage;
+            PlayerManager.Instance.myAnimator.SetBool("isHit"+(int)Random.Range(1,3), true);
+            StartCoroutine(PlayHitAnim());
         }
 
         if (Health <= 0 && isAdPlayed)
@@ -172,5 +176,24 @@ public class PlayerManager : MonoBehaviour
             UIManager.Instance.ChangeHealthText(Health);
         }
 
+    }
+
+    public IEnumerator PlayHitAnim()
+    {
+        PlayerManager.Instance.myAnimator.SetBool("isHit" + 1.ToString(), false);
+        PlayerManager.Instance.myAnimator.SetBool("isHit" + 2.ToString(), false);
+        int random = (int)Random.Range(1, 3);
+        PlayerManager.Instance.myAnimator.SetBool("isHit" + random, true);
+        yield return new WaitForSeconds(0.3f);
+        PlayerManager.Instance.myAnimator.SetBool("isHit"+ random, false);
+    }
+    public IEnumerator ObstacleHit()
+    {
+        Debug.Log("AAAAAAAAAAAAAAAAA");
+        EnvironmentMover.Instance.forwardMoveSpeed = 2;
+        PlayerManager.Instance.myAnimator.SetBool("ObstacleHit", true);
+        yield return new WaitForSeconds(0.3f);
+        EnvironmentMover.Instance.forwardMoveSpeed = 6;
+        PlayerManager.Instance.myAnimator.SetBool("ObstacleHit", false);
     }
 }

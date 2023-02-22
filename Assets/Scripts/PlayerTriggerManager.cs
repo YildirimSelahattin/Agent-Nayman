@@ -11,8 +11,10 @@ public class PlayerTriggerManager : MonoBehaviour
     public PlayerManager playerFlyingScript;
     public Image gettingHealthUIEffect;
     public Image gettingShieldUIEffect;
+    public Image gettingRageUIEffect;
     public Color shieldEffectColor;
     public Color healthEffectColor;
+    public Color RageEffectColor;
     [SerializeField]GameObject moneyParticlePrefab;
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,12 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("FireRateUp"))
         {
+            gettingRageUIEffect.DOColor(RageEffectColor, 0.3f).OnComplete(() =>
+            {
+                Color temp = RageEffectColor;
+                temp.a = 0;
+                gettingRageUIEffect.DOColor(temp, 0.2f);
+            });
             StartCoroutine(FireSpeedUpForSomeTime());
             Destroy(other.gameObject);
         }
@@ -101,9 +109,12 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     
     public IEnumerator ObstacleHit(){
+           Debug.Log("AAAAAAAAAAAAAAAAA");
+        EnvironmentMover.Instance.forwardMoveSpeed = 2;
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
-           yield return new WaitForSeconds(1.2f);
-           PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
+           yield return new WaitForSeconds(0.3f);
+        EnvironmentMover.Instance.forwardMoveSpeed = 6;
+        PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
     }
 
    
