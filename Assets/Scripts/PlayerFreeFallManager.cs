@@ -49,7 +49,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         movementArrowsParent.SetActive(true);
 
         CityPrefabManager cityPrefabScript = GameManager.Instance.currentCity.GetComponent<CityPrefabManager>();
-        targetBuilding = cityPrefabScript.GetRandomLandableBuilding();
+        targetBuilding = GameManager.Instance.currentTargetBuilding;
         leftLimit = cityPrefabScript.LeftLimit.transform;
         topLimit = cityPrefabScript.TopLimit.transform;
         botLimit = cityPrefabScript.BotLimit.transform;
