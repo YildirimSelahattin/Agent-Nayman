@@ -31,7 +31,7 @@ public class PlayerTriggerManager : MonoBehaviour
     
         if (other.CompareTag("Money"))
         {
-            GameDataManager.Instance.money += 10;
+            GameDataManager.Instance.Totalmoney += 10;
             Instantiate(moneyParticlePrefab,transform.position+Vector3.forward,Quaternion.identity);
             Destroy(other.gameObject);
         }
