@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject aimModel;
     [SerializeField] GameObject aimTrigger;
     [SerializeField] GameObject briefcaseGameObject;
+    [SerializeField] GameObject skullParent;
     [SerializeField] GameObject percentBar;
     public float Health = 100f;
      float curHealth;
@@ -44,6 +45,8 @@ public class EnemyManager : MonoBehaviour
             Destroy(aimModel);
             Destroy(aimTrigger);
             Destroy(percentBar);
+            Destroy(skullParent);
+            
             this.gameObject.transform.DOMove(new Vector3(x, y, z), 3f);
             this.gameObject.transform.DOScale(0,3f).OnComplete(() =>
             {
