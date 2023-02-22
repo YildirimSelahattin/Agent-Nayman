@@ -17,10 +17,14 @@ MonoBehaviour:
     m_Bits: 65
   baseFireRate: 1.2
   fireRateLevel: 0
-  damageLevel: 2
+  damageLevel: 0
   BulletDamage: 50
   fireRateIncreasePercentagePerLevel: 0.2
   damageIncreasePercentagePerLevel: 0.2
+  fireRateUpgradeStartMoney: 300
+  fireRateCostIncreasePercentage: 0.2
+  damageUpgradeStartMoney: 300
+  damaggeCostIncreasePercentage: 0.2
   BulletDuration: 1
   Recoil: -40
   isAvaliable: 1

@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerTriggerManager : MonoBehaviour
 {
-    public static PlayerTriggerManager Instance = null;
     private ParticleSystem windEffectParticleSystem;
     public PlayerFreeFallManager playerFallScript;
     public PlayerManager playerFlyingScript;
@@ -14,16 +13,10 @@ public class PlayerTriggerManager : MonoBehaviour
     public Image gettingShieldUIEffect;
     public Color shieldEffectColor;
     public Color healthEffectColor;
-    public bool x1 = false;
-    public bool x3 = false;
-
-    public bool x5 = false;
-
+    [SerializeField]GameObject moneyParticlePrefab;
     // Start is called before the first frame update
     void Start()
-    {if(Instance ==null){
-            Instance = this;
-        }
+    {
     }
 
     // Update is called once per frame
@@ -36,31 +29,9 @@ public class PlayerTriggerManager : MonoBehaviour
     
         if (other.CompareTag("Money"))
         {
-            GameDataManager.Instance.Totalmoney += 10;
-            GameManager.Instance.currentMoney += 10;
-
+            GameDataManager.Instance.money += 10;
+            Instantiate(moneyParticlePrefab,transform.position+Vector3.forward,Quaternion.identity);
             Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("x1"))
-        {
-            x1 = true;
-            GameManager.Instance.currentMoney *= 1;
-            
-           // this.enabled = false;
-        } 
-        else if (other.CompareTag("x3"))
-        {
-            x3=true;
-            GameManager.Instance.currentMoney *= 3;
-            //this.enabled = false;
-            
-        }
-         else if (other.CompareTag("x5"))
-        {
-            x5 = true;
-            GameManager.Instance.currentMoney *= 5;
-            //this.enabled = false;
-            
         }
         else if (other.CompareTag("Armor"))
         {
@@ -102,15 +73,15 @@ public class PlayerTriggerManager : MonoBehaviour
         else if(other.CompareTag("EndOfFlying"))
         {
             Debug.Log("sa"); 
-          
+            PlayerManager.Instance.clouds.SetActive(false);
             PlayerManager.Instance.shieldGameObject.SetActive(false);
-
 
             //change the bounds of the move;
             playerFallScript.distanceBetweenX = playerFlyingScript.distanceBetweenX;
             playerFallScript.distanceBetweenY = playerFlyingScript.distanceBetweenY;
             playerFallScript.enabled = true;
             playerFlyingScript.enabled = false;
+
         }
         else if(other.CompareTag("End"))
         {

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,15 @@ public class GameDataManager : MonoBehaviour
     public int playerShield;
     public int playerHealthLevel;
     public int playerShieldLevel;
+    public int playerShieldUpgradeStartMoney;
+    public int playerHealthUpgradeStartMoney;
+    public float playerHealthUpgradeIncreasePercent;
+    public float playerShieldUpgradeIncreasePercent;
     // Start is called before the first frame update
 
     void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
