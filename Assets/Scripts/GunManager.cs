@@ -32,7 +32,7 @@ public class GunManager : MonoBehaviour
         
     }
     private void Update() {
-        if(PlayerManager.Instance.gameStarted == true)
+        if(PlayerManager.Instance.gameStarted == true && PlayerManager.Instance.myAnimator.GetBool("isDead")==false)
         {
             timeCounter += Time.deltaTime;
             if (currentFireRate - inGameFireRateDecreaseAmount < timeCounter)

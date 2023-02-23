@@ -64,6 +64,7 @@ public class PlayerTriggerManager : MonoBehaviour
         else if(other.CompareTag("Obstacle"))
         {            
             Debug.Log("obstacle");
+            PlayerManager.Instance.getHit(10);
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
         }
