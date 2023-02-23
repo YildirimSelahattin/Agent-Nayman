@@ -339,7 +339,7 @@ ModelImporter:
       name: Armature|N_success
       takeName: Armature|N_success
       internalID: 0
-      firstFrame: 0
+      firstFrame: 50
       lastFrame: 119
       wrapMode: 0
       orientationOffsetY: 0

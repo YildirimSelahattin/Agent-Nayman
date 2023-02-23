@@ -49,7 +49,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         movementArrowsParent.SetActive(true);
 
         CityPrefabManager cityPrefabScript = GameManager.Instance.currentCity.GetComponent<CityPrefabManager>();
-        targetBuilding = cityPrefabScript.GetRandomLandableBuilding();
+        targetBuilding = GameManager.Instance.currentTargetBuilding;
         leftLimit = cityPrefabScript.LeftLimit.transform;
         topLimit = cityPrefabScript.TopLimit.transform;
         botLimit = cityPrefabScript.BotLimit.transform;
@@ -62,7 +62,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         screenHeigth = Screen.height;
        
         agentParachute.gameObject.SetActive(true);
-        gameObject.transform.DORotate(new Vector3(-83, 0, 0), 1f).SetEase(Ease.InOutBack).OnComplete(() =>
+        gameObject.transform.DORotate(new Vector3(-157, 0, -180), 1f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
             //slow down wind
             var main = windEffectParticleSystem.main;
