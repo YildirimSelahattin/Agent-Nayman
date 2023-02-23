@@ -11,15 +11,15 @@ public class TargetBinaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        confetti = PlayerFreeFallManager.Instance.targetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
-        confettix3 = PlayerFreeFallManager.Instance.targetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
-        confettix5 = PlayerFreeFallManager.Instance.targetBuilding.transform.GetChild(2).GetComponent<ParticleSystem>();
+
     }
 
     // Update is called once per frame
     public void PlayConfettiAndMultiplyMoney(int multiplierAmount)
     {
-
+        confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
+        confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
+        confettix5 = GameManager.Instance.currentTargetBuilding.transform.GetChild(2).GetComponent<ParticleSystem>();
         PlayerManager.Instance.environmentMoveScript.enabled = false;
         PlayerManager.Instance.fallMoveScript.enabled = false;
         PlayerManager.Instance.myAnimator.SetBool("Ending", true);
