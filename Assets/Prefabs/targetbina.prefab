@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d268b4952429eb44a9b5001d6864f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winAgent: {fileID: 32675397560834690, guid: b594db5259345b94a86f18d44545afdd, type: 3}
 --- !u!1 &7281200578230668519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3100686136978186089, guid: 5b9be99fcb3ea6d43a7aebacaae485c5, type: 3}

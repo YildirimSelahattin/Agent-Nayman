@@ -64,6 +64,7 @@ public class PlayerTriggerManager : MonoBehaviour
         else if(other.CompareTag("Obstacle"))
         {            
             Debug.Log("obstacle");
+            PlayerManager.Instance.getHit(10);
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
         }
@@ -114,7 +115,7 @@ public class PlayerTriggerManager : MonoBehaviour
            Debug.Log("AAAAAAAAAAAAAAAAA");
         EnvironmentMover.Instance.forwardMoveSpeed = 2;
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
-           yield return new WaitForSeconds(0.3f);
+           yield return new WaitForSeconds(.5f);
         EnvironmentMover.Instance.forwardMoveSpeed = 12;
         PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
     }
