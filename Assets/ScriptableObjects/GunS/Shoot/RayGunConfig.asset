@@ -24,7 +24,7 @@ MonoBehaviour:
   fireRateUpgradeStartMoney: 200
   fireRateCostIncreasePercentage: 0.2
   damageUpgradeStartMoney: 200
-  damaggeCostIncreasePercentage: 0.2
+  damageCostIncreasePercentage: 0.2
   BulletDuration: 3
   Recoil: 30
   isAvaliable: 1
