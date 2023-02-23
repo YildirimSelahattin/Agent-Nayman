@@ -57,10 +57,11 @@ public class GunScriptableObject : ScriptableObject
         Debug.Log("bbb" + gun.Model.transform.GetChild(0).gameObject);
         Quaternion modely = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
         modely.y += ShootingConfig.Recoil;
-    Quaternion originalRot = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
+       
+        Quaternion originalRot = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
         Debug.Log("aaaa"+modely);
 
-   gun.Model.transform.GetChild(0).transform.DOLocalRotateQuaternion(modely,0.1f).OnComplete(()=>{
+   gun.Model.transform.GetChild(0).transform.DOLocalRotateQuaternion(modely,0.3f).OnComplete(()=>{
 
        GameObject bullet = Instantiate(ShootingConfig.BulletPrefab, gun.Model.transform.GetChild(0).transform.position, ShootingConfig.BulletPrefab.transform.rotation);
        float yspawn;

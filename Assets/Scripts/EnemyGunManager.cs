@@ -60,7 +60,7 @@ public class EnemyGunManager : MonoBehaviour
     public IEnumerator ShootAfterDelay(GunScriptableObject gun,float waitingTime){
 
         yield return new WaitForSeconds(waitingTime);
-        if (PlayerManager.Instance.gameStarted==true)
+        if (PlayerManager.Instance.gameStarted==true && PlayerManager.Instance.myAnimator.GetBool("isDead")==false)
         {
         Shoot(EnemyGun);
         }
