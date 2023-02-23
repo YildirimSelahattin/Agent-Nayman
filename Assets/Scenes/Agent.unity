@@ -17649,7 +17649,7 @@ MonoBehaviour:
   m_text: TAP TO START
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb29fefc2243de84e9ecdc18247f6bd6, type: 2}
-  m_sharedMaterial: {fileID: 8548488737702391752, guid: cb29fefc2243de84e9ecdc18247f6bd6, type: 2}
+  m_sharedMaterial: {fileID: 936489501277437610, guid: cb29fefc2243de84e9ecdc18247f6bd6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
