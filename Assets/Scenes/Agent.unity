@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18446803, g: 0.2741375, b: 0.32774836, a: 1}
+  m_IndirectSpecularColor: {r: 0.18447067, g: 0.273948, b: 0.32744423, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 2.405457, z: -1.771057}
+  m_FollowOffset: {x: -0.09311968, y: 2.33548, z: -1.911041}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
+  m_AmplitudeGain: 3
   m_FrequencyGain: 3
   mNoiseOffsets: {x: -765.1117, y: 300.83368, z: 583.23785}
 --- !u!1 &94672230
@@ -1791,8 +1791,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.45116594, y: -0.000000021716188, z: 0.000000010978445, w: 0.8924401}
-  m_LocalPosition: {x: 12.913118, y: 271.31, z: 276.27}
+  m_LocalRotation: {x: 0.42781827, y: 0.022000363, z: -0.010417013, w: 0.903537}
+  m_LocalPosition: {x: 12.82, y: 271.24002, z: 276.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2071,6 +2071,7 @@ MonoBehaviour:
   LevelParent: {fileID: 1704627023}
   currentCity: {fileID: 0}
   currentTargetBuilding: {fileID: 0}
+  currentMoney: 0
 --- !u!1 &425791031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,7 +3189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686660538}
   m_LocalRotation: {x: 0.10134557, y: 0.012012517, z: -0.0037946745, w: -0.99477154}
-  m_LocalPosition: {x: 12.913118, y: 269.62027, z: 253.7}
+  m_LocalPosition: {x: 13.197639, y: 270.18457, z: 284.9821}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4025,7 +4026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.3425589, y: 4.136749, z: 1.628937}
+  m_FollowOffset: {x: -0.1972308, y: -1.145936, z: 5.608948}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4461,7 +4462,7 @@ MonoBehaviour:
   playMusic: 0
   playVibrate: 0
   levelToLoad: 0
-  Totalmoney: 0
+  TotalMoney: 0
   currentGun: 0
   playerHealth: 0
   playerShield: 0
@@ -4798,7 +4799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0.715714, z: -24.34105}
+  m_FollowOffset: {x: 0.2845201, y: 1.280015, z: 6.941055}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -6694,6 +6695,18 @@ MonoBehaviour:
     m_VirtualCamera: {fileID: 869000108}
     m_ActivateAfter: 0
     m_MinDuration: 0
+  - m_FullHash: 185645563
+    m_VirtualCamera: {fileID: 211545077}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
+  - m_FullHash: -1843795903
+    m_VirtualCamera: {fileID: 211545077}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
+  - m_FullHash: 1332463018
+    m_VirtualCamera: {fileID: 211545077}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
   - m_FullHash: -1800156066
     m_VirtualCamera: {fileID: 651721023}
     m_ActivateAfter: 0
@@ -6726,6 +6739,12 @@ MonoBehaviour:
   - m_Hash: 374993167
     m_ParentHash: 756556552
   - m_Hash: -1800156066
+    m_ParentHash: 756556552
+  - m_Hash: 185645563
+    m_ParentHash: 756556552
+  - m_Hash: -1843795903
+    m_ParentHash: 756556552
+  - m_Hash: 1332463018
     m_ParentHash: 756556552
 --- !u!4 &1900869736
 Transform:
@@ -12808,14 +12827,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8440096662881304713}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.77162457, y: 0, z: 0, w: 0.63607824}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653477353505}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -101, y: 0, z: 0}
 --- !u!4 &5481227753227715128
 Transform:
   m_ObjectHideFlags: 0

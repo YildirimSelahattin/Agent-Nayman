@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   baseFireRate: 1.2
-  fireRateLevel: 3
+  fireRateLevel: 4
   damageLevel: 5
   BulletDamage: 34
   fireRateIncreasePercentagePerLevel: 0.2
@@ -24,8 +24,8 @@ MonoBehaviour:
   fireRateUpgradeStartMoney: 100
   fireRateCostIncreasePercentage: 0.2
   damageUpgradeStartMoney: 100
-  damaggeCostIncreasePercentage: 0.2
+  damageCostIncreasePercentage: 0
   BulletDuration: 1
-  Recoil: 5
+  Recoil: 3
   isAvaliable: 1
   BulletPrefab: {fileID: 5414251626087308526, guid: fcf7ae4343a6d284a8cc0c4d527d903f, type: 3}
