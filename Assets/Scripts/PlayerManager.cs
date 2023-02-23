@@ -50,6 +50,9 @@ public class PlayerManager : MonoBehaviour
     public bool isAdPlayed = false;
     public GameObject winAgent;
     public Animator winAnimator;
+    public Animator loseAnimator;
+    public GameObject loseAgent;
+
     void Start()
     {
         if (Instance == null)
@@ -153,10 +156,13 @@ public class PlayerManager : MonoBehaviour
             this.gameObject.transform.DOMove(new Vector3(x, y, z), 1f);
             this.gameObject.transform.DOScale(0, 1f).OnComplete(() =>
             {
-                Destroy(this.gameObject);
-                EnvironmentMover.Instance.enabled = false;
+                PlayerManager.Instance.environmentMoveScript.enabled = false;
+                PlayerManager.Instance.fallMoveScript.enabled=false;
+                PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
                 UIManager.Instance.endScreen.SetActive(true);
-
+                PlayerManager.Instance.loseAgent.SetActive(true);
+                PlayerManager.Instance.myAnimator.SetBool("isLose", true);
+                PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
                 //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
                 // SceneManager.LoadScene(currentSceneIndex);
             });

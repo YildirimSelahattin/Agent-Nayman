@@ -98,9 +98,11 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             PlayerManager.Instance.environmentMoveScript.enabled = false;
             PlayerManager.Instance.fallMoveScript.enabled=false;
-            PlayerManager.Instance.myAnimator.SetBool("isDead",true);
             PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
             UIManager.Instance.endScreen.SetActive(true);
+            PlayerManager.Instance.loseAgent.SetActive(true);
+            PlayerManager.Instance.myAnimator.SetBool("isLose", true);
+            PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){
