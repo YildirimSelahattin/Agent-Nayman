@@ -64,6 +64,8 @@ public class TargetBinaManager : MonoBehaviour
     public IEnumerator GoWinDance()
     {
         yield return new WaitForSeconds(2f);
+        //LOSE SCREEN PlayerManager.Instance.winScreen.SetActive(true);
+
         UIManager.Instance.endScreen.SetActive(true);
         PlayerManager.Instance.winAgent.SetActive(true);
        PlayerManager.Instance.myAnimator.SetBool("isWin",true);//cameramove

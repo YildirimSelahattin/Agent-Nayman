@@ -17,17 +17,22 @@ public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static UIManager Instance;
+    public ParticleSystem windEffect;
     int isSoundOn;
     int isMusicOn;
     int isVibrateOn;
+    [Header("UI Panels")]
     
-    public ParticleSystem windEffect;
     public GameObject startScreen;
     public GameObject upgradeScreen;
     public GameObject flyingScreen;
     public GameObject endScreen;
     public GameObject RevivePanelScreen;
-
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    
+    
+    [Header("Options Buttons")]
     [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
     [SerializeField] GameObject soundOff;
@@ -35,6 +40,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject musicOff;
     [SerializeField] GameObject vibrationOff;
     [SerializeField] GameObject vibrationOn;
+    [Header("TMPs")]
     [SerializeField] TextMeshProUGUI healthText; 
     [SerializeField] TextMeshProUGUI shieldText;
     void Start()

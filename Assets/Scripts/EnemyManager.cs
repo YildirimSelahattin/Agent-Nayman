@@ -55,7 +55,7 @@ public class EnemyManager : MonoBehaviour
         else
         {
             Debug.Log(curHealth * barOriginalScale / Health);
-            percentBar.transform.DOScaleX(curHealth * barOriginalScale / Health,0.5f) ;
+            percentBar.transform.DOScaleX(curHealth * barOriginalScale / Health,0.5f);
             Debug.Log("ads"+ percentBar.transform.localScale);
         }
 
