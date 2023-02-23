@@ -639,7 +639,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.1096287, y: 0.024652317, z: -0.0027198365, w: 0.99366313}
+  m_LocalRotation: {x: 0.1096287, y: 0.024652308, z: -0.0027198356, w: 0.99366313}
   m_LocalPosition: {x: 12.717943, y: 269.78372, z: 274.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3322,10 +3322,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selectButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  selectImages: []
   avatarViewport: {fileID: 0}
   weaponViewport: {fileID: 0}
   weaponButton: {fileID: 0}
@@ -3361,6 +3358,8 @@ MonoBehaviour:
   startScreen: {fileID: 0}
   upgradeScreen: {fileID: 0}
   curPanelGun: 0
+  rightArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
 --- !u!1 &1864092512
 GameObject:
   m_ObjectHideFlags: 0
