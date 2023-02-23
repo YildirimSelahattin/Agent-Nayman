@@ -3095,6 +3095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: targetbina
       objectReference: {fileID: 0}
+    - target: {fileID: 7177042728991700606, guid: 26544317a43abe9449078a0821999f7e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7553146780530633924, guid: 26544317a43abe9449078a0821999f7e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5235,7 +5239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e71868ecdc6aef649bcf773f85c43c4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 145.00006
+      value: 297
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e71868ecdc6aef649bcf773f85c43c4f, type: 3}
       propertyPath: m_LocalPosition.z

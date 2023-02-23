@@ -8,6 +8,7 @@ public class TargetBinaManager : MonoBehaviour
     ParticleSystem confetti;
     ParticleSystem confettix3;
     ParticleSystem confettix5;
+    [SerializeField]GameObject winAgent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class TargetBinaManager : MonoBehaviour
     // Update is called once per frame
     public void PlayConfettiAndMultiplyMoney(int multiplierAmount)
     {
+
+        Instantiate(winAgent, transform.position, Quaternion.identity);
         confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
         confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
         confettix5 = GameManager.Instance.currentTargetBuilding.transform.GetChild(2).GetComponent<ParticleSystem>();
@@ -30,6 +33,8 @@ public class TargetBinaManager : MonoBehaviour
             PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             UIManager.Instance.endScreen.SetActive(true);
         });
+
+        
         if (multiplierAmount==1)
         {
             Debug.Log("bu hangi oyun abi");
