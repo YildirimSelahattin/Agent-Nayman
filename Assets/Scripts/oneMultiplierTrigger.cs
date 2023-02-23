@@ -15,6 +15,7 @@ public class oneMultiplierTrigger : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             transform.parent.GetComponent<TargetBinaManager>().PlayConfettiAndMultiplyMoney(1);
+           
         }
     }
     // Update is called once per frame
