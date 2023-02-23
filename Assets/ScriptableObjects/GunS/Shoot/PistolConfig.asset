@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   baseFireRate: 1.2
-  fireRateLevel: 2
+  fireRateLevel: 0
   damageLevel: 3
   BulletDamage: 34
   fireRateIncreasePercentagePerLevel: 0.2
@@ -24,7 +24,7 @@ MonoBehaviour:
   fireRateUpgradeStartMoney: 100
   fireRateCostIncreasePercentage: 0.2
   damageUpgradeStartMoney: 100
-  damageCostIncreasePercentage: 0
+  damageCostIncreasePercentage: 0.2
   BulletDuration: 1
   Recoil: 5
   isAvaliable: 1

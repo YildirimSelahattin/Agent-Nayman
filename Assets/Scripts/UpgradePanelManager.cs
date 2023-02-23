@@ -23,7 +23,7 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject[] closedImages;
     [SerializeField] Button[] FireRateButtons;
     [SerializeField] Button[] damageButtons;
-    [SerializeField] Button[] selectButtons;
+    [SerializeField] Button[] selectImages;
     [SerializeField] GameObject avatarViewport;
     [SerializeField] GameObject weaponViewport;
     [SerializeField] GameObject weaponButton;
@@ -37,6 +37,7 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthMoneyText;
     [SerializeField] TextMeshProUGUI shieldText;
     [SerializeField] TextMeshProUGUI shieldMoneyText;
+
     public Sprite openedSprite;
     public Sprite closedSprite;
     public PlayerManager playerManager;
@@ -45,6 +46,8 @@ public class UpgradePanelManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject upgradeScreen;
     public int curPanelGun;
+    public GameObject rightArrow;
+    public GameObject leftArrow;
    
     
     void Start()
@@ -72,6 +75,7 @@ public class UpgradePanelManager : MonoBehaviour
     public void onRightArrowButtonClicked()
     {
         curPanelGun++;
+        
         verticalLayoutGroup.transform.DOLocalMoveX(-1* curPanelGun * sizeOfGunPanel, 1);
         EditCurrentGunPanel();
         GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
@@ -89,7 +93,7 @@ public class UpgradePanelManager : MonoBehaviour
         
         GunManager.Instance.Gun = (GunTypes)curPanelGun;
         GameDataManager.Instance.currentGun = curPanelGun;
-        selectButtons[GameDataManager.Instance.currentGun].interactable = false;
+        //selectButtons[GameDataManager.Instance.currentGun].interactable = false;
     }
     public void EditCurrentGunPanel()
     {
@@ -120,17 +124,33 @@ public class UpgradePanelManager : MonoBehaviour
             int currentDamage = (int)(gunConfigsArray[curPanelGun].BulletDamage * (Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageIncreasePercentagePerLevel, gunConfigsArray[curPanelGun].damageLevel)));
             damageTexts[curPanelGun].text = currentDamage.ToString();
 
-            int fireRateButtonMoney = (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel));
+            int fireRateButtonMoney = (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * (Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)));
             fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString();
 
-            int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageIncreasePercentagePerLevel, gunConfigsArray[curPanelGun].damageLevel));
+            int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * (Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)));
+            Debug.Log(damageButtonMoney+"qwe");
             damageMoneyTexts[curPanelGun].text = damageButtonMoney.ToString();
             if (gunConfigsArray[curPanelGun].isAvaliable == true)
             {
-                selectButtons[curPanelGun].interactable = true;
+                //selectImages[curPanelGun].interactable = true;
             }
         }
-        //upgrading avatar TODO
+
+        if(curPanelGun == 0)
+        {
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(true);
+        }
+        else if (curPanelGun == 2)
+        {
+            rightArrow.SetActive(false);
+            leftArrow.SetActive(true);
+        }
+        else
+        {
+            rightArrow.SetActive(true);
+            leftArrow.SetActive(true);
+        }
     }
 
     public void EditCurrentAvatarPanel()
@@ -184,7 +204,8 @@ public class UpgradePanelManager : MonoBehaviour
         //increase fire RateLevel
         gunConfigsArray[curPanelGun].damageLevel++;
         damageTexts[curPanelGun].text= GunManager.Instance.EditCurrentDamage().ToString();
-        int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageIncreasePercentagePerLevel, gunConfigsArray[curPanelGun].damageLevel));
+        int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel));
+        Debug.Log(damageButtonMoney+   "qwe");
         damageMoneyTexts[curPanelGun].text = damageButtonMoney.ToString();
         damageLevelCirclesParent[curPanelGun].transform.GetChild(gunConfigsArray[curPanelGun].damageLevel-1).gameObject.GetComponent<Image>().sprite = openedSprite;
         if (gunConfigsArray[curPanelGun].damageLevel == 5)
@@ -242,7 +263,7 @@ public class UpgradePanelManager : MonoBehaviour
         curPanelGun++;
         yield return new WaitForSeconds(1f);
         Debug.Log(curPanelGun * sizeOfGunPanel);
-        verticalLayoutGroup.transform.DOLocalMoveY(curPanelGun * sizeOfGunPanel, 3f);//move panel to the opened guns panel
+        verticalLayoutGroup.transform.DOLocalMoveX(curPanelGun * sizeOfGunPanel, 3f);//move panel to the opened guns panel
         closedImages[curPanelGun].SetActive(false);
         EditCurrentGunPanel();
 
@@ -253,11 +274,16 @@ public class UpgradePanelManager : MonoBehaviour
     {
         avatarViewport.SetActive(true);
         weaponViewport.SetActive(false);
+        leftArrow.SetActive(false);
+        rightArrow.SetActive(false);
+
     }
 
     public void OnWeaponButtonClicked()
     {
         avatarViewport.SetActive(false);
         weaponViewport.SetActive(true);
+        leftArrow.SetActive(false);
+        rightArrow.SetActive(false);
     }
 }
