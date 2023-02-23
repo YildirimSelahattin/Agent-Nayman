@@ -10,7 +10,7 @@ public class GameDataManager : MonoBehaviour
     public int playMusic;
     public int playVibrate;
     public int levelToLoad;
-    public int money = 0;
+    public int TotalMoney = 0;
     public int currentGun;
     public int playerHealth;
     public int playerShield;

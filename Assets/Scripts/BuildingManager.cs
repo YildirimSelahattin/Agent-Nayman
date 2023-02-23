@@ -6,7 +6,9 @@ using DG.Tweening;
 public class BuildingManager : MonoBehaviour
 {
    public GameObject BuildingIndex;
-    private ParticleSystem confetti;
+    ParticleSystem confetti;
+    ParticleSystem confettix3;
+    ParticleSystem confettix5;
 
 
 
@@ -25,14 +27,18 @@ PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActiv
     PlayerManager.Instance.agent.transform.DORotate(new Vector3(0,0,0),2f).OnComplete(()=>{
 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
 confetti.Play();
-
+GameDataManager.Instance.TotalMoney += GameManager.Instance.currentMoney;
 
 
 UIManager.Instance.endScreen.SetActive(true);
     });
 
-
 }
+}
+
+
+public  void PlayConfettibyX(){
+
 
 }
 
