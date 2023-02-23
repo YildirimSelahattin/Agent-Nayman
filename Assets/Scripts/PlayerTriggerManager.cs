@@ -96,13 +96,23 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("End"))
         {
+            Vector3 position = PlayerManager.Instance.agent.transform.position;
+            position.z += 50f;   
+            PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             PlayerManager.Instance.environmentMoveScript.enabled = false;
             PlayerManager.Instance.fallMoveScript.enabled=false;
-            PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
-            UIManager.Instance.endScreen.SetActive(true);
-            PlayerManager.Instance.loseAgent.SetActive(true);
-            PlayerManager.Instance.myAnimator.SetBool("isLose", true);
-            PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
+            PlayerManager.Instance.agent.transform.DORotate(new Vector3(-90, 180f, 0f),0.3f);
+
+            PlayerManager.Instance.agent.transform.DOMove(position,2f).OnComplete(() =>
+            {
+                UIManager.Instance.endScreen.SetActive(true);
+                PlayerManager.Instance.loseAgent.SetActive(true);
+                PlayerManager.Instance.myAnimator.SetBool("isLose", true);
+                PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
+                
+                
+            });
+            
         }
     }
     public IEnumerator FireSpeedUpForSomeTime(){

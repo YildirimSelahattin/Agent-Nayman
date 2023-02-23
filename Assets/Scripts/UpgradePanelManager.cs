@@ -23,7 +23,7 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject[] closedImages;
     [SerializeField] Button[] FireRateButtons;
     [SerializeField] Button[] damageButtons;
-    [SerializeField] Button[] selectImages;
+    [SerializeField] GameObject[] selectImages;
     [SerializeField] GameObject avatarViewport;
     [SerializeField] GameObject weaponViewport;
     [SerializeField] GameObject weaponButton;
