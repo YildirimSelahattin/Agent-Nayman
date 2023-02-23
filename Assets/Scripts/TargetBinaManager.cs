@@ -8,7 +8,7 @@ public class TargetBinaManager : MonoBehaviour
     ParticleSystem confetti;
     //ParticleSystem confettix3;
     //ParticleSystem confettix5;
-    [SerializeField] GameObject winAgent;
+
     bool gotThereOnce = false;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class TargetBinaManager : MonoBehaviour
         {
 
 
-            Instantiate(winAgent, transform.position, winAgent.transform.rotation);
+            Instantiate(PlayerManager.Instance.winAgent, transform.position, PlayerManager.Instance.winAgent.transform.rotation);
             confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
 
             //confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -58,6 +58,16 @@ public class TargetBinaManager : MonoBehaviour
             }
 
             gotThereOnce = true;
+            StartCoroutine(GoWinDance());
         }
+    }
+
+    public IEnumerator GoWinDance()
+    {
+        yield return new WaitForSeconds(1);
+        PlayerManager.Instance.winAgent.SetActive(true);
+       PlayerManager.Instance.myAnimator.SetBool("isWin",true);//cameramove
+        yield return new WaitForSeconds(0.2f);
+        PlayerManager.Instance.winAnimator.SetBool("startDance", true);
     }
 }

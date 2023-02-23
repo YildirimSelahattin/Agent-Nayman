@@ -48,6 +48,8 @@ public class PlayerManager : MonoBehaviour
     public int Health;
     public int Shield;
     public bool isAdPlayed = false;
+    public GameObject winAgent;
+    public Animator winAnimator;
     void Start()
     {
         if (Instance == null)
