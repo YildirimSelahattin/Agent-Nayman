@@ -23,7 +23,7 @@ public class TargetBinaManager : MonoBehaviour
         {
 
 
-            Instantiate(PlayerManager.Instance.winAgent, transform.position, PlayerManager.Instance.winAgent.transform.rotation);
+      
             confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
 
             //confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -33,10 +33,9 @@ public class TargetBinaManager : MonoBehaviour
             PlayerManager.Instance.myAnimator.SetBool("Ending", true);
             PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
             GameDataManager.Instance.TotalMoney += (multiplierAmount - 1) * GameManager.Instance.currentMoney;
-            PlayerManager.Instance.agent.transform.DORotate(new Vector3(0, 0, 0), 2f).OnComplete(() =>
+            PlayerManager.Instance.agent.transform.DOLocalRotate(new Vector3(-100f, 0, 0), 1f).OnComplete(() =>
             {
                 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
-                UIManager.Instance.endScreen.SetActive(true);
             });
 
 
@@ -64,7 +63,8 @@ public class TargetBinaManager : MonoBehaviour
 
     public IEnumerator GoWinDance()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
+        UIManager.Instance.endScreen.SetActive(true);
         PlayerManager.Instance.winAgent.SetActive(true);
        PlayerManager.Instance.myAnimator.SetBool("isWin",true);//cameramove
         yield return new WaitForSeconds(0.2f);
