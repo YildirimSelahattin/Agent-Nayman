@@ -4,7 +4,47 @@
     <list default="true" id="0d86e745-ea2e-466f-b3e8-b830004c5f7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular.ttf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Fonts/JockeyOne-Regular.ttf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Ellipse 13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Ellipse 13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Ellipse 15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Ellipse 15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 25.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 28.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 538options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 538options.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 592-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 592-1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 592-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 592-2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 595.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 595.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 596.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 596.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 597.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 597.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 598 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 598 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 599.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 599.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 600.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 601.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 602 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/Group 602 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/kart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/kart.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/png_pistol2 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/NewUI/png_pistol2 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Pressed.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Pressed.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Released.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Voodoo/Buttons/Animations/Released.anim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +52,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Common/SafeArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Voodoo/Buttons/Scripts/ButtonStandard.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -85,6 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677068302963</updated>
       <workItem from="1677068306787" duration="2480000" />
+      <workItem from="1677134529488" duration="2559000" />
     </task>
     <servers />
   </component>
