@@ -27,5 +27,5 @@ MonoBehaviour:
   damageCostIncreasePercentage: 0.2
   BulletDuration: 3
   Recoil: 30
-  isAvaliable: 1
+  isAvaliable: 0
   BulletPrefab: {fileID: 2239306913356964594, guid: ed432d93b5825854aac14489c0a2557f, type: 3}
