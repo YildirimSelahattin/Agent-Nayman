@@ -52,7 +52,6 @@ public class UIManager : MonoBehaviour
     public void OnTapToStartButtonClicked()
     {
 
-        startScreen.SetActive(false);
         flyingScreen.SetActive(true);
         upgradeScreen.SetActive(false);
         PlayerManager.Instance.StartFalling();
