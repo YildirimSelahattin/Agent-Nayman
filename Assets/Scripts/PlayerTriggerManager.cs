@@ -31,7 +31,9 @@ public class PlayerTriggerManager : MonoBehaviour
     
         if (other.CompareTag("Money"))
         {
-            GameDataManager.Instance.Totalmoney += 10;
+            GameDataManager.Instance.TotalMoney += 10;
+            GameManager.Instance.currentMoney += 10;
+            StartCoroutine(MoneyCollectAnim());
             Instantiate(moneyParticlePrefab,transform.position+Vector3.forward,Quaternion.identity);
             Destroy(other.gameObject);
         }
@@ -113,9 +115,15 @@ public class PlayerTriggerManager : MonoBehaviour
         EnvironmentMover.Instance.forwardMoveSpeed = 2;
            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
            yield return new WaitForSeconds(0.3f);
-        EnvironmentMover.Instance.forwardMoveSpeed = 6;
+        EnvironmentMover.Instance.forwardMoveSpeed = 12;
         PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
     }
+    public IEnumerator MoneyCollectAnim()
+    {
+        Debug.Log("AAAAAAAAAAAAAAAAA");
+        PlayerManager.Instance.myAnimator.SetBool("getBriefcase", true);
+        yield return new WaitForSeconds(0.8f);
+        PlayerManager.Instance.myAnimator.SetBool("getBriefcase", false);
+    }
 
-   
 }
