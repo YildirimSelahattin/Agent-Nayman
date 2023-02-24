@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     public GameObject RevivePanelScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public GameObject optionBar;
     
     
     [Header("Options Buttons")]
@@ -198,5 +199,17 @@ public class UIManager : MonoBehaviour
         GameDataManager.Instance.SaveData();
         LoadMainMenu.Instance.LoadSceneMenu(1);
 
+    }
+
+    public void OpenCloseOptionBar()
+    {
+        if (optionBar.active)
+        {
+            optionBar.SetActive(false);
+        }
+        else
+        {
+            optionBar.SetActive(true);  
+        }
     }
 }

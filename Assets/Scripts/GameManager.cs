@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] CityPrefabs;
     [SerializeField] GameObject[] LevelPrefabs;
+    [SerializeField] Color[] levelColors;
+    [SerializeField] Camera mainCamera;
     public GameObject CityParent;
     public  GameObject LevelParent;
     public GameObject currentCity;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        mainCamera.DOColor(levelColors[GameDataManager.Instance.levelToLoad],0.3F);
         Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
         currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
         currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
