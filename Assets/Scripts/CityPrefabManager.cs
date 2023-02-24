@@ -25,6 +25,8 @@ public class CityPrefabManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, landableBuildings.Length);
         landableBuildings[randomIndex].transform.GetChild(1).gameObject.SetActive(true);
+        landableBuildings[randomIndex].transform.GetChild(0).gameObject.SetActive(false);
+
         landableBuildings[randomIndex].transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);//open arrow 
         landableBuildings[randomIndex].transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(true);//open base 
         return landableBuildings[randomIndex].transform.GetChild(1).gameObject;

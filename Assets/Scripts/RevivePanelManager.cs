@@ -25,8 +25,10 @@ public class RevivePanelManager : MonoBehaviour
             if (seconds < 0)
             {
                 UIManager.Instance.RevivePanelScreen.SetActive(false);
-                UIManager.Instance.endScreen.SetActive(true);
-
+                UIManager.Instance.loseScreen.SetActive(true);
+                PlayerManager.Instance.loseAgent.SetActive(true);
+                PlayerManager.Instance.myAnimator.SetBool("isLose", true);
+                PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
                 timeFinished = true;
             }
         }

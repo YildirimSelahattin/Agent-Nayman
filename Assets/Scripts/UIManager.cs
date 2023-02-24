@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
     public void ReviveButtonClicked(){
         flyingScreen.SetActive(true);
         RevivePanelScreen.SetActive(false);
-        endScreen.SetActive(false);
+        
         PlayerManager.Instance.isAdPlayed = true;
          PlayerManager.Instance.myAnimator.SetBool("isDead", false);
         PlayerManager.Instance.environmentMoveScript.enabled = true;

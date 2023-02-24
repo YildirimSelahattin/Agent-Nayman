@@ -162,9 +162,10 @@ public class PlayerManager : MonoBehaviour
                 PlayerManager.Instance.environmentMoveScript.enabled = false;
                 PlayerManager.Instance.fallMoveScript.enabled=false;
                 PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
-                //LOSE SCREEN PlayerManager.Instance.loseScreen.SetActive(true);
-                UIManager.Instance.endScreen.SetActive(true);
+                UIManager.Instance.loseScreen.SetActive(true);
                 PlayerManager.Instance.loseAgent.SetActive(true);
+                UIManager.Instance.flyingScreen.SetActive(false);
+
                 PlayerManager.Instance.myAnimator.SetBool("isLose", true);
                 PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
                 //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
