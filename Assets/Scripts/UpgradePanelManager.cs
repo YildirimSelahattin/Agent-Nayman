@@ -180,7 +180,7 @@ public class UpgradePanelManager : MonoBehaviour
 
             int currentDamage = (int)(gunConfigsArray[curPanelGun].BulletDamage * (Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageIncreasePercentagePerLevel, gunConfigsArray[curPanelGun].damageLevel)));
             damageTexts[curPanelGun].text = currentDamage.ToString();
-           
+
 
 
         }
@@ -241,97 +241,116 @@ public class UpgradePanelManager : MonoBehaviour
         }
         int currentHealth = GameDataManager.Instance.playerHealth;
         healthText.text = currentHealth.ToString();
-       
+
 
     }
     public void OnUpgradeFireRateClicked()
     {
-        //increase fire RateLevel
-        gunConfigsArray[curPanelGun].fireRateLevel++;
-        fireRateTexts[curPanelGun].text = String.Format("{0:0.0}", GunManager.Instance.EditCurrentFireRate());
-
-        int fireRateButtonMoney = (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel));
-        fireRateLevelCirclesParent[curPanelGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
-
-        if (gunConfigsArray[curPanelGun].fireRateLevel == 5)
+        if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) > GameDataManager.Instance.TotalMoney)
         {
-            FireRateButtons[curPanelGun].interactable = false;
-            fireMoneyTexts[curPanelGun].text = "MAX";
-            ControllIsUpgradesFinished();
+            GameDataManager.Instance.TotalMoney -= (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel));
+            //increase fire RateLevel
+            gunConfigsArray[curPanelGun].fireRateLevel++;
+            fireRateTexts[curPanelGun].text = String.Format("{0:0.0}", GunManager.Instance.EditCurrentFireRate());
+
+            int fireRateButtonMoney = (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel));
+            fireRateLevelCirclesParent[curPanelGun].transform.GetChild(gunConfigsArray[GameDataManager.Instance.currentGun].fireRateLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+
+            if (gunConfigsArray[curPanelGun].fireRateLevel == 5)
+            {
+                FireRateButtons[curPanelGun].interactable = false;
+                fireMoneyTexts[curPanelGun].text = "MAX";
+                ControllIsUpgradesFinished();
+            }
+            else
+            {
+                fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString() + "$";
+            }
+            
+            GameDataManager.Instance.SaveData();
         }
-        else
-        {
-            fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString() + "$";
-        }
-        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeDamageClicked()
     {
         //increase fire RateLevel
-        gunConfigsArray[curPanelGun].damageLevel++;
-        damageTexts[curPanelGun].text = GunManager.Instance.EditCurrentDamage().ToString();
-        int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel));
-        Debug.Log(damageButtonMoney + "qwe");
-        damageLevelCirclesParent[curPanelGun].transform.GetChild(gunConfigsArray[curPanelGun].damageLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
-        if (gunConfigsArray[curPanelGun].damageLevel == 5)
+        if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) > GameDataManager.Instance.TotalMoney)
         {
-            damageButtons[curPanelGun].interactable = false;
-            damageMoneyTexts[curPanelGun].text = "MAX";
-            ControllIsUpgradesFinished();
-        }
-        else
-        {
-            damageMoneyTexts[curPanelGun].text = damageButtonMoney.ToString() + "$";
+            GameDataManager.Instance.TotalMoney -= (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel));
+            gunConfigsArray[curPanelGun].damageLevel++;
+            damageTexts[curPanelGun].text = GunManager.Instance.EditCurrentDamage().ToString();
+            int damageButtonMoney = (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel));
+            Debug.Log(damageButtonMoney + "qwe");
+            damageLevelCirclesParent[curPanelGun].transform.GetChild(gunConfigsArray[curPanelGun].damageLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+            if (gunConfigsArray[curPanelGun].damageLevel == 5)
+            {
+                damageButtons[curPanelGun].interactable = false;
+                damageMoneyTexts[curPanelGun].text = "MAX";
+                ControllIsUpgradesFinished();
+            }
+            else
+            {
+                damageMoneyTexts[curPanelGun].text = damageButtonMoney.ToString() + "$";
 
+            }
+            GameDataManager.Instance.SaveData();
         }
-        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeHealthClicked()
     {
-        GameDataManager.Instance.playerHealth = (int)(1.20f * GameDataManager.Instance.playerHealth);
-        GameDataManager.Instance.playerHealthLevel++;
-        healthLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerHealthLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
-        if (GameDataManager.Instance.playerHealthLevel == 5)
+        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) > GameDataManager.Instance.TotalMoney)
         {
-            healthUpgradeButton.interactable = false;
-            healthMoneyText.text = "MAX";
+            GameDataManager.Instance.TotalMoney -= (int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel));
+
+            GameDataManager.Instance.playerHealth = (int)(1.20f * GameDataManager.Instance.playerHealth);
+            GameDataManager.Instance.playerHealthLevel++;
+            healthLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerHealthLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+            if (GameDataManager.Instance.playerHealthLevel == 5)
+            {
+                healthUpgradeButton.interactable = false;
+                healthMoneyText.text = "MAX";
+            }
+            else
+            {
+                int currentHealthMoney = (int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel));
+                healthMoneyText.text = currentHealthMoney.ToString() + "$";
+            }
+            healthText.text = GameDataManager.Instance.playerHealth.ToString();
+            GameDataManager.Instance.SaveData();
         }
-        else
-        {
-            int currentHealthMoney = (int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel));
-            healthMoneyText.text = currentHealthMoney.ToString() + "$";
-        }
-        healthText.text = GameDataManager.Instance.playerHealth.ToString();
-        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeShieldClicked()
     {
-        if (GameDataManager.Instance.playerShieldLevel == 0)
+        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) > GameDataManager.Instance.TotalMoney)
         {
-            GameDataManager.Instance.playerShield = 10;
+
+            GameDataManager.Instance.TotalMoney -= (int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel));
+            if (GameDataManager.Instance.playerShieldLevel == 0)
+            {
+                GameDataManager.Instance.playerShield = 10;
+            }
+            else
+            {
+                GameDataManager.Instance.playerShield = (int)(1.20f * GameDataManager.Instance.playerShield);
+            }
+            GameDataManager.Instance.playerShieldLevel++;
+            shieldLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerShieldLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
+            if (GameDataManager.Instance.playerShieldLevel == 5)
+            {
+                shieldUpgradeButton.interactable = false;
+                shieldMoneyText.text = "MAX";
+            }
+            else
+            {
+                int currentShieldMoney = (int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel));
+                shieldMoneyText.text = currentShieldMoney.ToString() + "$";
+            }
+            shieldText.text = GameDataManager.Instance.playerShield.ToString();
+            GameDataManager.Instance.SaveData();
         }
-        else
-        {
-            GameDataManager.Instance.playerShield = (int)(1.20f * GameDataManager.Instance.playerShield);
-        }
-        GameDataManager.Instance.playerShieldLevel++;
-        shieldLevelCirclesParent.transform.GetChild(GameDataManager.Instance.playerShieldLevel - 1).gameObject.GetComponent<Image>().sprite = openedSprite;
-        if (GameDataManager.Instance.playerShieldLevel == 5)
-        {
-            shieldUpgradeButton.interactable = false;
-            shieldMoneyText.text = "MAX";
-        }
-        else
-        {
-            int currentShieldMoney = (int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel));
-            shieldMoneyText.text = currentShieldMoney.ToString() + "$";
-        }
-        shieldText.text = GameDataManager.Instance.playerShield.ToString();
-        GameDataManager.Instance.SaveData();
     }
     public void ControllIsUpgradesFinished()
     {
-        if (curPanelGun!=2)//if it is not the last gun
+        if (curPanelGun != 2)//if it is not the last gun
         {
             if (gunConfigsArray[curPanelGun].fireRateLevel == 5 && gunConfigsArray[curPanelGun].damageLevel == 5) //open new Gun
             {
@@ -348,7 +367,7 @@ public class UpgradePanelManager : MonoBehaviour
         leftArrow.SetActive(false);
         rightArrow.SetActive(false);
         Debug.Log(curPanelGun * sizeOfGunPanel);
-        verticalLayoutGroup.transform.DOLocalMoveX(-1*curPanelGun * sizeOfGunPanel, 1f).OnComplete(() =>
+        verticalLayoutGroup.transform.DOLocalMoveX(-1 * curPanelGun * sizeOfGunPanel, 1f).OnComplete(() =>
         {
             leftArrow.SetActive(true);
             rightArrow.SetActive(true);

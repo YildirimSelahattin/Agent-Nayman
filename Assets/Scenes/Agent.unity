@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.1096287, y: 0.024652317, z: -0.0027198365, w: 0.99366313}
+  m_LocalRotation: {x: 0.1096287, y: 0.024652308, z: -0.0027198356, w: 0.99366313}
   m_LocalPosition: {x: 12.717943, y: 269.78372, z: 274.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -765,14 +765,21 @@ MonoBehaviour:
   - {fileID: 5703019264791239772, guid: 87fa1e0fb343af2429db88a9853a9e0b, type: 3}
   levelColors:
   - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.117706776, a: 1}
-  - {r: 0, g: 0, b: 0.68235296, a: 1}
+  - {r: 0, g: 0.52156866, b: 0.36078432, a: 1}
+  - {r: 0, g: 0.003921569, b: 0.33333334, a: 1}
+  - {r: 0.41960785, g: 0, b: 0.49411765, a: 1}
+  ObstacleColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.011764706, g: 0.5568628, b: 0.38039216, a: 1}
+  - {r: 0.6627451, g: 0.3137255, b: 1, a: 1}
+  - {r: 0.6627451, g: 0.3137255, b: 1, a: 1}
   mainCamera: {fileID: 950265209}
   CityParent: {fileID: 448273183}
   LevelParent: {fileID: 1704627023}
   currentCity: {fileID: 0}
   currentTargetBuilding: {fileID: 0}
+  dikenDisMat: {fileID: 2100000, guid: 416ed052c22154d4393e8278ecfd8f6f, type: 2}
+  kupIcMat: {fileID: 2100000, guid: cba62913fefc5cc41a5c05043bf1b22e, type: 2}
   currentMoney: 0
 --- !u!1 &448273183
 GameObject:
@@ -798,7 +805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448273183}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1237, z: -241}
+  m_LocalPosition: {x: 0, y: 1500, z: -241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

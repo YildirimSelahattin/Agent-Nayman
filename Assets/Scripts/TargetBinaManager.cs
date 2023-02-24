@@ -24,7 +24,7 @@ public class TargetBinaManager : MonoBehaviour
 
 
       
-            confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
+            //confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
 
             //confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
             //confettix5 = GameManager.Instance.currentTargetBuilding.transform.GetChild(2).GetComponent<ParticleSystem>();
@@ -37,24 +37,6 @@ public class TargetBinaManager : MonoBehaviour
             {
                 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             });
-
-
-            if (multiplierAmount == 1)
-            {
-                Debug.Log("bu hangi oyun abi");
-                confetti.Play();
-
-            }
-            else if (multiplierAmount == 3)
-            {
-                Debug.Log("bu hangi oyun abi x3");
-                //confettix3.Play();
-            }
-            else if (multiplierAmount == 5)
-            {
-                Debug.Log("bu hangi oyun abi x5");
-                //confettix5.Play();
-            }
 
             gotThereOnce = true;
             StartCoroutine(GoWinDance());
