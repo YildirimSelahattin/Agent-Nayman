@@ -98,6 +98,7 @@ public class UpgradePanelManager : MonoBehaviour
                 GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
                 FireRateButtons[curPanelGun].interactable = true;
                 damageButtons[curPanelGun].interactable = true;
+                infoTexts[curPanelGun].SetActive(false);
             }
             else
             {
@@ -125,7 +126,7 @@ public class UpgradePanelManager : MonoBehaviour
                 GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
                 FireRateButtons[curPanelGun].interactable = true;
                 damageButtons[curPanelGun].interactable = true;
-
+                infoTexts[curPanelGun].SetActive(false);
             }
             else
             {
@@ -260,7 +261,7 @@ public class UpgradePanelManager : MonoBehaviour
         }
         else
         {
-            fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString();
+            fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString() + "$";
         }
         GameDataManager.Instance.SaveData();
     }

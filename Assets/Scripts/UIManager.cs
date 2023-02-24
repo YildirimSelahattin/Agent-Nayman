@@ -43,17 +43,18 @@ public class UIManager : MonoBehaviour
     [Header("TMPs")]
     [SerializeField] TextMeshProUGUI healthText; 
     [SerializeField] TextMeshProUGUI shieldText;
+    public TextMeshProUGUI totalMoneyText;
     void Start()
     {
         if(Instance == null)
         {
             Instance = this;
         }
-        
+
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
-     
+        totalMoneyText.text = GameDataManager.Instance.TotalMoney.ToString() + " $";
     }
     public void OnTapToStartButtonClicked()
     {

@@ -21,7 +21,7 @@ public class GameDataManager : MonoBehaviour
             this.totalMoney = value;
             if(UIManager.Instance != null)
             {
-                UIManager.Instance.totalMoneyText.text = value.ToString();
+                UIManager.Instance.totalMoneyText.text = value.ToString() + " $";
                 PlayerPrefs.SetInt("TotalMoney", totalMoney);
             }
         }
