@@ -96,6 +96,7 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("End"))
         {
+            //LOSE SCREEN PlayerManager.Instance.loseScreen.SetActive(true);
             Vector3 position = PlayerManager.Instance.agent.transform.position;
             position.z += 50f;   
             PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);

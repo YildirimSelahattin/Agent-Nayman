@@ -867,6 +867,9 @@ MonoBehaviour:
   distanceBetweenX: 0
   distanceBetweenY: 0
   startPos: {fileID: 163105965}
+  Health: 100
+  Shield: 0
+  myAnimator: {fileID: 1628805696}
   maxSpeed: 0.3
   camSpeed: 0.5
   pathSpeed: 30
@@ -882,7 +885,6 @@ MonoBehaviour:
   EnemyMask:
     serializedVersion: 2
     m_Bits: 64
-  myAnimator: {fileID: 1628805696}
   wantedRotationFlying: {x: -64, y: 0, z: 180}
   environmentMoveScript: {fileID: 677103175}
   fallMoveScript: {fileID: 465774867}
@@ -890,8 +892,6 @@ MonoBehaviour:
   clouds: {fileID: 1709023978}
   gettingShotUIEffect: {fileID: 0}
   damageEffectColor: {r: 1, g: 0, b: 0, a: 0.49803922}
-  Health: 100
-  Shield: 0
   isAdPlayed: 0
   winAgent: {fileID: 240452622}
   winAnimator: {fileID: 3376303489540625654}
@@ -5526,6 +5526,8 @@ MonoBehaviour:
   flyingScreen: {fileID: 0}
   endScreen: {fileID: 0}
   RevivePanelScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
   agent: {fileID: 465774857}
   soundOn: {fileID: 0}
   soundOff: {fileID: 0}
