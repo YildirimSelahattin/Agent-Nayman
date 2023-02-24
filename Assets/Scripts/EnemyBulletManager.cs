@@ -5,9 +5,21 @@ using UnityEngine;
 public class EnemyBulletManager : MonoBehaviour
 {
     
+    public AudioClip shootSound;
+    
     void Start()
     {
-        
+        GameObject sound = new GameObject("sound");
+        sound.AddComponent<AudioSource>().PlayOneShot(shootSound);
+        Destroy(sound, shootSound.length); // Creates new object, add to it audio source, play sound, destroy this object after playing is done
+/*
+        if (GameDataManager.Instance.playSound == 1)
+        {
+            GameObject sound = new GameObject("sound");
+            sound.AddComponent<AudioSource>().PlayOneShot(shootSound);
+            Destroy(sound, shootSound.length); // Creates new object, add to it audio source, play sound, destroy this object after playing is done
+        }
+ */
     }
 
     // Update is called once per frame
