@@ -18,6 +18,7 @@ public class ShootingConfig : ScriptableObject
     public float fireRateCostIncreasePercentage;
     public float damageUpgradeStartMoney;
     public float damageCostIncreasePercentage;
+    
 
     //Duration artarsa daha yavaş gidiyor 
      public float BulletDuration =2f;

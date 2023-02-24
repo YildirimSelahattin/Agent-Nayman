@@ -99,7 +99,6 @@ public class PlayerManager : MonoBehaviour
 
     public void StartFalling()
     {
-        gameStarted = true;
         startPoseAgent.SetActive(false);
         flyingAgentModel.SetActive(true);
         UIManager.Instance.windEffect.gameObject.SetActive(true);
@@ -116,6 +115,7 @@ public class PlayerManager : MonoBehaviour
         agent.transform.DOMove(startPos.position, 1.5f);
         agent.transform.DORotate(wantedRotationFlying, 2f).OnComplete(() =>
         {
+            gameStarted = true;
             agent.GetComponent<PlayerManager>().enabled = true;
             agentTrail.Play();
             environmentMoveScript.enabled = true;

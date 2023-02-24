@@ -33,7 +33,7 @@ public class TargetBinaManager : MonoBehaviour
             PlayerManager.Instance.myAnimator.SetBool("Ending", true);
             PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
             GameDataManager.Instance.TotalMoney += (multiplierAmount - 1) * GameManager.Instance.currentMoney;
-            PlayerManager.Instance.agent.transform.DOLocalRotate(new Vector3(-100f, 0, 0), 1f).OnComplete(() =>
+            PlayerManager.Instance.agent.transform.DOLocalRotate(new Vector3(-119f, 0, 0), 1f).OnComplete(() =>
             {
                 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             });

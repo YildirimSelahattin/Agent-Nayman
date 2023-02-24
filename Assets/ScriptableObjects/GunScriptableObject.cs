@@ -52,7 +52,7 @@ public class GunScriptableObject : ScriptableObject
 
   public void Shoot(GunScriptableObject gun)
   {
-
+    
 
         Debug.Log("bbb" + gun.Model.transform.GetChild(0).gameObject);
         Quaternion modely = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
@@ -61,13 +61,14 @@ public class GunScriptableObject : ScriptableObject
         Quaternion originalRot = gun.Model.transform.GetChild(0).gameObject.transform.localRotation;
         Debug.Log("aaaa"+modely);
 
+        
    gun.Model.transform.GetChild(0).transform.DOLocalRotateQuaternion(modely,0.3f).OnComplete(()=>{
 
        GameObject bullet = Instantiate(ShootingConfig.BulletPrefab, gun.Model.transform.GetChild(0).transform.position, ShootingConfig.BulletPrefab.transform.rotation);
        float yspawn;
 
        yspawn = PlayerManager.Instance.agent.transform.position.z + 30f;
-
+       
        bullet.transform.DOMoveZ(yspawn, ShootingConfig.BulletDuration).OnComplete(() => {
 
            Destroy(bullet);
