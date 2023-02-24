@@ -262,6 +262,7 @@ public class UpgradePanelManager : MonoBehaviour
         {
             fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString();
         }
+        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeDamageClicked()
     {
@@ -282,6 +283,7 @@ public class UpgradePanelManager : MonoBehaviour
             damageMoneyTexts[curPanelGun].text = damageButtonMoney.ToString() + "$";
 
         }
+        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeHealthClicked()
     {
@@ -299,7 +301,7 @@ public class UpgradePanelManager : MonoBehaviour
             healthMoneyText.text = currentHealthMoney.ToString() + "$";
         }
         healthText.text = GameDataManager.Instance.playerHealth.ToString();
-
+        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeShieldClicked()
     {
@@ -324,7 +326,7 @@ public class UpgradePanelManager : MonoBehaviour
             shieldMoneyText.text = currentShieldMoney.ToString() + "$";
         }
         shieldText.text = GameDataManager.Instance.playerShield.ToString();
-
+        GameDataManager.Instance.SaveData();
     }
     public void ControllIsUpgradesFinished()
     {

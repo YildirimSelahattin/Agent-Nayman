@@ -10,7 +10,22 @@ public class GameDataManager : MonoBehaviour
     public int playMusic;
     public int playVibrate;
     public int levelToLoad;
-    public int TotalMoney = 0;
+    int totalMoney;
+    public int TotalMoney {
+        get
+        {
+            return totalMoney;
+        }
+        set
+        {
+            this.totalMoney = value;
+            if(UIManager.Instance != null)
+            {
+                UIManager.Instance.totalMoneyText.text = value.ToString();
+                PlayerPrefs.SetInt("TotalMoney", totalMoney);
+            }
+        }
+    }
     public int currentGun;
     public int playerHealth;
     public int playerShield;
@@ -38,7 +53,8 @@ public class GameDataManager : MonoBehaviour
     }
     public void LoadData()
     {
-        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 1);
+        TotalMoney = PlayerPrefs.GetInt("TotalMoney", 100);
+        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 2);
         playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);
@@ -56,13 +72,14 @@ public class GameDataManager : MonoBehaviour
  
     public void SaveData()
     {
+        PlayerPrefs.SetInt("TotalMoney", TotalMoney);
         PlayerPrefs.SetInt("LevelToLoad", levelToLoad);
         PlayerPrefs.SetInt("PlaySoundKey", playSound);
         PlayerPrefs.SetInt("PlayMusicKey", playMusic);
         PlayerPrefs.SetInt("PlayVibrateKey", playVibrate);
-        playerHealth = PlayerPrefs.GetInt("PLayerHealth", 100);
-        playerShield = PlayerPrefs.GetInt("PlayerShield", 0);
-        playerHealthLevel = PlayerPrefs.GetInt("PlayerHealthLevel", 0);
-        playerShieldLevel = PlayerPrefs.GetInt("PlayerShieldLevel", 0);
+        PlayerPrefs.GetInt("PLayerHealth", playerHealth);
+        PlayerPrefs.GetInt("PlayerShield", playerShield);
+        PlayerPrefs.GetInt("PlayerHealthLevel", playerHealthLevel);
+        PlayerPrefs.GetInt("PlayerShieldLevel", playerShieldLevel);
     }
 }

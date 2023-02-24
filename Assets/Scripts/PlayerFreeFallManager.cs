@@ -89,7 +89,6 @@ public class PlayerFreeFallManager : MonoBehaviour
             //tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
             //tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
             transform.localPosition = tempLoc;
-
             OpenArrows();
             SlowDownWindAndWorld();
         }

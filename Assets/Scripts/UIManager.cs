@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     public GameObject flyingScreen;
     public GameObject endScreen;
     public GameObject RevivePanelScreen;
-
+    public TextMeshProUGUI totalMoneyText;
     [SerializeField] GameObject agent;
     [SerializeField] GameObject soundOn;
     [SerializeField] GameObject soundOff;
@@ -42,11 +42,11 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+
         /*UpdateSound();
         UpdateMusic();
         UpdateVibrate();*/
-     
+        totalMoneyText.text = GameDataManager.Instance.TotalMoney.ToString() + " $"; 
     }
     public void OnTapToStartButtonClicked()
     {
