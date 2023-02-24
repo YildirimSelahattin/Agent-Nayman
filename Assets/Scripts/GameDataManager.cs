@@ -54,7 +54,7 @@ public class GameDataManager : MonoBehaviour
     public void LoadData()
     {
         TotalMoney = PlayerPrefs.GetInt("TotalMoney", 100);
-        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 2);
+        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 1);
         playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);

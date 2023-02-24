@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText; 
     [SerializeField] TextMeshProUGUI shieldText;
     public TextMeshProUGUI totalMoneyText;
+    public TextMeshProUGUI levelText;
     void Start()
     {
         if(Instance == null)
@@ -55,6 +56,7 @@ public class UIManager : MonoBehaviour
         UpdateMusic();
         UpdateVibrate();*/
         totalMoneyText.text = GameDataManager.Instance.TotalMoney.ToString() + " $";
+        levelText.text = "LEVEL "+GameDataManager.Instance.levelToLoad.ToString();
     }
     public void OnTapToStartButtonClicked()
     {
@@ -74,13 +76,7 @@ public class UIManager : MonoBehaviour
         UIManager.Instance.ChangeHealthText(100);
         
     }
-    public void LoadSceneButton()
-    {
-        //GameDataManager.Instance.levelToLoad += 1;
-        
-        SceneManager.LoadScene(0);
-
-    }
+ 
 
     public void UpdateSound()
     {
@@ -194,6 +190,13 @@ public class UIManager : MonoBehaviour
     }
     public void RetryLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoadMainMenu.Instance.LoadSceneMenu(1);
+    }
+    public void NextLevel()
+    {
+        GameDataManager.Instance.levelToLoad += 1;
+        GameDataManager.Instance.SaveData();
+        LoadMainMenu.Instance.LoadSceneMenu(1);
+
     }
 }

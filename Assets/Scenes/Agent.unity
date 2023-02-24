@@ -331,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163105961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 296.11, z: 336}
+  m_LocalPosition: {x: 0.22, y: 296.11, z: 401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.1096287, y: 0.024652317, z: -0.0027198365, w: 0.99366313}
+  m_LocalRotation: {x: 0.1096287, y: 0.024652308, z: -0.0027198356, w: 0.99366313}
   m_LocalPosition: {x: 12.717943, y: 269.78372, z: 274.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2490,9 +2490,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213131539}
-  m_LocalRotation: {x: 0.55034363, y: -0, z: -0, w: 0.8349382}
-  m_LocalPosition: {x: 0, y: 572, z: 8}
-  m_LocalScale: {x: 145.46658, y: 145.46658, z: 145.46658}
+  m_LocalRotation: {x: 0.18603592, y: -0.000000016263781, z: 1.7763568e-14, w: 0.982543}
+  m_LocalPosition: {x: -5, y: 446, z: -520}
+  m_LocalScale: {x: 150, y: 150, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 761493503363676748}
@@ -2501,7 +2501,7 @@ Transform:
   - {fileID: 558996407}
   m_Father: {fileID: 465774863}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 66.781, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.443, y: 0, z: 0}
 --- !u!1 &1232066303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,6 +3392,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3307594460520523260, guid: 7afacc93b3ddd8c4896497686a352f6f, type: 3}
   m_PrefabInstance: {fileID: 7763706862551637997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1793067594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793067596}
+  - component: {fileID: 1793067595}
+  m_Layer: 0
+  m_Name: LoadMainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1793067595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793067594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216c42658d8568f469e3a48f32baaa0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loaderCanvas: {fileID: 6089734913752350284}
+  progressBar: {fileID: 6089734913785224649}
+--- !u!4 &1793067596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793067594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820108404
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,7 +4110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107378915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4102,6 +4148,7 @@ MonoBehaviour:
   healthText: {fileID: 6089734914171147210}
   shieldText: {fileID: 6089734915082266288}
   totalMoneyText: {fileID: 6089734913574479966}
+  levelText: {fileID: 6089734915134835420}
 --- !u!1 &32617684750280346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8978,9 +9025,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2107378917}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: LoadSceneButton
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16789,9 +16836,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Pressed
+      - m_Target: {fileID: 2107378917}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: RetryLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

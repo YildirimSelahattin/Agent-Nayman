@@ -88,7 +88,7 @@ public class PlayerFreeFallManager : MonoBehaviour
             Vector3 tempLoc = playVelocity + transform.localPosition;
             //tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
             //tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
-            transform.localPosition = tempLoc;
+            transform.DOLocalMove(tempLoc,0.05f);
             OpenArrows();
             SlowDownWindAndWorld();
         }
@@ -107,18 +107,18 @@ public class PlayerFreeFallManager : MonoBehaviour
     public void OpenArrows()
     {
 
-        if (Mathf.Abs(targetBuilding.transform.position.x - transform.position.x) < 50)
+        if (Mathf.Abs(targetBuilding.transform.position.x - transform.position.x) > 50)
         {
             //Horizontal adjustments
             if (transform.position.x > targetBuilding.transform.position.x)
             {
-                leftArrow.SetActive(true);
-                rightArrow.SetActive(false);
+                leftArrow.SetActive(false);
+                rightArrow.SetActive(true);
             }
             else if (transform.position.x < targetBuilding.transform.position.x)
             {
-                rightArrow.SetActive(true);
-                leftArrow.SetActive(false);
+                rightArrow.SetActive(false);
+                leftArrow.SetActive(true);
             }
         }
         else
@@ -127,15 +127,16 @@ public class PlayerFreeFallManager : MonoBehaviour
             rightArrow.SetActive(false);
         }
 
+      
         //Vectical adjustments,
-        if (Mathf.Abs(targetBuilding.transform.position.y - transform.position.y) < 50)
+        if (Mathf.Abs(targetBuilding.transform.position.z - transform.position.y) > 50)
         {
-            if (transform.position.y > targetBuilding.transform.position.y)
+            if (transform.position.y > targetBuilding.transform.position.z)
             {
                 upArrow.SetActive(false);
                 botArrow.SetActive(true);
             }
-            else if (transform.position.y > targetBuilding.transform.position.y)
+            else if (transform.position.y < targetBuilding.transform.position.z)
             {
                 upArrow.SetActive(true);
                 botArrow.SetActive(false);

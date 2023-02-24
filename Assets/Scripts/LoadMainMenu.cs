@@ -43,7 +43,7 @@ public class LoadMainMenu : MonoBehaviour
         }
         while (scene.progress < 0.9f);
 
-        await Task.Delay(3000);
+        await Task.Delay(2000);
 
         scene.allowSceneActivation = true;
     }
