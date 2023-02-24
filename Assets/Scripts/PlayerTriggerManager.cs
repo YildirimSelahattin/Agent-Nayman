@@ -63,7 +63,7 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("Obstacle"))
         {            
-            Debug.Log("obstacle");
+           
             PlayerManager.Instance.getHit(10);
             StartCoroutine(ObstacleHit());
             Destroy(other.gameObject);
@@ -127,16 +127,25 @@ public class PlayerTriggerManager : MonoBehaviour
     }
     
     public IEnumerator ObstacleHit(){
-           Debug.Log("AAAAAAAAAAAAAAAAA");
+           
         EnvironmentMover.Instance.forwardMoveSpeed = 2;
-           PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
-           yield return new WaitForSeconds(.5f);
-        EnvironmentMover.Instance.forwardMoveSpeed = 12;
-        PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
+        if (PlayerManager.Instance.Health <=0)
+        {
+            PlayerManager.Instance.myAnimator.SetBool("isDead",true);
+
+        }
+        else
+        {
+            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
+            yield return new WaitForSeconds(.5f);
+            EnvironmentMover.Instance.forwardMoveSpeed = 12;
+            PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
+        }  
+        
     }
     public IEnumerator MoneyCollectAnim()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAA");
+        
         PlayerManager.Instance.myAnimator.SetBool("getBriefcase", true);
         yield return new WaitForSeconds(0.8f);
         PlayerManager.Instance.myAnimator.SetBool("getBriefcase", false);

@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0d86e745-ea2e-466f-b3e8-b830004c5f7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Bullet 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Bullet 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RayBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RayBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RevolverBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RevolverBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/bazookabullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/bazookabullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/GunScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/GunScriptableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ShootingConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ShootingConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BulletManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BulletManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBulletManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBulletManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBulletManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBulletManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/arrow3dMat/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/arrow3dMat/Material.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerTriggerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerTriggerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetBinaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetBinaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StateCameras Blends.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StateCameras Blends.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
