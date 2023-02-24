@@ -19,6 +19,9 @@ public class PlayerManager : MonoBehaviour
     public float distanceBetweenY;
     public Transform startPos;
     [Header("AgentProperties")]
+    public int Health;
+    public int Shield;
+    public Animator myAnimator;
     [Range(0f, 1f)] public float maxSpeed;
     [Range(0f, 1f)] public float camSpeed;
     [Range(0f, 50f)] public float pathSpeed;
@@ -36,7 +39,6 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem CollideParticle;
     public ParticleSystem Dust;
     [SerializeField] LayerMask EnemyMask;
-    public Animator myAnimator;
     public static PlayerManager Instance;
     public Vector3 wantedRotationFlying;
     public EnvironmentMover environmentMoveScript;
@@ -45,13 +47,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject clouds;
     public Image gettingShotUIEffect;
     public Color damageEffectColor;
-    public int Health;
-    public int Shield;
     public bool isAdPlayed = false;
+    
+    [Header("Win/Lose anim")]
     public GameObject winAgent;
     public Animator winAnimator;
     public Animator loseAnimator;
     public GameObject loseAgent;
+    
 
     void Start()
     {
@@ -159,8 +162,10 @@ public class PlayerManager : MonoBehaviour
                 PlayerManager.Instance.environmentMoveScript.enabled = false;
                 PlayerManager.Instance.fallMoveScript.enabled=false;
                 PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
-                UIManager.Instance.endScreen.SetActive(true);
+                UIManager.Instance.loseScreen.SetActive(true);
                 PlayerManager.Instance.loseAgent.SetActive(true);
+                UIManager.Instance.flyingScreen.SetActive(false);
+
                 PlayerManager.Instance.myAnimator.SetBool("isLose", true);
                 PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
                 //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
