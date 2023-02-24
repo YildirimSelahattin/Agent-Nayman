@@ -16,6 +16,8 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject[] damageLevelCirclesParent;
     [SerializeField] GameObject healthLevelCirclesParent;
     [SerializeField] GameObject shieldLevelCirclesParent;
+    [SerializeField] GameObject[] fireButtonParents;
+    [SerializeField] GameObject[] damageButtonParents;
     [SerializeField] Button healthUpgradeButton;
     [SerializeField] Button shieldUpgradeButton;
 
@@ -30,6 +32,7 @@ public class UpgradePanelManager : MonoBehaviour
     [SerializeField] GameObject avatarButton;
     [SerializeField] TextMeshProUGUI[] fireRateTexts;
     [SerializeField] TextMeshProUGUI[] damageTexts;
+    [SerializeField] GameObject[] infoTexts;
     [SerializeField] TextMeshProUGUI[] fireMoneyTexts;
     [SerializeField] TextMeshProUGUI[] damageMoneyTexts;
 
@@ -100,6 +103,9 @@ public class UpgradePanelManager : MonoBehaviour
             {
                 FireRateButtons[curPanelGun].interactable = false;
                 damageButtons[curPanelGun].interactable = false;
+                fireButtonParents[curPanelGun].SetActive(false);
+                damageButtonParents[curPanelGun].SetActive(false);
+                infoTexts[curPanelGun].SetActive(true);
             }
         });
 
@@ -113,18 +119,21 @@ public class UpgradePanelManager : MonoBehaviour
         {
             if (gunConfigsArray[curPanelGun].isAvaliable == true)
             {
-
                 selectImages[curPanelGun].SetActive(true);
                 GunManager.Instance.Gun = (GunTypes)curPanelGun;
                 GameDataManager.Instance.currentGun = curPanelGun;
                 GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
                 FireRateButtons[curPanelGun].interactable = true;
                 damageButtons[curPanelGun].interactable = true;
+
             }
             else
             {
                 FireRateButtons[curPanelGun].interactable = false;
                 damageButtons[curPanelGun].interactable = false;
+                fireButtonParents[curPanelGun].SetActive(false);
+                damageButtonParents[curPanelGun].SetActive(false);
+                infoTexts[curPanelGun].SetActive(true);
             }
         });
 

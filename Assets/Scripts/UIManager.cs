@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     int isVibrateOn;
     
     public ParticleSystem windEffect;
-    public GameObject startScreen;
     public GameObject upgradeScreen;
     public GameObject flyingScreen;
     public GameObject endScreen;
