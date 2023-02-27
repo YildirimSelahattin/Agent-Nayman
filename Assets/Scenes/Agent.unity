@@ -390,7 +390,7 @@ MonoBehaviour:
     FieldOfView: 80
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 350
+    FarClipPlane: 300
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -758,11 +758,23 @@ MonoBehaviour:
   - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
   - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
   - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
+  - {fileID: 7826118512787630598, guid: 76efded8b154bbc46b2df3cd8db49879, type: 3}
   LevelPrefabs:
   - {fileID: 0}
   - {fileID: 5703019264791239772, guid: 098f8c51a1e54334797061f37207c578, type: 3}
   - {fileID: 5703019264791239772, guid: 44c4f8119e230ef4f8e419599a357faf, type: 3}
   - {fileID: 5703019264791239772, guid: 87fa1e0fb343af2429db88a9853a9e0b, type: 3}
+  - {fileID: 5703019264791239772, guid: 3303ddb7dc25b3e4f85f760b08fb6949, type: 3}
+  - {fileID: 5703019264791239772, guid: 4430af6d992a9814abccf013f89259c5, type: 3}
+  - {fileID: 5703019264791239772, guid: 312d825c76b4e884286505a93d6bb49f, type: 3}
+  - {fileID: 5703019264791239772, guid: cf5c1b92d43580d41b83de730ca4a50d, type: 3}
+  - {fileID: 5703019264791239772, guid: 61e8310890d5a2d41b9d9f67fbe5aa92, type: 3}
+  - {fileID: 5703019264791239772, guid: c70553e176018a444aa02e1b20413079, type: 3}
   levelColors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0.52156866, b: 0.36078432, a: 1}
@@ -805,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448273183}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1500, z: -241}
+  m_LocalPosition: {x: 0, y: 1150, z: -241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3358,7 +3370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704627023}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 281, z: -400}
+  m_LocalPosition: {x: 0, y: 392, z: -400}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4151,7 +4163,7 @@ MonoBehaviour:
   RevivePanelScreen: {fileID: 6089734914311880248}
   winScreen: {fileID: 7854114996315651182}
   loseScreen: {fileID: 6089734914987879306}
-  optionBar: {fileID: 0}
+  optionBar: {fileID: 6089734913462125635}
   agent: {fileID: 465774857}
   soundOn: {fileID: 0}
   soundOff: {fileID: 0}
