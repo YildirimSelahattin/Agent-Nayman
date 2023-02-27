@@ -55,12 +55,14 @@ public class PlayerFreeFallManager : MonoBehaviour
         botLimit = cityPrefabScript.BotLimit.transform;
         rightLimit = cityPrefabScript.RightLimit.transform;
 
+        EnvironmentMover.Instance.forwardMoveSpeed *= 4;
+
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
         screenWidth = Screen.width;
         screenHeigth = Screen.height;
-       
+        
         agentParachute.gameObject.SetActive(true);
         gameObject.transform.DORotate(new Vector3(-157, 0, -180), 1f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
