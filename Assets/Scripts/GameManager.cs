@@ -39,9 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        kupIcMat.color = ObstacleColors[GameDataManager.Instance.levelToLoad % 3];
-        dikenDisMat.color = ObstacleColors[GameDataManager.Instance.levelToLoad % 3];
-        mainCamera.DOColor(levelColors[GameDataManager.Instance.levelToLoad%3],0.3F);
+        mainCamera.DOColor(levelColors[GameDataManager.Instance.levelToLoad % 3],0.3F);
         Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
         currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
         currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();

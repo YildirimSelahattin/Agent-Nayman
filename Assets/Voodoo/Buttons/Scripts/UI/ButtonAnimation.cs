@@ -35,14 +35,12 @@ namespace Voodoo.Visual.UI.Button
         {
             animator.SetBool(loop, false);
             animator.SetTrigger(pressed);
-            shine.Animated(false);
         }
 
         private void Released()
         {
             animator.SetTrigger(released);
             animator.SetBool(loop, isLooping);
-            shine.Animated(true);
         }
 
         private void OnDestroy()
