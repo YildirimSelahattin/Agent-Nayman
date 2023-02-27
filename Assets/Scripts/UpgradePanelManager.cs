@@ -146,7 +146,7 @@ public class UpgradePanelManager : MonoBehaviour
         {
             int fireRateLevel = gunConfigsArray[curPanelGun].fireRateLevel;
             int damageLevel = gunConfigsArray[curPanelGun].damageLevel;
-            if (fireRateLevel == 5)
+            if (fireRateLevel >= 5)
             {
                 FireRateButtons[curPanelGun].interactable = false;
                 fireMoneyTexts[curPanelGun].text = "MAX";
@@ -156,7 +156,7 @@ public class UpgradePanelManager : MonoBehaviour
                 int fireRateButtonMoney = (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * (Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)));
                 fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString() + "$";
             }
-            if (damageLevel == 5)
+            if (damageLevel >= 5)
             {
                 damageButtons[curPanelGun].interactable = false;
                 damageMoneyTexts[curPanelGun].text = "MAX";
