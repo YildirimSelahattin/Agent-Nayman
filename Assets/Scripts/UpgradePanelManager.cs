@@ -144,6 +144,16 @@ public class UpgradePanelManager : MonoBehaviour
     {
         if (weaponViewport.active)//if we are on gun panel side 
         {
+            if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) <= GameDataManager.Instance.TotalMoney)
+            {
+                FireRateButtons[curPanelGun].interactable = false;
+            }
+            if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) <= GameDataManager.Instance.TotalMoney)
+            {
+                damageButtons[curPanelGun].interactable = false;
+            }
+
+
             int fireRateLevel = gunConfigsArray[curPanelGun].fireRateLevel;
             int damageLevel = gunConfigsArray[curPanelGun].damageLevel;
             if (fireRateLevel >= 5)
@@ -207,6 +217,14 @@ public class UpgradePanelManager : MonoBehaviour
         int healthlevel = GameDataManager.Instance.playerHealthLevel;
         int shieldLevel = GameDataManager.Instance.playerShieldLevel;
 
+        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) <= GameDataManager.Instance.TotalMoney)
+        {
+            healthUpgradeButton.interactable = false;
+        }
+        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) <= GameDataManager.Instance.TotalMoney)
+        {
+            shieldUpgradeButton.interactable = false;
+        }
         if (healthlevel == 5)
         {
             healthUpgradeButton.interactable = false;
@@ -246,7 +264,8 @@ public class UpgradePanelManager : MonoBehaviour
     }
     public void OnUpgradeFireRateClicked()
     {
-        if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) > GameDataManager.Instance.TotalMoney)
+
+        if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) <= GameDataManager.Instance.TotalMoney)
         {
             GameDataManager.Instance.TotalMoney -= (int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel));
             //increase fire RateLevel
@@ -266,14 +285,14 @@ public class UpgradePanelManager : MonoBehaviour
             {
                 fireMoneyTexts[curPanelGun].text = fireRateButtonMoney.ToString() + "$";
             }
-            
+
             GameDataManager.Instance.SaveData();
         }
     }
     public void OnUpgradeDamageClicked()
     {
         //increase fire RateLevel
-        if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) > GameDataManager.Instance.TotalMoney)
+        if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) <= GameDataManager.Instance.TotalMoney)
         {
             GameDataManager.Instance.TotalMoney -= (int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel));
             gunConfigsArray[curPanelGun].damageLevel++;
@@ -297,7 +316,7 @@ public class UpgradePanelManager : MonoBehaviour
     }
     public void OnUpgradeHealthClicked()
     {
-        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) > GameDataManager.Instance.TotalMoney)
+        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) <= GameDataManager.Instance.TotalMoney)
         {
             GameDataManager.Instance.TotalMoney -= (int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel));
 
@@ -320,7 +339,7 @@ public class UpgradePanelManager : MonoBehaviour
     }
     public void OnUpgradeShieldClicked()
     {
-        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) > GameDataManager.Instance.TotalMoney)
+        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) <= GameDataManager.Instance.TotalMoney)
         {
 
             GameDataManager.Instance.TotalMoney -= (int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel));
