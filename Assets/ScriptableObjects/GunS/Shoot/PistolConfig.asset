@@ -16,8 +16,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   baseFireRate: 1.2
-  fireRateLevel: 5
-  damageLevel: 5
+  fireRateLevel: 0
+  damageLevel: 0
   BulletDamage: 34
   fireRateIncreasePercentagePerLevel: 0.2
   damageIncreasePercentagePerLevel: 0.2
