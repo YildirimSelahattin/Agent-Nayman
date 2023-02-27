@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18447067, g: 0.273948, b: 0.32744423, a: 1}
+  m_IndirectSpecularColor: {r: 0.18446803, g: 0.2741375, b: 0.32774836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387735090}
-  m_LocalRotation: {x: 0.1096287, y: 0.024652308, z: -0.0027198356, w: 0.99366313}
+  m_LocalRotation: {x: 0.1096287, y: 0.024652317, z: -0.0027198365, w: 0.99366313}
   m_LocalPosition: {x: 12.717943, y: 269.78372, z: 274.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4163,14 +4163,14 @@ MonoBehaviour:
   RevivePanelScreen: {fileID: 6089734914311880248}
   winScreen: {fileID: 7854114996315651182}
   loseScreen: {fileID: 6089734914987879306}
-  optionBar: {fileID: 6089734913462125635}
+  optionBar: {fileID: 6089734914521628363}
   agent: {fileID: 465774857}
-  soundOn: {fileID: 0}
-  soundOff: {fileID: 0}
-  musicOn: {fileID: 0}
-  musicOff: {fileID: 0}
-  vibrationOff: {fileID: 0}
-  vibrationOn: {fileID: 0}
+  soundOn: {fileID: 6089734914640007683}
+  soundOff: {fileID: 6089734914574316796}
+  musicOn: {fileID: 6089734913386234459}
+  musicOff: {fileID: 6089734913511411782}
+  vibrationOff: {fileID: 6089734913287476129}
+  vibrationOn: {fileID: 6089734913521572612}
   healthText: {fileID: 6089734914171147210}
   shieldText: {fileID: 6089734915082266288}
   totalMoneyText: {fileID: 6089734913574479966}
@@ -20102,7 +20102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6089734914521628406
 MonoBehaviour:
   m_ObjectHideFlags: 0
