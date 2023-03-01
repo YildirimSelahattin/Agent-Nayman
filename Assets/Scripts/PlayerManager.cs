@@ -76,8 +76,8 @@ public class PlayerManager : MonoBehaviour
         if (Input.touchCount > 0 && gameStarted == true)
         {
             Touch curTouch = Input.GetTouch(0);
-            float x = (curTouch.deltaPosition.x * distanceBetweenX / screenWidth);
-            float y = (curTouch.deltaPosition.y * distanceBetweenY / screenHeigth);
+            float x = 2f * (curTouch.deltaPosition.x * distanceBetweenX / screenWidth);
+            float y = 2f*(curTouch.deltaPosition.y * distanceBetweenY / screenHeigth);
             // Debug.Log((curTouch.deltaPosition.x * distanceBetweenX / screenWidth) + "," + (curTouch.deltaPosition.y * distanceBetweenY / screenHeigth));
             Vector3 playVelocity = new Vector3(x, y, 0);
             Vector3 tempLoc = playVelocity + transform.position;
@@ -168,6 +168,8 @@ public class PlayerManager : MonoBehaviour
 
                 PlayerManager.Instance.myAnimator.SetBool("isLose", true);
                 PlayerManager.Instance.loseAnimator.SetBool("Lose", true);
+                UIManager.Instance.totalMoneyText.gameObject.SetActive(false);
+                UIManager.Instance.levelText.gameObject.SetActive(false);
                 //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
                 // SceneManager.LoadScene(currentSceneIndex);
             });

@@ -55,7 +55,8 @@ public class UpgradePanelManager : MonoBehaviour
     void Start()
     {
 
-        verticalLayoutGroup.transform.localPosition = new Vector3(0, GameDataManager.Instance.currentGun * sizeOfGunPanel, 0);
+        verticalLayoutGroup.transform.DOLocalMoveY(0, 0.3f);
+        verticalLayoutGroup.transform.DOLocalMoveX(-1*GameDataManager.Instance.currentGun * sizeOfGunPanel, 0.3f);
         GunManager.Instance.Gun = (GunTypes)GameDataManager.Instance.currentGun;
         curPanelGun = GameDataManager.Instance.currentGun;
         selectImages[curPanelGun].SetActive(true);
@@ -96,17 +97,13 @@ public class UpgradePanelManager : MonoBehaviour
                 GunManager.Instance.Gun = (GunTypes)curPanelGun;
                 GameDataManager.Instance.currentGun = curPanelGun;
                 GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
-                FireRateButtons[curPanelGun].interactable = true;
-                damageButtons[curPanelGun].interactable = true;
-                infoTexts[curPanelGun].SetActive(false);
+
             }
             else
             {
                 FireRateButtons[curPanelGun].interactable = false;
                 damageButtons[curPanelGun].interactable = false;
-                fireButtonParents[curPanelGun].SetActive(false);
-                damageButtonParents[curPanelGun].SetActive(false);
-                infoTexts[curPanelGun].SetActive(true);
+
             }
         });
 
@@ -124,17 +121,13 @@ public class UpgradePanelManager : MonoBehaviour
                 GunManager.Instance.Gun = (GunTypes)curPanelGun;
                 GameDataManager.Instance.currentGun = curPanelGun;
                 GunManager.Instance.SpawnGun(GunManager.Instance.Gun);
-                FireRateButtons[curPanelGun].interactable = true;
-                damageButtons[curPanelGun].interactable = true;
-                infoTexts[curPanelGun].SetActive(false);
+
             }
             else
             {
                 FireRateButtons[curPanelGun].interactable = false;
                 damageButtons[curPanelGun].interactable = false;
-                fireButtonParents[curPanelGun].SetActive(false);
-                damageButtonParents[curPanelGun].SetActive(false);
-                infoTexts[curPanelGun].SetActive(true);
+
             }
         });
 
@@ -144,11 +137,17 @@ public class UpgradePanelManager : MonoBehaviour
     {
         if (weaponViewport.active)//if we are on gun panel side 
         {
-            if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) <= GameDataManager.Instance.TotalMoney)
+            if (curPanelGun != 0)
+            {
+                fireButtonParents[curPanelGun].SetActive(gunConfigsArray[curPanelGun].isAvaliable);
+                damageButtonParents[curPanelGun].SetActive(gunConfigsArray[curPanelGun].isAvaliable);
+                infoTexts[curPanelGun].SetActive(!gunConfigsArray[curPanelGun].isAvaliable);
+            }
+            if ((int)(gunConfigsArray[curPanelGun].fireRateUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].fireRateCostIncreasePercentage, gunConfigsArray[curPanelGun].fireRateLevel)) > GameDataManager.Instance.TotalMoney)
             {
                 FireRateButtons[curPanelGun].interactable = false;
             }
-            if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) <= GameDataManager.Instance.TotalMoney)
+            if ((int)(gunConfigsArray[curPanelGun].damageUpgradeStartMoney * Mathf.Pow(1 + gunConfigsArray[curPanelGun].damageCostIncreasePercentage, gunConfigsArray[curPanelGun].damageLevel)) > GameDataManager.Instance.TotalMoney)
             {
                 damageButtons[curPanelGun].interactable = false;
             }
@@ -210,6 +209,7 @@ public class UpgradePanelManager : MonoBehaviour
             rightArrow.SetActive(true);
             leftArrow.SetActive(true);
         }
+        GameDataManager.Instance.SaveData();
     }
 
     public void EditCurrentAvatarPanel()
@@ -217,11 +217,11 @@ public class UpgradePanelManager : MonoBehaviour
         int healthlevel = GameDataManager.Instance.playerHealthLevel;
         int shieldLevel = GameDataManager.Instance.playerShieldLevel;
 
-        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) <= GameDataManager.Instance.TotalMoney)
+        if ((int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel)) > GameDataManager.Instance.TotalMoney)
         {
             healthUpgradeButton.interactable = false;
         }
-        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) <= GameDataManager.Instance.TotalMoney)
+        if ((int)(GameDataManager.Instance.playerShieldUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerShieldUpgradeIncreasePercent, GameDataManager.Instance.playerShieldLevel)) > GameDataManager.Instance.TotalMoney)
         {
             shieldUpgradeButton.interactable = false;
         }
@@ -233,7 +233,7 @@ public class UpgradePanelManager : MonoBehaviour
         else
         {
             int currentHealthMoney = (int)(GameDataManager.Instance.playerHealthUpgradeStartMoney * Mathf.Pow(1 + GameDataManager.Instance.playerHealthUpgradeIncreasePercent, GameDataManager.Instance.playerHealthLevel));
-            healthMoneyText.text = currentHealthMoney.ToString();
+            healthMoneyText.text = currentHealthMoney.ToString() + "$";
         }
 
         int currentShield = GameDataManager.Instance.playerShield;
@@ -260,7 +260,7 @@ public class UpgradePanelManager : MonoBehaviour
         int currentHealth = GameDataManager.Instance.playerHealth;
         healthText.text = currentHealth.ToString();
 
-
+        GameDataManager.Instance.SaveData();
     }
     public void OnUpgradeFireRateClicked()
     {
@@ -287,6 +287,7 @@ public class UpgradePanelManager : MonoBehaviour
             }
 
             GameDataManager.Instance.SaveData();
+            EditCurrentGunPanel();
         }
     }
     public void OnUpgradeDamageClicked()
@@ -312,6 +313,7 @@ public class UpgradePanelManager : MonoBehaviour
 
             }
             GameDataManager.Instance.SaveData();
+            EditCurrentGunPanel();
         }
     }
     public void OnUpgradeHealthClicked()
@@ -335,6 +337,7 @@ public class UpgradePanelManager : MonoBehaviour
             }
             healthText.text = GameDataManager.Instance.playerHealth.ToString();
             GameDataManager.Instance.SaveData();
+            EditCurrentAvatarPanel();
         }
     }
     public void OnUpgradeShieldClicked()
@@ -365,6 +368,8 @@ public class UpgradePanelManager : MonoBehaviour
             }
             shieldText.text = GameDataManager.Instance.playerShield.ToString();
             GameDataManager.Instance.SaveData();
+            EditCurrentAvatarPanel();
+
         }
     }
     public void ControllIsUpgradesFinished()
@@ -421,4 +426,6 @@ public class UpgradePanelManager : MonoBehaviour
         EditCurrentGunPanel();
 
     }
+
+
 }

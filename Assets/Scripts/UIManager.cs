@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public GameObject optionBar;
-    
+
     
     [Header("Options Buttons")]
     [SerializeField] GameObject agent;
@@ -46,6 +46,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI shieldText;
     public TextMeshProUGUI totalMoneyText;
     public TextMeshProUGUI levelText;
+
+    public TextMeshProUGUI moneyEarnedText;
+    public TextMeshProUGUI enemyKilledText;
+
+    public GameObject GameMusic;
     void Start()
     {
         if(Instance == null)
@@ -139,6 +144,7 @@ public class UIManager : MonoBehaviour
         GameDataManager.Instance.playMusic = 0;
         musicOn.gameObject.SetActive(false);
         musicOff.gameObject.SetActive(true);
+        GameMusic.SetActive(false);
         //UpdateMusic();
 
     }
@@ -148,6 +154,7 @@ public class UIManager : MonoBehaviour
         GameDataManager.Instance.playMusic = 1;
         musicOff.gameObject.SetActive(false);
         musicOn.gameObject.SetActive(true);
+        GameMusic.SetActive(true);
         //UpdateMusic();
     }
 

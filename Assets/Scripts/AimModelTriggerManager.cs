@@ -19,14 +19,14 @@ public class AimModelTriggerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Gun"))
         {
             targetModel.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Gun"))
         {
             targetModel.SetActive(false);
         }

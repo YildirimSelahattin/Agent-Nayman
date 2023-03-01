@@ -11,7 +11,7 @@ public class EnemyGunManager : MonoBehaviour
     [SerializeField] List<GunScriptableObject> Guns;
     public static EnemyGunManager Instance = null;
     public GunScriptableObject EnemyGun;
-   
+    [SerializeField]  Transform spawnPos;
     GameObject enemybulletTemp;
 
 
@@ -23,15 +23,8 @@ public class EnemyGunManager : MonoBehaviour
         GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
         EnemyGun = gun;
         gun.EnemySpawn(GunParent,this);
-
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.CompareTag("Player"))
-        {
-            StartShoot();
-        }
-    }
+   
     public void StartShoot()
     {
         GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
@@ -42,9 +35,8 @@ public class EnemyGunManager : MonoBehaviour
 {
     if (gun.ShootingConfig.BulletPrefab != null)
     {
-        Vector3 spawnPos = transform.GetChild(transform.childCount-2).transform.position;
         
-        enemybulletTemp = Instantiate(gun.ShootingConfig.BulletPrefab, spawnPos, gun.ShootingConfig.BulletPrefab.transform.rotation, GunParent.transform);
+        enemybulletTemp = Instantiate(gun.ShootingConfig.BulletPrefab, spawnPos.position, gun.ShootingConfig.BulletPrefab.transform.rotation, GunParent.transform);
         
         enemybulletTemp.transform.DOLocalMoveZ(-20f,gun.ShootingConfig.BulletDuration).SetEase(Ease.Linear).OnComplete(()=>{
             Destroy(enemybulletTemp);

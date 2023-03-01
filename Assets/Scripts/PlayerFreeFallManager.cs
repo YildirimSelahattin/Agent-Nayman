@@ -37,7 +37,8 @@ public class PlayerFreeFallManager : MonoBehaviour
     public GameObject upArrow;
     public GameObject botArrow;
     public GameObject rightArrow;
-
+    float timecount;
+    public float originalDistance;
     void Start()
     {
         if (Instance == null)
@@ -55,8 +56,7 @@ public class PlayerFreeFallManager : MonoBehaviour
         botLimit = cityPrefabScript.BotLimit.transform;
         rightLimit = cityPrefabScript.RightLimit.transform;
 
-        EnvironmentMover.Instance.forwardMoveSpeed *= 4;
-
+        originalDistance = Mathf.Abs(transform.position.y - targetBuilding.transform.position.z);
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
@@ -70,27 +70,28 @@ public class PlayerFreeFallManager : MonoBehaviour
             var main = windEffectParticleSystem.main;
             main.simulationSpeed = 2;
 
-            //slow down real speed of environment 
-            EnvironmentMover.Instance.forwardMoveSpeed *= 0.5f;
+            EnvironmentMover.Instance.forwardMoveSpeed *= 1f;
         });
         PlayerManager.Instance.myAnimator.SetBool("isParachuteOpen", true);
         OpenArrows();
+        
     }
 
     void Update()
     {
+        timecount += Time.deltaTime;
         if (Input.touchCount > 0 )
         {
             Touch curTouch = Input.GetTouch(0);
             float x =(curTouch.position.x-screenWidth/2) * distanceBetweenX / (screenWidth);
-            x /= 10;
+            x /=2;
             float y =(curTouch.position.y-screenHeigth/2) * distanceBetweenY / (screenHeigth);
-            y /= 10;
+            y /= 2;
             Vector3 playVelocity = new Vector3(x, y,0);
             Vector3 tempLoc = playVelocity + transform.localPosition;
             //tempLoc.x = Mathf.Clamp(tempLoc.x, leftLimit.position.x, rightLimit.position.x);
             //tempLoc.y = Mathf.Clamp(tempLoc.y, botLimit.position.y, topLimit.position.y);
-            transform.DOLocalMove(tempLoc,0.05f);
+            transform.DOLocalMove(tempLoc,0.01f);
             OpenArrows();
             SlowDownWindAndWorld();
         }
@@ -154,7 +155,7 @@ public class PlayerFreeFallManager : MonoBehaviour
     public void SlowDownWindAndWorld()
     {
         //speed up real speed 
-        //EnvironmentMover.Instance.forwardMoveSpeed *= 1.5f;
+
         //speed up wind
         var main = windEffectParticleSystem.main;
         main.simulationSpeed= (float)transform.position.z/(float)targetBuilding.transform.position.z;

@@ -25,6 +25,7 @@ TagManager:
   - x1
   - x3
   - x5
+  - Gun
   layers:
   - Default
   - TransparentFX

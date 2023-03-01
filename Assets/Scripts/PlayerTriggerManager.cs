@@ -31,8 +31,8 @@ public class PlayerTriggerManager : MonoBehaviour
     
         if (other.CompareTag("Money"))
         {
-            GameDataManager.Instance.TotalMoney += 10;
-            GameManager.Instance.currentMoney += 10;
+            GameDataManager.Instance.TotalMoney += 40;
+            GameManager.Instance.currentMoney += 40;
             StartCoroutine(MoneyCollectAnim());
             Instantiate(moneyParticlePrefab,transform.position+Vector3.forward,Quaternion.identity);
             Destroy(other.gameObject);
@@ -96,6 +96,8 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("End"))
         {
+            UIManager.Instance.totalMoneyText.gameObject.SetActive(false);
+            UIManager.Instance.levelText.gameObject.SetActive(false);
             UIManager.Instance.loseScreen.SetActive(true);
             Vector3 position = PlayerManager.Instance.agent.transform.position;
             position.z += 50f;   

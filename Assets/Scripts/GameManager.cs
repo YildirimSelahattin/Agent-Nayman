@@ -39,10 +39,19 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        mainCamera.DOColor(levelColors[GameDataManager.Instance.levelToLoad % 3],0.3F);
-        Instantiate(LevelPrefabs[GameDataManager.Instance.levelToLoad],LevelParent.transform);
-        currentCity = Instantiate(CityPrefabs[GameDataManager.Instance.levelToLoad],CityParent.transform);
-        currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding();
+        int levelToLoad = GameDataManager.Instance.levelToLoad %(LevelPrefabs.Length - 1);
+        if (levelToLoad == 0)
+        {
+            levelToLoad += 1;
+        }
+        Debug.Log("LEVELTOLOAD"+ levelToLoad);
+        mainCamera.DOColor(levelColors[levelToLoad],0.5F);
+        kupIcMat.color = ObstacleColors[levelToLoad];
+        dikenDisMat.color = ObstacleColors[levelToLoad];
+
+        Instantiate(LevelPrefabs[levelToLoad],LevelParent.transform);
+        currentCity = Instantiate(CityPrefabs[levelToLoad],CityParent.transform);
+        currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding(levelToLoad%3);
     }
     
 }

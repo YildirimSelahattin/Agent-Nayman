@@ -18,6 +18,7 @@ public class EnvironmentMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.position -= Vector3.forward * forwardMoveSpeed * Time.deltaTime;//regular go forward
     }
 }

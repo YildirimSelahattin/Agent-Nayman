@@ -23,23 +23,28 @@ public class TargetBinaManager : MonoBehaviour
         {
 
 
-      
+            UIManager.Instance.totalMoneyText.gameObject.SetActive(false);
+            UIManager.Instance.levelText.gameObject.SetActive(false);
             //confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();
 
             //confettix3 = GameManager.Instance.currentTargetBuilding.transform.GetChild(1).GetComponent<ParticleSystem>();
             //confettix5 = GameManager.Instance.currentTargetBuilding.transform.GetChild(2).GetComponent<ParticleSystem>();
             PlayerManager.Instance.environmentMoveScript.enabled = false;
+            PlayerManager.Instance.fallMoveScript.movementArrowsParent.SetActive(false);
             PlayerManager.Instance.fallMoveScript.enabled = false;
             PlayerManager.Instance.myAnimator.SetBool("Ending", true);
             PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
             GameDataManager.Instance.TotalMoney += (multiplierAmount - 1) * GameManager.Instance.currentMoney;
+            UIManager.Instance.enemyKilledText.text = "X " + ((int)(GameManager.Instance.currentMoney / 40)).ToString()+" ENEMY KILLED";
+            UIManager.Instance.moneyEarnedText.text ="+ "+( (multiplierAmount ) * GameManager.Instance.currentMoney).ToString()+"$";
+            GameDataManager.Instance.SaveData();
             PlayerManager.Instance.agent.transform.DOLocalRotate(new Vector3(-119f, 0, 0), 1f).OnComplete(() =>
             {
                 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             });
-
             gotThereOnce = true;
             StartCoroutine(GoWinDance());
+           
         }
     }
 

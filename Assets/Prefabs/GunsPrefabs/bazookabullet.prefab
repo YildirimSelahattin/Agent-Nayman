@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2108ad87187efd24ab4f400413548c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSound: {fileID: 8300000, guid: 97043fd6767b2e04da55ddbcaf4b4fba, type: 3}
+  shootSound: {fileID: 8300000, guid: ebd6b094b8957ec498ba042c54a0fd4b, type: 3}
 --- !u!136 &-2348141308529745141
 CapsuleCollider:
   m_ObjectHideFlags: 0

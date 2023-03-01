@@ -16,6 +16,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject briefcaseGameObject;
     [SerializeField] GameObject skullParent;
     [SerializeField] GameObject percentBar;
+    [SerializeField] GameObject enemyModel;
+    [SerializeField] GameObject gunparent;
     public float Health = 100f;
      float curHealth;
     [SerializeField] float barOriginalScale;
@@ -46,6 +48,7 @@ public class EnemyManager : MonoBehaviour
             Destroy(aimTrigger);
             Destroy(percentBar);
             Destroy(skullParent);
+            Destroy(gunparent);
             this.gameObject.transform.DOMove(new Vector3(x, y, z), 3f);
             this.gameObject.transform.DOScale(0,3f).OnComplete(() =>
             {
@@ -57,6 +60,7 @@ public class EnemyManager : MonoBehaviour
             Debug.Log(curHealth * barOriginalScale / Health);
             percentBar.transform.DOScaleX(curHealth * barOriginalScale / Health,0.5f);
             Debug.Log("ads"+ percentBar.transform.localScale);
+            enemyModel.transform.DOShakeRotation(0.3f,30,2,30);
         }
 
 
