@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
         {
             Touch curTouch = Input.GetTouch(0);
             float x = 2f * (curTouch.deltaPosition.x * distanceBetweenX / screenWidth);
-            float y = 2f*(curTouch.deltaPosition.y * distanceBetweenY / screenHeigth);
+            float y = 3f*(curTouch.deltaPosition.y * distanceBetweenY / screenHeigth);
             // Debug.Log((curTouch.deltaPosition.x * distanceBetweenX / screenWidth) + "," + (curTouch.deltaPosition.y * distanceBetweenY / screenHeigth));
             Vector3 playVelocity = new Vector3(x, y, 0);
             Vector3 tempLoc = playVelocity + transform.position;
