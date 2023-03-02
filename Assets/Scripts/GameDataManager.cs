@@ -13,7 +13,7 @@ public class GameDataManager : MonoBehaviour
     int totalMoney;
 
 
-    // Ters orantý bu artarsa rate azalýyo
+    // Ters orantï¿½ bu artarsa rate azalï¿½yo
     public float[] baseFireRate = new float[3];
     public int[] fireRateLevel = new int[3];
     public int[] damageLevel = new int[3];
@@ -25,7 +25,7 @@ public class GameDataManager : MonoBehaviour
     public float[] damageUpgradeStartMoney = new float[3];
     public float[] damageCostIncreasePercentage = new float[3];
     public ShootingConfig[] gunConfigsArray;
-    //Duration artarsa daha yavaþ gidiyor 
+    //Duration artarsa daha yavaï¿½ gidiyor 
     public float[] BulletDuration;
     public float[] Recoil;
     public bool[] isAvaliable;
@@ -74,7 +74,7 @@ public class GameDataManager : MonoBehaviour
     public void LoadData()
     {
         TotalMoney = PlayerPrefs.GetInt("TotalMoney", 100);
-        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 10);
+        levelToLoad = PlayerPrefs.GetInt("LevelToLoad", 1);
         playSound = PlayerPrefs.GetInt("PlaySoundKey", 1);
         playMusic = PlayerPrefs.GetInt("PlayMusicKey", 1);
         playVibrate = PlayerPrefs.GetInt("PlayVibrateKey", 1);

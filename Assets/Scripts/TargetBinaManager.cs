@@ -38,10 +38,12 @@ public class TargetBinaManager : MonoBehaviour
             UIManager.Instance.enemyKilledText.text = "X " + ((int)(GameManager.Instance.currentMoney / 40)).ToString()+" ENEMY KILLED";
             UIManager.Instance.moneyEarnedText.text ="+ "+( (multiplierAmount ) * GameManager.Instance.currentMoney).ToString()+"$";
             GameDataManager.Instance.SaveData();
+            PlayerManager.Instance.agent.transform.DOMoveZ(394.2f, 0.1f);
             PlayerManager.Instance.agent.transform.DOLocalRotate(new Vector3(-119f, 0, 0), 1f).OnComplete(() =>
             {
                 PlayerManager.Instance.agent.transform.GetChild(0).transform.gameObject.SetActive(false);
             });
+            
             gotThereOnce = true;
             StartCoroutine(GoWinDance());
            

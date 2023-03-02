@@ -25,7 +25,7 @@ MonoBehaviour:
   fireRateCostIncreasePercentage: 0.2
   damageUpgradeStartMoney: 300
   damageCostIncreasePercentage: 0.2
-  BulletDuration: 3
+  BulletDuration: 0.7
   Recoil: 30
-  isAvaliable: 0
+  isAvaliable: 1
   BulletPrefab: {fileID: 2239306913356964594, guid: ed432d93b5825854aac14489c0a2557f, type: 3}

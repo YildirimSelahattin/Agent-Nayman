@@ -4472,8 +4472,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 5611853718200199016}
     m_Modifications:
     - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+      propertyPath: m_Size.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+      propertyPath: m_Center.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363776168779764738, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3381441841718643751, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
       propertyPath: m_RootOrder
@@ -4550,6 +4570,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2747485577518671575, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
   m_PrefabInstance: {fileID: 7603883990127811868}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6754895316711210714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3762856117615223750, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}
+  m_PrefabInstance: {fileID: 7603883990127811868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2321110231469744884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754895316711210714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7100f4436dbcba440ab5d5fdd0c8831b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCam: {fileID: 0}
 --- !u!4 &7863495367139298555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 335187683156267495, guid: 83b88a186ba51c84f80eaa61a4ecab7d, type: 3}

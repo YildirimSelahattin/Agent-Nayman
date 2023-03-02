@@ -26,6 +26,7 @@ TagManager:
   - x3
   - x5
   - Gun
+  - FlyCam
   layers:
   - Default
   - TransparentFX

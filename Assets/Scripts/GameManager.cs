@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] CityPrefabs;
     [SerializeField] GameObject[] LevelPrefabs;
-    [SerializeField] Color[] levelColors;
+    [SerializeField] Material[] levelColors;
     [SerializeField] Color[] ObstacleColors;
     [SerializeField] Camera mainCamera;
     public GameObject CityParent;
@@ -45,10 +45,10 @@ public class GameManager : MonoBehaviour
             levelToLoad += 1;
         }
         Debug.Log("LEVELTOLOAD"+ levelToLoad);
-        mainCamera.DOColor(levelColors[levelToLoad],0.5F);
+        
         kupIcMat.color = ObstacleColors[levelToLoad];
         dikenDisMat.color = ObstacleColors[levelToLoad];
-
+        RenderSettings.skybox = levelColors[levelToLoad];
         Instantiate(LevelPrefabs[levelToLoad],LevelParent.transform);
         currentCity = Instantiate(CityPrefabs[levelToLoad],CityParent.transform);
         currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding(levelToLoad%3);

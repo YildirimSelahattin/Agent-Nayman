@@ -3,13 +3,42 @@
   <component name="ChangeListManager">
     <list default="true" id="0d86e745-ea2e-466f-b3e8-b830004c5f7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Agent-Nayman/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/arrow3dMat/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/arrow3dMat/Material.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr electric sparks ab.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr electric sparks ab.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr ember blur hdr ab.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr ember blur hdr ab.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr line loop electric ab.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr line loop electric ab.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail bubbles hit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail bubbles hit.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail light.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail slash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail slash.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail tech hit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail tech hit.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail tech thin.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr sword trail tech thin.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/0802/N_startpose7.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/0802/N_startpose7.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/obstacleMat/diken ic.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/obstacleMat/diken ic.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/obstacleMat/obstacle kup dıs.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/obstacleMat/obstacle kup dıs.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Bullet 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Bullet 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RayBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RayBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RevolverBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/RevolverBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GunsPrefabs/Rocket.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/Level6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelAd.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelAd.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelPrefabs/LevelEmirhan3.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Agent.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/GunS/Shoot/RayGunConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/GunS/Shoot/RayGunConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/GunS/Shoot/RevolverConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/GunS/Shoot/RevolverConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetBinaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TargetBinaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Voodoo/Clouds/Materials/Cloud.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Voodoo/Clouds/Materials/Cloud.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +46,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/CamClipChange.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Common/SafeArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartGame.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,7 +127,8 @@
       <workItem from="1677161582407" duration="1679000" />
       <workItem from="1677220634398" duration="2908000" />
       <workItem from="1677480782804" duration="782000" />
-      <workItem from="1677669184120" duration="414000" />
+      <workItem from="1677669184120" duration="2223000" />
+      <workItem from="1677739772918" duration="632000" />
     </task>
     <servers />
   </component>
