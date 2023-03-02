@@ -35,7 +35,7 @@ public class TargetBinaManager : MonoBehaviour
             PlayerManager.Instance.myAnimator.SetBool("Ending", true);
             PlayerManager.Instance.agent.transform.GetChild(3).transform.gameObject.SetActive(false);
             GameDataManager.Instance.TotalMoney += (multiplierAmount - 1) * GameManager.Instance.currentMoney;
-            UIManager.Instance.enemyKilledText.text = "X " + ((int)(GameManager.Instance.currentMoney / 40)).ToString()+" ENEMY KILLED";
+            UIManager.Instance.enemyKilledText.text = "X " + GameManager.Instance.enemyKilled.ToString()+" ENEMY KILLED";
             UIManager.Instance.moneyEarnedText.text ="+ "+( (multiplierAmount ) * GameManager.Instance.currentMoney).ToString()+"$";
             GameDataManager.Instance.SaveData();
             PlayerManager.Instance.agent.transform.DOMoveZ(394.2f, 0.1f);

@@ -44,6 +44,7 @@ public class EnemyManager : MonoBehaviour
             float x = this.gameObject.transform.position.x + Random.Range(-7, 7);
             float y = this.gameObject.transform.position.y - 8f;
             float z = this.gameObject.transform.position.z;
+            GameManager.Instance.enemyKilled += 1;
             Destroy(aimModel);
             Destroy(aimTrigger);
             Destroy(percentBar);

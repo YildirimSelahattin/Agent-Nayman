@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Material dikenDisMat;
     public Material kupIcMat;
-
+    public int enemyKilled = 0;
     public int currentMoney = 0;
 
     // Start is called before the first frame update
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         kupIcMat.color = ObstacleColors[levelToLoad];
         dikenDisMat.color = ObstacleColors[levelToLoad];
         RenderSettings.skybox = levelColors[levelToLoad];
+        DynamicGI.UpdateEnvironment();
         Instantiate(LevelPrefabs[levelToLoad],LevelParent.transform);
         currentCity = Instantiate(CityPrefabs[levelToLoad],CityParent.transform);
         currentTargetBuilding = currentCity.GetComponent<CityPrefabManager>().GetRandomLandableBuilding(levelToLoad%3);
