@@ -545,7 +545,7 @@ MonoBehaviour:
     FieldOfView: 80
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 70
+    FarClipPlane: 250
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -988,17 +988,16 @@ MonoBehaviour:
   - {fileID: 5703019264791239772, guid: 61e8310890d5a2d41b9d9f67fbe5aa92, type: 3}
   - {fileID: 5703019264791239772, guid: c70553e176018a444aa02e1b20413079, type: 3}
   levelColors:
-  - {fileID: 0}
-  - {fileID: 2100000, guid: 00831a3f84b72b74790d13a986344165, type: 2}
-  - {fileID: 2100000, guid: a7f5e80807d553f48b2d9b709b34178a, type: 2}
-  - {fileID: 2100000, guid: 4ea3e1eaedebe8b49bb912a8f50f0601, type: 2}
-  - {fileID: 2100000, guid: f75640a8271c2604d8e946bfb9f1ad87, type: 2}
-  - {fileID: 2100000, guid: 942251a70bf5f754b88f877f1883c70e, type: 2}
-  - {fileID: 2100000, guid: 00831a3f84b72b74790d13a986344165, type: 2}
-  - {fileID: 2100000, guid: a7f5e80807d553f48b2d9b709b34178a, type: 2}
-  - {fileID: 2100000, guid: 4ea3e1eaedebe8b49bb912a8f50f0601, type: 2}
-  - {fileID: 2100000, guid: f75640a8271c2604d8e946bfb9f1ad87, type: 2}
-  - {fileID: 2100000, guid: 942251a70bf5f754b88f877f1883c70e, type: 2}
+  - {r: 0, g: 9.71e-43, b: 0, a: 0}
+  - {r: 0, g: 0.5058824, b: 1, a: 3.7445304e+9}
+  - {r: 0.21568628, g: 0.21176471, b: 0.21176471, a: 0}
+  - {r: 0, g: 0.050980393, b: 0.2, a: 0}
+  - {r: 0.22352941, g: 0.9254902, b: 1, a: 9.71e-43}
+  - {r: 0.3254902, g: 0, b: 0.54901963, a: 0}
+  - {r: 0, g: 0.5058824, b: 1, a: 0}
+  - {r: 0.21568628, g: 0.21176471, b: 0.21176471, a: 0}
+  - {r: 0, g: 0.050980393, b: 0.2, a: 0}
+  - {r: 0.22352941, g: 0.9254902, b: 1, a: 0}
   ObstacleColors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 1, g: 1, b: 1, a: 1}
@@ -1017,6 +1016,7 @@ MonoBehaviour:
   currentTargetBuilding: {fileID: 0}
   dikenDisMat: {fileID: 2100000, guid: 416ed052c22154d4393e8278ecfd8f6f, type: 2}
   kupIcMat: {fileID: 2100000, guid: cba62913fefc5cc41a5c05043bf1b22e, type: 2}
+  enemyKilled: 0
   currentMoney: 0
 --- !u!1 &448273183
 GameObject:
@@ -2813,7 +2813,7 @@ Camera:
   m_GameObject: {fileID: 950265207}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0.064416274, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -28666,7 +28666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &7854114995054768312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28966,7 +28966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &7854114995804519332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29904,7 +29904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8469373316908182351}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 10.7, z: -94}
+  m_LocalPosition: {x: -3.5, y: 10.7, z: -94}
   m_LocalScale: {x: 28.862226, y: 1, z: -534.12885}
   m_ConstrainProportionsScale: 0
   m_Children: []

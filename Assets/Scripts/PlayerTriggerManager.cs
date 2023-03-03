@@ -140,7 +140,7 @@ public class PlayerTriggerManager : MonoBehaviour
         {
             PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",true);
             yield return new WaitForSeconds(.5f);
-            EnvironmentMover.Instance.forwardMoveSpeed = 12;
+            EnvironmentMover.Instance.forwardMoveSpeed = 15;
             PlayerManager.Instance.myAnimator.SetBool("ObstacleHit",false); 
         }  
         

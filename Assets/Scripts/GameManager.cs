@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] CityPrefabs;
     [SerializeField] GameObject[] LevelPrefabs;
-    [SerializeField] Material[] levelColors;
+    [SerializeField] Color[] levelColors;
     [SerializeField] Color[] ObstacleColors;
     [SerializeField] Camera mainCamera;
     public GameObject CityParent;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         
         kupIcMat.color = ObstacleColors[levelToLoad];
         dikenDisMat.color = ObstacleColors[levelToLoad];
-        RenderSettings.skybox = levelColors[levelToLoad];
+        mainCamera.backgroundColor= levelColors[levelToLoad];
         DynamicGI.UpdateEnvironment();
         Instantiate(LevelPrefabs[levelToLoad],LevelParent.transform);
         currentCity = Instantiate(CityPrefabs[levelToLoad],CityParent.transform);
