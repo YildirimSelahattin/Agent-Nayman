@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-
+using Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         LoadLevel();
+
+        GameObject.FindGameObjectWithTag("FlyCam").GetComponent<CinemachineVirtualCamera>().m_Lens.FarClipPlane = 65;
     }
 
     // Update is called once per frame
