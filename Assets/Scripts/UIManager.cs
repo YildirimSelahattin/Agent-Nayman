@@ -12,6 +12,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using FIMSpace.Basics;
+using HomaGames.HomaBelly;
 
 public class UIManager : MonoBehaviour
 {
@@ -198,13 +199,14 @@ public class UIManager : MonoBehaviour
     }
     public void RetryLevel()
     {
-        LoadMainMenu.Instance.LoadSceneMenu(1);
+        LoadMainMenu.Instance.LoadSceneMenu(2);
     }
     public void NextLevel()
     {
+        DefaultAnalytics.LevelStarted(GameDataManager.Instance.levelToLoad.ToString());
         GameDataManager.Instance.levelToLoad += 1;
         GameDataManager.Instance.SaveData();
-        LoadMainMenu.Instance.LoadSceneMenu(1);
+        LoadMainMenu.Instance.LoadSceneMenu(2);
 
     }
 

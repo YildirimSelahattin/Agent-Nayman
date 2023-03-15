@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using HomaGames.HomaBelly;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        DefaultAnalytics.GameplayStarted();
         int levelToLoad = GameDataManager.Instance.levelToLoad %(LevelPrefabs.Length - 1);
         if (levelToLoad == 0)
         {

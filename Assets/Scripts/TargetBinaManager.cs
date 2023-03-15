@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HomaGames.HomaBelly;
 
 public class TargetBinaManager : MonoBehaviour
 {
@@ -21,8 +22,7 @@ public class TargetBinaManager : MonoBehaviour
     {
         if (gotThereOnce == false)
         {
-
-
+            DefaultAnalytics.LevelCompleted();
             UIManager.Instance.totalMoneyText.gameObject.SetActive(false);
             UIManager.Instance.levelText.gameObject.SetActive(false);
             //confetti = GameManager.Instance.currentTargetBuilding.transform.GetChild(0).GetComponent<ParticleSystem>();

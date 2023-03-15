@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using HomaGames.HomaBelly;
+
 public class PlayerTriggerManager : MonoBehaviour
 {
     private ParticleSystem windEffectParticleSystem;
@@ -96,6 +98,7 @@ public class PlayerTriggerManager : MonoBehaviour
         }
         else if(other.CompareTag("End"))
         {
+            DefaultAnalytics.LevelFailed();
             UIManager.Instance.totalMoneyText.gameObject.SetActive(false);
             UIManager.Instance.levelText.gameObject.SetActive(false);
             UIManager.Instance.loseScreen.SetActive(true);
